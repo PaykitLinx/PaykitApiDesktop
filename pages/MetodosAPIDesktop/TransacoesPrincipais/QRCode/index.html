@@ -414,6 +414,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -464,6 +468,8 @@
   
     
     
+      
+        
       
         
       
@@ -656,6 +662,27 @@
   
   <span class="md-ellipsis">
     Cartão Frota
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TeleMarketing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tele-Marketing
   </span>
   
 
@@ -1053,6 +1080,97 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ConfirmacaoEDesfazimentoDeTransacoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confirmação e Desfazimento de Transações
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Melhoria de Performance
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Melhoria de Performance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MelhoriaPerformance/ConfiguraFuncionalidades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configurar Funcionalidades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1157,6 +1275,8 @@
       
         
       
+        
+      
     
     
     
@@ -1230,6 +1350,27 @@
   
   <span class="md-ellipsis">
     Callbacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IntegracaoSemTelas/PerguntasIdentificadasFrotaCompleta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perguntas Identificadas Transação Frota Completa JSON
   </span>
   
 
@@ -1999,8 +2140,6 @@
       
         
       
-        
-      
     
     
     
@@ -2095,27 +2234,6 @@
   
   <span class="md-ellipsis">
     Exemplos de código
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Apendice/TiposDeRegistrosECodigosDeTransacoes/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Tipos de Registros e Códigos de Transações
   </span>
   
 
@@ -2311,11 +2429,66 @@
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoQRCode</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTransacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">)</span>
 </span></code></pre></div>
+<p>A solicitação de transação com QR Code através da chamada à função <em>TransacaoQRCode</em>, descrita acima.</p>
+<p>Na resposta da chamada à função será preenchido o campo <em>NumeroControle</em> e será devolvido o
+Status, indicando o resultado da transação:</p>
 <p>[ <strong>00</strong> ] indica que não existiram restrições para a efetivação da transação.</p>
 <p>[ <strong>11</strong> ] indica que existiram restrições para a efetivação da transação. O sistema de automação deve
 retornar à rotina de recebimento de valores, pois a transação solicitada não foi autorizada, não sendo
 válida como forma de pagamento.</p>
-<p><a href="../../../FluxoConfirmacaoDesfazimento/">Fluxo de Confirmacao e Desfazimento</a></p>
+<p>O NumeroControle, incluído na resposta, deverá ser armazenado pelo sistema de automação, pois na
+função de confirmação este número será, obrigatoriamente, utilizado.</p>
+<p>Caso a transação seja autorizada, será disponibilizado no diretório parametrizado para os cupons um
+arquivo contendo o comprovante da operação a ser impresso pela automação. O nome desse arquivo
+tem o formato NNNNNN.PPP, onde NNNNNN é o NumeroControle e PPP é o número do terminal
+configurado.</p>
+<p>Se a rede autorizadora permitir e se estiver configurada no TEF Linx a impressão de cupom
+reduzido, além do arquivo acima será liberado um arquivo com o comprovante reduzido no formato
+RNNNNNN.PPP, onde NNNNNN é o NumeroControle e PPP é o número do terminal configurado. Assim, o 
+comprovante reduzido deverá ser impresso no espaço destinado à mensagem promocional
+do cupom fiscal e o comprovante normal continuará a ser impresso no cupom vinculado</p>
+<p>O PDV deverá verificar a existência do arquivo com o comprovante reduzido após a aprovação da
+transação. Se o arquivo com o comprovante reduzido estiver disponível, o PDV deverá imprimir no
+cupom fiscal e em seguida realizar a confirmação do mesmo, antes da impressão do comprovante
+normal. Se o comprovante reduzido não estiver disponível, a confirmação deverá ser realizada após a
+impressão do comprovante normal</p>
+<p>Ao final da venda, tanto no caso do comprovante reduzido como no comprovante normal, para
+encerrar a operação deve ser chamada a função FinalizaTransacao.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tamanho</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ValorTransacao</td>
+<td>12N</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>06N</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>06N</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>Reservado</td>
+<td>256A</td>
+<td>Não utilizado na implementação atual</td>
+</tr>
+</tbody>
+</table>
+<p>OBS: Preencher campos conforme documentado nas Convenções do manual, documentadas na <a href="../../../../">página inicial</a>.</p>
+<p>OBS: Para realização da confirmação da transação deverá ser realizada chamada à função <em>ConfirmaCartao</em>, 
+e para o desfazimento da transação deverá ser realizada chamada à função <em>DesfazCartao</em>. Para maiores detalhes, 
+consulte a página <a href="../../ConfirmacaoEDesfazimentoDeTransacoes/">Confirmação e Desfazimento de Transações</a>.</p>
 
 
 

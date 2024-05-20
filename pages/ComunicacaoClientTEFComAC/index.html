@@ -412,6 +412,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -460,6 +464,8 @@
   
     
     
+      
+        
       
         
       
@@ -607,6 +613,27 @@
   
   <span class="md-ellipsis">
     Cartão Frota
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/TeleMarketing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tele-Marketing
   </span>
   
 
@@ -1004,6 +1031,97 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MetodosAPIDesktop/ConfirmacaoEDesfazimentoDeTransacoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confirmação e Desfazimento de Transações
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Melhoria de Performance
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Melhoria de Performance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MetodosAPIDesktop/MelhoriaPerformance/ConfiguraFuncionalidades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configurar Funcionalidades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1189,6 +1307,8 @@
       
         
       
+        
+      
     
     
     
@@ -1262,6 +1382,27 @@
   
   <span class="md-ellipsis">
     Callbacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IntegracaoSemTelas/PerguntasIdentificadasFrotaCompleta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perguntas Identificadas Transação Frota Completa JSON
   </span>
   
 
@@ -2031,8 +2172,6 @@
       
         
       
-        
-      
     
     
     
@@ -2127,27 +2266,6 @@
   
   <span class="md-ellipsis">
     Exemplos de código
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Apendice/TiposDeRegistrosECodigosDeTransacoes/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Tipos de Registros e Códigos de Transações
   </span>
   
 
@@ -2376,7 +2494,7 @@
   <h1>Comunicação Client TEF com AC</h1>
 
 <h2 id="comunicacao-client-tef-com-o-sistema-de-automacao"><strong>Comunicação Client TEF com o Sistema de Automação</strong></h2>
-<p>A comunicação entre o sistema <strong>D-TEF</strong> e o sistema de automação é feita através de chamadas a
+<p>A comunicação entre o sistema <strong>TEF Linx</strong> e o sistema de automação é feita através de chamadas a
 funções da DLL (<strong>DPOSDRV.DLL</strong>), com a passagem de parâmetros e posterior retorno de <em>status</em>.</p>
 <p>As solicitações de transações com as instituições financeiras são realizadas através de transações
 financeiras (TF) ou transações de serviços (TS) e as solicitações de procedimentos operacionais são
@@ -2415,7 +2533,7 @@ realizadas através de transações operacionais (TO).</p>
 <h2 id="resposta-das-funcoes"><strong>Resposta das Funções</strong></h2>
 <p>As funções <em>TransacaoCartaoCredito</em>, <em>TransacaoCartaoDebito</em>, <em>TransacaoCartaoVoucher</em>,
 <em>TransacaoCartaoCrediario</em> e <em>TransacaoCheque</em> são utilizadas pelo sistema de automação para
-solicitar ao sistema <strong>D-TEF</strong> a realização de transação de pagamento com cartão de crédito,
+solicitar ao sistema <strong>TEF Linx</strong> a realização de transação de pagamento com cartão de crédito,
 pagamento com cartão de débito, pagamento com cartão Voucher, pagamento em crediário e
 consulta de cheque, respectivamente.</p>
 <p>As funções <em>TransacaoCartaoCreditoCompleta</em>, <em>TransacaoCartaoDebitoCompleta</em>,
@@ -2424,12 +2542,12 @@ consulta de cheque, respectivamente.</p>
 não completas, mas oferecem parâmetros adicionais para maior controle das operações e
 informações de retorno mais detalhadas.</p>
 <p>As funções <em>ConfirmaCartaoCredito</em>, <em>ConfirmaCartaoDebito</em> e <em>ConfirmaCartãoVoucher</em> são utilizadas
-pelo sistema de automação para indicar ao sistema <strong>D-TEF</strong> quais transações financeiras foram
+pelo sistema de automação para indicar ao sistema <strong>TEF Linx</strong> quais transações financeiras foram
 efetivadas na operação de venda ou de recebimento. Estas funções devem ser executadas após a
 impressão do comprovante de TEF disponibilizado no retorno da solicitação da transação. O sistema
-<strong>D-TEF</strong> devolverá ao sistema de automação o resultado da transação de confirmação.</p>
+<strong>TEF Linx</strong> devolverá ao sistema de automação o resultado da transação de confirmação.</p>
 <p>A função FinalizaTransacao, executada após as funções de confirmação, é utilizada pelo sistema de
-automação para indicar ao sistema <strong>D-TEF</strong> o término da transação de venda ou recebimento.</p>
+automação para indicar ao sistema <strong>TEF Linx</strong> o término da transação de venda ou recebimento.</p>
 <p>A função TransacaoReimpressaoCupom não necessita de confirmação. As funções
 TransacaoCheque, TransacaoChequeCompleta não necessitam de confirmação quando não houver
 cupom para impressão.</p>
@@ -2439,12 +2557,12 @@ com sucesso. Nesta função, caso seja necessário, poderá ser passado como par
 transação. Deve-se analisar a estrutura dos respectivos registros para verificar os campos que são
 retornados em cada um deles. O formato do registro é o LOG ESTENDIDO ou LOG ADICIONAL.</p>
 <p>A função InicializaDPOS deve ser executada em cada abertura de dia de movimento (dia fiscal),
-servindo para indicar à DLL do sistema <strong>D-TEF</strong> que os processos de inicialização de dia devem ser
+servindo para indicar à DLL do sistema <strong>TEF Linx</strong> que os processos de inicialização de dia devem ser
 realizados.</p>
-<p>Caso a DLL do sistema <strong>D-TEF</strong> venha a ser REINICIADA, por qualquer motivo, serão executados
+<p>Caso a DLL do sistema <strong>TEF Linx</strong> venha a ser REINICIADA, por qualquer motivo, serão executados
 processos internos de recuperação de falhas.</p>
 <p>A função FinalizaDPOS deve ser executada em cada fechamento de dia de movimento (dia fiscal),
-servindo para indicar à DLL do sistema <strong>D-TEF</strong> que os processos de finalização de dia devem ser
+servindo para indicar à DLL do sistema <strong>TEF Linx</strong> que os processos de finalização de dia devem ser
 realizados.</p>
 
 
