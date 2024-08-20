@@ -2579,8 +2579,9 @@
 <p>Uma das formas de integração da automação comercial com o <strong>TEF da Linx</strong> é por meio de biblioteca de
 funções (<strong>DPOSDRV.DLL</strong> para Windows ou <strong>libDPOSDRV.so</strong> para Linux). Esta biblioteca oferece funções
 que a automação utiliza, enviando parâmetros da automação e retornando os resultados na própria chamada
-dessas funções. As funções disponíveis na versão Linux são equivalentes às da versão Windows. Na
-seção <a href="pages/Apendice/ExemplosDeCodigo/">“EXEMPLOS DE INTEGRAÇÃO”</a> são apresentadas formas de integração em diversas linguagens de programação.</p>
+dessas funções. As funções disponíveis na versão Linux são equivalentes às da versão Windows e a orientação é que em ambos os sistemas operacionais 
+a automação carregue nossa biblioteca utilizando o path do sistema operacional (exceto no modelo embarcado). 
+Na seção <a href="pages/Apendice/ExemplosDeCodigo/">“EXEMPLOS DE INTEGRAÇÃO”</a> são apresentadas formas de integração em diversas linguagens de programação.</p>
 <p>As funções da biblioteca são exportadas conforme <a href="pages/InformacoesGerais/InformacoesComuns/#diretiva_callback">diretiva de callback</a>, o que a torna possível
 de ser utilizada por sistemas desenvolvidos em qualquer linguagem ou ambiente de programação,
 como Delphi, Visual Basic e Visual C++, entre outros.</p>
