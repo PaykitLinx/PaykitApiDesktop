@@ -3390,7 +3390,7 @@ transações.</p>
 </tr>
 <tr>
 <td>NumeroLoja</td>
-<td>6N</td>
+<td>4N</td>
 <td>Número da loja</td>
 </tr>
 <tr>
@@ -3400,18 +3400,18 @@ transações.</p>
 </tr>
 <tr>
 <td>Solicitacao</td>
-<td></td>
-<td>Para realizar a consulta deverá então ser informada a data e o NSU da transação. No retorno, a estrutura será preenchida com os valores gravados na base de dados. A estrutura da solicitação quando da resposta é a que segue:<br><br> • <strong>[ Data ]</strong> 8 N •<br><br> <strong>[ NSU ]</strong> 6 N<br><br>• <strong>[ Cupom ]</strong> 6 N<br><br>• <strong>[ Status ]</strong> 2 N - Indica se a transação está pendente. Uma transação pendente estará com o valor "77".<br><br>• <strong>[ CodigoResposta ]</strong> 4 N<br><br>• <strong>[ Valor ]</strong> 12 N - 10 Decimais e 2 Inteiros<br><br>• <strong>[ CodigoRede ]</strong> 4 N<br><br>• <strong>[ CodigoBandeira ]</strong> 4 N<br><br>• <strong>[ CodigoTransacao ]</strong> 4 N<br><br>• <strong>[ NumeroCartao ]</strong> 20 N<br><br>• <strong>[ Reservado ]</strong> 32 A</td>
+<td>102A</td>
+<td>Deve ser informada a data e o NSU da transação. A estrutura da solicitação é:<br><br> • <strong>[ Data ]</strong> 8 N - Formato YYYYMMDD <br><br> • <strong>[ NSU ]</strong> 6 N<br><br>• <strong>[ Reservado ]</strong> 88 A</td>
 </tr>
 <tr>
 <td>Resposta</td>
-<td>02N</td>
-<td>Código de resposta</td>
+<td>102A</td>
+<td>Estrutura preenchida com os valores gravados na base de dados. A estrutura da resposta será:<br><br>• <strong>[ Data ]</strong> 8 N - Formato YYYYMMDD <br><br>• <strong>[ NSU ]</strong> 6 N<br><br>• <strong>[ Cupom ]</strong> 6 N<br><br>• <strong>[ Status ]</strong> 2 N - Indica se a transação está pendente. Uma transação pendente estará com o valor "77".<br><br>• <strong>[ CodigoResposta ]</strong> 4 N<br><br>• <strong>[ Valor ]</strong> 12 N - 10 Decimais e 2 Inteiros<br><br>• <strong>[ CodigoRede ]</strong> 4 N<br><br>• <strong>[ CodigoBandeira ]</strong> 4 N<br><br>• <strong>[ CodigoTransacao ]</strong> 4 N<br><br>• <strong>[ NumeroCartao ]</strong> 20 N<br><br>• <strong>[ Reservado ]</strong> 32 A</td>
 </tr>
 <tr>
-<td>MensagemErro</td>
-<td>20A</td>
-<td>Mensagem de erro</td>
+<td>MensagemRetorno</td>
+<td>64A</td>
+<td>Mensagem de retorno do TEF, os dois primeiros bytes contém o codigo da resposta</td>
 </tr>
 </tbody>
 </table>
