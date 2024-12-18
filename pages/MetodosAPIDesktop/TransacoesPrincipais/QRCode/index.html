@@ -732,15 +732,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#nupay" class="md-nav__link">
-    <span class="md-ellipsis">
-      NUPAY
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#link-de-pagamento-qrlinx" class="md-nav__link">
     <span class="md-ellipsis">
       Link de Pagamento QRLinx
@@ -2687,15 +2678,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#nupay" class="md-nav__link">
-    <span class="md-ellipsis">
-      NUPAY
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#link-de-pagamento-qrlinx" class="md-nav__link">
     <span class="md-ellipsis">
       Link de Pagamento QRLinx
@@ -2951,13 +2933,7 @@ encerrar a operação deve ser chamada a função FinalizaTransacao.</p>
 <td>CASH_BERTI</td>
 </tr>
 <tr>
-<td>E_PICPAY</td>
-</tr>
-<tr>
 <td>MERCADO_PAGO</td>
-</tr>
-<tr>
-<td>NUPAY</td>
 </tr>
 <tr>
 <td>PEDE_PRONTO</td>
@@ -2974,6 +2950,10 @@ encerrar a operação deve ser chamada a função FinalizaTransacao.</p>
 </tbody>
 </table>
 </details>
+<!--
+        | NUPAY                                  |
+-->
+
 <h4 id="payments"><strong>payments</strong></h4>
 <details class="info">
 <summary>Clique para mostrar o Objeto</summary>
@@ -3115,7 +3095,7 @@ encerrar a operação deve ser chamada a função FinalizaTransacao.</p>
 </tr>
 <tr>
 <td>number</td>
-<td>Número do CPF/CNPJ do pagador. Campo obrigatório para integrações com NuPay e Paga Leve.</td>
+<td>Número do CPF/CNPJ do pagador. Campo obrigatório para integrações com <!-- NuPay  e -->Paga Leve.</td>
 <td>string (15)</td>
 <td>Não</td>
 </tr>
@@ -3190,17 +3170,22 @@ encerrar a operação deve ser chamada a função FinalizaTransacao.</p>
 <p>OBS: Para realização da confirmação da transação deverá ser realizada chamada à função <em>ConfirmaCartao</em>, 
 e para o desfazimento da transação deverá ser realizada chamada à função <em>DesfazCartao</em>. Para maiores detalhes, 
 consulte a página <a href="../../ConfirmacaoEDesfazimentoDeTransacoes/">Confirmação e Desfazimento de Transações</a>.  </p>
-<h3 id="nupay"><strong>NUPAY</strong></h3>
-<p>Na integração com a Nupay, o pagamento não depende da leitura de um QRCode, assim que o PDV solicitar a criação da cobrança o cliente do lojista será notificado via push no celular, para concluir o pagamento no próprio aplicativo da Nubank. Caso o PDV solicite uma cobrança específica com a NuPay o QRLinx não irá retornar a string do QRCode.</p>
-<p>A pedido da NuPay é recomendado que na utilização dessa integração seja utilizado o campo “specific_wallets”, gerando assim uma cobrança específica com a carteira.</p>
-<p>Segue os campos que são obrigatórios na criação da cobrança e aqueles que são apenas recomendados caso a automação os possua:
+<!--
+### **NUPAY**
+
+Na integração com a Nupay, o pagamento não depende da leitura de um QRCode, assim que o PDV solicitar a criação da cobrança o cliente do lojista será notificado via push no celular, para concluir o pagamento no próprio aplicativo da Nubank. Caso o PDV solicite uma cobrança específica com a NuPay o QRLinx não irá retornar a string do QRCode.
+
+A pedido da NuPay é recomendado que na utilização dessa integração seja utilizado o campo “specific_wallets”, gerando assim uma cobrança específica com a carteira.
+
+Segue os campos que são obrigatórios na criação da cobrança e aqueles que são apenas recomendados caso a automação os possua:
 |Parâmetro              |Obrigatório    |Recomendado|
 |-----------------------|---------------|-----------|
 |payer                  |X              |           |
 |client_identification  |X              |           |
-|specific_wallets       |               |X          |</p>
+|specific_wallets       |               |X          |
+-->
 <h3 id="link-de-pagamento-qrlinx"><strong>Link de Pagamento QRLinx</strong></h3>
-<p>Ao realizar um pagamento via a rede QRLinx, esta disponibilizará um link de pagamento que pode ser disponibilizado ao cliente final via whatsapp, e-mail, SMS ou de alguma outra forma que a automação encontre facilidade de enviar e disponibilizar mais um canal de pagamento para seu cliente. Esta informação será enviada para a automação através da <a href="/pages/MetodosAPIDesktop/CallbackTransacional/#callback_informacoes_adicionais">Callback Informações Transacionais</a>.</p>
+<p>Ao realizar um pagamento via a rede QRLinx, esta disponibilizará um link de pagamento que pode ser disponibilizado ao cliente final via whatsapp, e-mail, SMS ou de alguma outra forma que a automação encontre facilidade de enviar e disponibilizar mais um canal de pagamento para seu cliente. Esta informação será enviada para a automação através da <a href="/pages/MetodosAPIDesktop/CallbackTransacional/#callback-informacoes-transacionais">Callback Informações Transacionais</a>.</p>
 <h2 id="transacao-generica-qrcode"><strong>Transação Generica QRCode</strong></h2>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">OperacoesGenericasQR</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosJson</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">status</span><span class="p">)</span>
 </span></code></pre></div>
