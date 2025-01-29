@@ -3026,7 +3026,7 @@
 
 <h2 id="obter-log-transacao"><strong>Obter Log Transação</strong></h2>
 <div class="admonition warning">
-<p class="admonition-title">Os métodos descritos nessa página estão em piloto controlado, não utilize sem a expressa recomendação. Por gentileza utilizar o <a href="/pages/LogTransacoes/LogUltimaTransacaoDepreciado">LogUltimaTransacaoDepreciado</a> até liberação total em produção.</p>
+<p class="admonition-title">Os métodos descritos nessa página estão em piloto controlado, não utilize sem a expressa recomendação. Por gentileza utilizar o <a href="../LogUltimaTransacaoDepreciado/">LogUltimaTransacaoDepreciado</a> até liberação total em produção.</p>
 </div>
 <p>O Paykit poderá fornecer os logs da transação de duas maneiras, sendo elas:</p>
 <ol>
@@ -3051,7 +3051,7 @@ assim que o driver do Paykit for carregado.</p>
 Esta é a assinatura do método que a automação tem que registrar. Nela, <i>pInfo</i> é um buffer contendo
 uma mensagem com informações da transação, seguindo a estrutura abaixo. Como pode-se observar, ela é construída com 
 apenas um JSON contendo o log da transação que está em execução e os dados referentes à rede que autorizou a transação, proveniente de um campo da resposta do TEF
-que atualmente é adicionado apenas para a rede Adyen. Os dados referentes ao log da transação variam de acordo com a transação que está sendo efetuada e estão descritos na seção <a href="/pages/LogTransacoes/ObterLogTransacao/#layout-do-log-da-transacao">Layout do Log da Transação</a>.</p>
+que atualmente é adicionado apenas para a rede Adyen. Os dados referentes ao log da transação variam de acordo com a transação que está sendo efetuada e estão descritos na seção <a href="./#layout-do-log-da-transacao">Layout do Log da Transação</a>.</p>
 <h4 id="json-de-exemplo"><strong>Json de Exemplo</strong></h4>
 <details class="note">
 <summary>Clique para expandir e mostrar o JSON de exemplo</summary>
@@ -3072,7 +3072,7 @@ que atualmente é adicionado apenas para a rede Adyen. Os dados referentes ao lo
 <h2 id="obtemlogtransacaojson"><strong>ObtemLogTransacaoJson</strong></h2>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ObtemLogTransacaoJson</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Esse método pode ser utilizado para retornar os dados da transação após sua aprovação. Os dados retornados serão os mesmos disponíveis através da callback <a href="/pages/LogTransacoes/ObterLogTransacao/#logtransacaoatual">LogTransacaoAtual</a>. <strong>Os dados da transação ficarão disponíveis no PDV por 1 dia após a sua aprovação.</strong>
+<p>Esse método pode ser utilizado para retornar os dados da transação após sua aprovação. Os dados retornados serão os mesmos disponíveis através da callback <a href="./#logtransacaoatual">LogTransacaoAtual</a>. <strong>Os dados da transação ficarão disponíveis no PDV por 1 dia após a sua aprovação.</strong>
 O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou vazio serão retornados os dados da última transação efetuada.</p>
 <table>
 <thead>
@@ -3171,7 +3171,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -3191,7 +3191,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -3201,7 +3201,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -3246,7 +3246,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -3256,7 +3256,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -3382,7 +3382,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -3402,7 +3402,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -3412,7 +3412,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -3462,7 +3462,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -3472,7 +3472,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -3593,7 +3593,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -3613,7 +3613,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -3623,7 +3623,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -3678,7 +3678,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -3688,7 +3688,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -3824,7 +3824,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -3844,7 +3844,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -3854,7 +3854,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -3899,7 +3899,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -3909,7 +3909,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -4010,7 +4010,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -4030,7 +4030,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -4040,7 +4040,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -4085,7 +4085,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -4095,7 +4095,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -4199,7 +4199,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -4224,7 +4224,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -4234,7 +4234,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -4279,7 +4279,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -4289,7 +4289,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -4420,7 +4420,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -4445,7 +4445,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -4490,7 +4490,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -4500,7 +4500,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroControle</td>
@@ -4596,7 +4596,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -4616,7 +4616,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -4626,7 +4626,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -4671,7 +4671,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -4681,7 +4681,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -4817,7 +4817,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -4837,7 +4837,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -4847,7 +4847,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -4892,7 +4892,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -4902,7 +4902,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -5028,7 +5028,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -5053,7 +5053,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -5063,7 +5063,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -5118,7 +5118,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -5128,7 +5128,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -5239,7 +5239,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -5259,7 +5259,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoOperadora</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+<td><a href="../../Apendice/Operadoras/">Código da operadora</a></td>
 </tr>
 <tr>
 <td>CodigoProdutoRede</td>
@@ -5269,7 +5269,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -5314,7 +5314,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -5324,7 +5324,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroCartao</td>
@@ -5433,7 +5433,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -5463,7 +5463,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -5523,7 +5523,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -5629,7 +5629,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoBandeira</td>
 <td>string</td>
-<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+<td><a href="../../Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
 </tr>
 <tr>
 <td>CodigoBandeiraRede</td>
@@ -5659,7 +5659,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>CodigoPSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Código do PSP</a></td>
 </tr>
 <tr>
 <td>CodigoRedeTerceiro</td>
@@ -5704,7 +5704,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NomePSP</td>
 <td>string</td>
-<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+<td><a href="../../Apendice/PSPs/">Nome do PSP</a></td>
 </tr>
 <tr>
 <td>NumeroAutorizacaoRede</td>
@@ -5714,7 +5714,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
 <tr>
 <td>NumeroAutorizador8</td>
 <td>string</td>
-<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+<td><a href="../../Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
 </tr>
 <tr>
 <td>NumeroControle</td>
