@@ -1,0 +1,5910 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../LogUltimaTransacaoDepreciado/">
+      
+      
+      <link rel="icon" href="../../icone/logo.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Obter Log Transação - Paykit API Desktop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2 1 21Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#obter-log-transacao" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Paykit API Desktop" class="md-header__button md-logo" aria-label="Paykit API Desktop" data-md-component="logo">
+      
+  <img src="../../images/logolinx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paykit API Desktop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Obter Log Transação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Paykit API Desktop" class="md-nav__button md-logo" aria-label="Paykit API Desktop" data-md-component="logo">
+      
+  <img src="../../images/logolinx.png" alt="logo">
+
+    </a>
+    Paykit API Desktop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../InformacoesGerais/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Informações Gerais
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Informações Gerais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../InformacoesGerais/UtilizacaoPaykit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Utilização Paykit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../InformacoesGerais/ConfiguracaoPaykit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuração Paykit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../InformacoesGerais/InformacoesComuns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Informações Comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../MetodosAPIDesktop/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Métodos API Desktop
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Métodos API Desktop
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transações Principais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Transações Principais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/Debito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Débito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/Credito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crédito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/Voucher/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Voucher
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/QRCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QR Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/CartaoFrota/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cartão Frota
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/TeleMarketing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tele-Marketing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/FinalizacaoVendaouRecebimento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finalização de Venda ou Recebimento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/CancelamentoTransacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cancelamento Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/Administrativas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administrativas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/LogUltimaTransacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LOG da Última Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Demais Transações
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Demais Transações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/DemaisTransacoes/RecargaDeCelular/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recarga de Celular
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/DemaisTransacoes/CartaoPrePagoEValePresente/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cartão Pré-Pago e Vale Presente
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/DemaisTransacoes/Crediario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crediário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/DemaisTransacoes/CorrespondenteBancario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correspondente Bancário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/DemaisTransacoes/PagamentoDeContasCielo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pagamento de Contas (CIELO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/DemaisTransacoes/DefineParametroTransacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Define Parâmetro de Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/DemaisTransacoes/FuncoesAdministrativas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções Administrativas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/DemaisTransacoes/TransacoesEspecificas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transações Específicas (Redecard/Cielo/Banrisul/GetNet)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/DemaisTransacoes/OutrasTransacoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outras Transações
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesEspeciais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transações Especiais
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/ConfirmacaoEDesfazimentoDeTransacoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confirmação e Desfazimento de Transações
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Melhoria de Performance
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Melhoria de Performance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/MelhoriaPerformance/ConfiguraFuncionalidades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configurar Funcionalidades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/CallbackTransacional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Callback Transacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ExemploIntegracaoFuncoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exemplo para Integração por Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ComunicacaoClientTEFComAC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicação Client TEF com AC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FluxoConfirmacaoDesfazimento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fluxo de confirmação e desfazimento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IntegracaoTerminalService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integração Terminal Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../IntegracaoSemTelas/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Integração sem Telas
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Integração sem Telas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IntegracaoSemTelas/FuncoesExportadasParaRegistrarCallback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções exportadas para registrar as funções de Callback
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IntegracaoSemTelas/Callbacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Callbacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IntegracaoSemTelas/PerguntasIdentificadasFrotaCompleta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perguntas Identificadas Transação Frota Completa JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Log das Transações
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Log das Transações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Obter Log Transação
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Obter Log Transação
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obter-log-transacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Log Transação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Callback
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reglogtransacaoatual" class="md-nav__link">
+    <span class="md-ellipsis">
+      RegLogTransacaoAtual
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logtransacaoatual" class="md-nav__link">
+    <span class="md-ellipsis">
+      LogTransacaoAtual
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LogTransacaoAtual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-de-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Json de Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtemlogtransacaojson" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObtemLogTransacaoJson
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-do-log-da-transacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout do Log da Transação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout do Log da Transação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-de-exemplo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Json de Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccr-transacao-cartao-de-credito" class="md-nav__link">
+    <span class="md-ellipsis">
+      CCR (Transação Cartão de Crédito)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccd-transacao-cartao-crediario" class="md-nav__link">
+    <span class="md-ellipsis">
+      CCD (Transação Cartão Crediário)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdb-transacao-cartao-de-debito" class="md-nav__link">
+    <span class="md-ellipsis">
+      CDB (Transação Cartão de Débito)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccv-transacao-cartao-voucher" class="md-nav__link">
+    <span class="md-ellipsis">
+      CCV (Transação Cartão Voucher)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cnc-transacao-de-cancelamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      CNC (Transação De Cancelamento)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpr-cartao-private-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPR (Cartão Private Label)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpl-consulta-private-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPL (Consulta Private Label)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spl-simulacao-private-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      SPL (Simulação Private Label)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fpl-pagamento-de-fatura-private-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      FPL (Pagamento de Fatura Private Label)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qrc-transacao-qr-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      QRC (Transação QR Code)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paa-transacao-acrescimo-de-pre-autorizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAA (Transação Acréscimo de Pré Autorização)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cfp-transacao-confirmacao-de-pre-autorizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      CFP (Transação Confirmação de Pré Autorização)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fro-transacao-frota" class="md-nav__link">
+    <span class="md-ellipsis">
+      FRO (Transação Frota)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpp-cartao-pre-pago" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPP (Cartão Pré-Pago)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbp-pagamento-corban" class="md-nav__link">
+    <span class="md-ellipsis">
+      CBP (Pagamento Corban)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbc-cancelamento-corban" class="md-nav__link">
+    <span class="md-ellipsis">
+      CBC (Cancelamento Corban)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbi-inicializacao-corban" class="md-nav__link">
+    <span class="md-ellipsis">
+      CBI (Inicialização Corban)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbf-finalizacao-corban" class="md-nav__link">
+    <span class="md-ellipsis">
+      CBF (Finalização Corban)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cel-recarga-de-celular" class="md-nav__link">
+    <span class="md-ellipsis">
+      CEL (Recarga de Celular)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../LogUltimaTransacaoDepreciado/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Log Ultima Transação (Depreciado)
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Log Ultima Transação (Depreciado)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/InicializacaoFinalizacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicialização/Finalização
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/Reinicio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reinício
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/CartaoCredito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão de Crédito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/CartaoDebito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão de Débito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/CartaoCrediario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão Crediário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/CartaoPrivateLabel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão Private Label
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/CartaoVoucher/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão Voucher
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/CartaoFidelidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão Fidelidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/QRCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação QR Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/Cancelamento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Cancelamento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/Frota/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Frota
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/LogEstendido/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LOG Estendido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/LogAdicional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LOG Adicional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/PagamentoDeContasCielo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Pagamento de Contas (Cielo)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/PagamentoDeContasCorban/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Pagamento de Contas (CORBAN)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/CargaERecargaDeCartao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Carga e Recarga de Cartão (Pré-Pago)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/PBM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transações PBM (Pharmacy Benefit Management)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/RecargaDeCelular/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Recarga de Celular
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/ConfirmacaoPreAutorizacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Confirmação de Pré-Autorização
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/ErroTransacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Erro da Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/Saque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Saque
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/AcrescimoPreAutorizacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Acréscimo de Pré-Autorização
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/AcumuloDePontosResgateDePontos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Acúmulo de Pontos/Resgate de Pontos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/Deposito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Depósito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/SaqueDomestico/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Saque Doméstico
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/ValeGas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Vale Gás
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/Cheque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cheque
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacaoDepreciado/QuitacaoCartaFrete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Quitação de Carta Frete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Download/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Download
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Apendice/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Apendice
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Apendice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apendice/MapaDeTerminais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapa de terminais homologados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apendice/Contatos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contatos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apendice/ExemplosDeCodigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exemplos de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apendice/RedesAutorizadasDTEF8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redes Autorizadoras D-TEF 8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apendice/Operadoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operadoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apendice/Bandeiras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bandeiras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apendice/PSPs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PSPs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apendice/ManualIntegracaoPDF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manual Integração PDF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Apendice/HistoricoDeRevisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Historico de revisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obter-log-transacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Log Transação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Callback
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reglogtransacaoatual" class="md-nav__link">
+    <span class="md-ellipsis">
+      RegLogTransacaoAtual
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logtransacaoatual" class="md-nav__link">
+    <span class="md-ellipsis">
+      LogTransacaoAtual
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LogTransacaoAtual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-de-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Json de Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtemlogtransacaojson" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObtemLogTransacaoJson
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-do-log-da-transacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout do Log da Transação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout do Log da Transação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-de-exemplo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Json de Exemplo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccr-transacao-cartao-de-credito" class="md-nav__link">
+    <span class="md-ellipsis">
+      CCR (Transação Cartão de Crédito)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccd-transacao-cartao-crediario" class="md-nav__link">
+    <span class="md-ellipsis">
+      CCD (Transação Cartão Crediário)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdb-transacao-cartao-de-debito" class="md-nav__link">
+    <span class="md-ellipsis">
+      CDB (Transação Cartão de Débito)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccv-transacao-cartao-voucher" class="md-nav__link">
+    <span class="md-ellipsis">
+      CCV (Transação Cartão Voucher)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cnc-transacao-de-cancelamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      CNC (Transação De Cancelamento)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpr-cartao-private-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPR (Cartão Private Label)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpl-consulta-private-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPL (Consulta Private Label)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spl-simulacao-private-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      SPL (Simulação Private Label)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fpl-pagamento-de-fatura-private-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      FPL (Pagamento de Fatura Private Label)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qrc-transacao-qr-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      QRC (Transação QR Code)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paa-transacao-acrescimo-de-pre-autorizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAA (Transação Acréscimo de Pré Autorização)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cfp-transacao-confirmacao-de-pre-autorizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      CFP (Transação Confirmação de Pré Autorização)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fro-transacao-frota" class="md-nav__link">
+    <span class="md-ellipsis">
+      FRO (Transação Frota)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpp-cartao-pre-pago" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPP (Cartão Pré-Pago)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbp-pagamento-corban" class="md-nav__link">
+    <span class="md-ellipsis">
+      CBP (Pagamento Corban)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbc-cancelamento-corban" class="md-nav__link">
+    <span class="md-ellipsis">
+      CBC (Cancelamento Corban)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbi-inicializacao-corban" class="md-nav__link">
+    <span class="md-ellipsis">
+      CBI (Inicialização Corban)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbf-finalizacao-corban" class="md-nav__link">
+    <span class="md-ellipsis">
+      CBF (Finalização Corban)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cel-recarga-de-celular" class="md-nav__link">
+    <span class="md-ellipsis">
+      CEL (Recarga de Celular)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Obter Log Transação</h1>
+
+<h2 id="obter-log-transacao"><strong>Obter Log Transação</strong></h2>
+<div class="admonition warning">
+<p class="admonition-title">Os métodos descritos nessa página estão em piloto controlado, não utilize sem a expressa recomendação. Por gentileza utilizar o <a href="/pages/LogTransacoes/LogUltimaTransacaoDepreciado">LogUltimaTransacaoDepreciado</a> até liberação total em produção.</p>
+</div>
+<p>O Paykit poderá fornecer os logs da transação de duas maneiras, sendo elas:</p>
+<ol>
+<li>
+<p>Via callback no final da transação financeira, ou seja, o Paykit acionará a automação passando um buffer no formato json, desta forma a automação não precisará acionar o Paykit para obter maiores detalhes da transação financeira.</p>
+</li>
+<li>
+<p>Via método, desta forma a automação fica a encargo de acionar o Paykit no final da transação para solicitar os logs transacionais.</p>
+</li>
+</ol>
+<h2 id="callback">Callback</h2>
+<p>Para que o Paykit forneça informações sobre uma transação recém-realizada, ele aciona a callback documentada abaixo após a transação ser concluída com o TEF, e antes de devolver o controle para a automação comercial. Para que a callback possa ser acionada, ela deve ser registrada pela automação em uma etapa anterior ao inicio da transação financeira.</p>
+<h2 id="reglogtransacaoatual"><strong>RegLogTransacaoAtual</strong></h2>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">RegLogTransacaoAtual</span><span class="p">(</span><span class="n">pCallBackLogTransacaoAtual</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+</span></code></pre></div>
+Este método registra a callback da automação. Nele, <i>p</i> contém uma diretiva de callback com a assinatura 
+descrita na seção abaixo. A automação precisa fazer este registro antes do início da transação, preferencialmente 
+assim que o driver do Paykit for carregado.</p>
+<h2 id="logtransacaoatual"><strong>LogTransacaoAtual</strong></h2>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">LogTransacaoAtual</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pInfo</span><span class="p">)</span>
+</span></code></pre></div>
+Esta é a assinatura do método que a automação tem que registrar. Nela, <i>pInfo</i> é um buffer contendo
+uma mensagem com informações da transação, seguindo a estrutura abaixo. Como pode-se observar, ela é construída com 
+apenas um JSON contendo o log da transação que está em execução e os dados referentes à rede que autorizou a transação, proveniente de um campo da resposta do TEF
+que atualmente é adicionado apenas para a rede Adyen. Os dados referentes ao log da transação variam de acordo com a transação que está sendo efetuada e estão descritos na seção <a href="/pages/LogTransacoes/ObterLogTransacao/#layout-do-log-da-transacao">Layout do Log da Transação</a>.</p>
+<h4 id="json-de-exemplo"><strong>Json de Exemplo</strong></h4>
+<details class="note">
+<summary>Clique para expandir e mostrar o JSON de exemplo</summary>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;Rede&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">      </span><span class="nt">&quot;Codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">216</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;Nome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ADYEN&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;CPF&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;19824193855&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;TOKEN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DB9NH3ZCK5JCNP65&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">&quot;LogTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="err">&lt;Dados</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">log</span><span class="w"> </span><span class="err">da</span><span class="w"> </span><span class="kc">transa</span><span class="err">ção</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">acordo</span><span class="w"> </span><span class="err">com</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="kc">transa</span><span class="err">ção</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">es</span><span class="kc">t</span><span class="err">á</span><span class="w"> </span><span class="err">se</span><span class="kc">n</span><span class="err">do</span><span class="w"> </span><span class="err">e</span><span class="kc">fetua</span><span class="err">da&gt;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<p>Após a automação retornar o controle para o Paykit (executar um return no método chamado) <strong>este buffer será destruído da memória</strong>, portanto a automação deve copiar o buffer enviado para alguma estrutura interna de controle da automação, <strong>não devendo fazer qualquer alteração no buffer enviado pelo Paykit</strong>.</p>
+<h2 id="obtemlogtransacaojson"><strong>ObtemLogTransacaoJson</strong></h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ObtemLogTransacaoJson</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Esse método pode ser utilizado para retornar os dados da transação após sua aprovação. Os dados retornados serão os mesmos disponíveis através da callback <a href="/pages/LogTransacoes/ObterLogTransacao/#logtransacaoatual">LogTransacaoAtual</a>. <strong>Os dados da transação ficarão disponíveis no PDV por 1 dia após a sua aprovação.</strong>
+O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou vazio serão retornados os dados da última transação efetuada.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tamanho</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pNumeroControle</td>
+<td>06N</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="layout-do-log-da-transacao"><strong>Layout do Log da Transação</strong></h2>
+<p>O layout dos dados do log da transação variam de acordo com a transação que está sendo efetuada. Nessa seção serão descritos os layouts de cada uma das transações disponíveis</p>
+<h4 id="json-de-exemplo_1"><strong>Json de Exemplo</strong></h4>
+<details class="note">
+<summary>Clique para expandir e mostrar o JSON de exemplo para uma transação de crédito.</summary>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;LogTransacao&quot;</span><span class="p">:{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">      </span><span class="nt">&quot;CNPJRedeAdquirente&quot;</span><span class="p">:</span><span class="s2">&quot;01425787000104&quot;</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">&quot;CPFouCNPJ&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">&quot;CartaoPrePago&quot;</span><span class="p">:</span><span class="s2">&quot; &quot;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">&quot;CodigoBandeira&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">&quot;CodigoBandeiraRede&quot;</span><span class="p">:</span><span class="s2">&quot;15&quot;</span><span class="p">,</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">      </span><span class="nt">&quot;CodigoBandeiraSefaz&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">&quot;CodigoBandeiraTerceiro&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">&quot;CodigoOperadora&quot;</span><span class="p">:</span><span class="s2">&quot;113&quot;</span><span class="p">,</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">&quot;CodigoProdutoRede&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">      </span><span class="nt">&quot;CodigoRedeTerceiro&quot;</span><span class="p">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="nt">&quot;CodigoResposta&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">      </span><span class="nt">&quot;CodigoTEFTerceiro&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">      </span><span class="nt">&quot;Data&quot;</span><span class="p">:</span><span class="s2">&quot;22012025&quot;</span><span class="p">,</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">      </span><span class="nt">&quot;Hora&quot;</span><span class="p">:</span><span class="s2">&quot;160101&quot;</span><span class="p">,</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">      </span><span class="nt">&quot;NomeBandeira&quot;</span><span class="p">:</span><span class="s2">&quot;Mastercard&quot;</span><span class="p">,</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">      </span><span class="nt">&quot;NomeOperadora&quot;</span><span class="p">:</span><span class="s2">&quot;Mastercard&quot;</span><span class="p">,</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">      </span><span class="nt">&quot;NomePortador&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">      </span><span class="nt">&quot;NumeroAutorizacaoRede&quot;</span><span class="p">:</span><span class="s2">&quot;192165&quot;</span><span class="p">,</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">      </span><span class="nt">&quot;NumeroAutorizador8&quot;</span><span class="p">:</span><span class="s2">&quot;7&quot;</span><span class="p">,</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">      </span><span class="nt">&quot;NumeroCartao&quot;</span><span class="p">:</span><span class="s2">&quot;222763******8028*********************&quot;</span><span class="p">,</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">      </span><span class="nt">&quot;NumeroControle&quot;</span><span class="p">:</span><span class="s2">&quot;005703&quot;</span><span class="p">,</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">      </span><span class="nt">&quot;NumeroControleRede&quot;</span><span class="p">:</span><span class="s2">&quot;96744000&quot;</span><span class="p">,</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">      </span><span class="nt">&quot;NumeroControleRedeAdicional&quot;</span><span class="p">:</span><span class="s2">&quot;096744000&quot;</span><span class="p">,</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">      </span><span class="nt">&quot;NumeroCupom&quot;</span><span class="p">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">      </span><span class="nt">&quot;NumeroEmpresa&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">      </span><span class="nt">&quot;NumeroEquipamento&quot;</span><span class="p">:</span><span class="s2">&quot;250&quot;</span><span class="p">,</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">      </span><span class="nt">&quot;NumeroLoja&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">      </span><span class="nt">&quot;NumeroParcelas&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">      </span><span class="nt">&quot;TipoColetaCartao&quot;</span><span class="p">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">      </span><span class="nt">&quot;TipoOperacao&quot;</span><span class="p">:</span><span class="s2">&quot;AV&quot;</span><span class="p">,</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">      </span><span class="nt">&quot;TipoRegistro&quot;</span><span class="p">:</span><span class="s2">&quot;CCR&quot;</span><span class="p">,</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">      </span><span class="nt">&quot;ValorDesconto&quot;</span><span class="p">:</span><span class="s2">&quot;000000000000&quot;</span><span class="p">,</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">      </span><span class="nt">&quot;ValorFinal&quot;</span><span class="p">:</span><span class="s2">&quot;000000000050&quot;</span><span class="p">,</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">      </span><span class="nt">&quot;ValorOriginal&quot;</span><span class="p">:</span><span class="s2">&quot;000000000050&quot;</span><span class="p">,</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="w">      </span><span class="nt">&quot;ValorParcela&quot;</span><span class="p">:</span><span class="s2">&quot;000000000000&quot;</span><span class="p">,</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">      </span><span class="nt">&quot;ValorTaxaEmbarque&quot;</span><span class="p">:</span><span class="s2">&quot;000000000000&quot;</span><span class="p">,</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">      </span><span class="nt">&quot;ValorTaxaServico&quot;</span><span class="p">:</span><span class="s2">&quot;000000000000&quot;</span><span class="p">,</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="w">      </span><span class="nt">&quot;ValorTransacao&quot;</span><span class="p">:</span><span class="s2">&quot;000000000050&quot;</span><span class="p">,</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="w">      </span><span class="nt">&quot;VencimentoCartao&quot;</span><span class="p">:</span><span class="s2">&quot;0829&quot;</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<hr />
+<h4 id="ccr-transacao-cartao-de-credito"><strong>CCR (Transação Cartão de Crédito)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CPFouCNPJ</td>
+<td>string</td>
+<td>CPF ou CNPJ retornado na transação</td>
+</tr>
+<tr>
+<td>CartaoPrePago</td>
+<td>string</td>
+<td>Indicativo se é um cartão pré-pago: '<strong>S</strong>' (Sim), '<strong>N</strong>' (Não) ou ' ' (para redes que não informam o tipo do cartão)</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroParcelas</td>
+<td>string</td>
+<td>Número de parcelas da transação</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoOperacao</td>
+<td>string</td>
+<td>Código com dois dígitos que representa a forma de parcelamento utilizada na transação.<ul style="list-style-type:none;"><li>[<strong>AV</strong>] À Vista</li><li>[<strong>FL</strong>] Financiamento Lojista (sem juros)</li><li>[<strong>FA</strong>] Financiamento Administradora (com juros)</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CCR</strong>] Cartão de Crédito</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorParcela</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTaxaEmbarque</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTaxaServico</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>VencimentoCartao</td>
+<td>string</td>
+<td>Formato MMAA</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="ccd-transacao-cartao-crediario"><strong>CCD (Transação Cartão Crediário)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>DataDebito</td>
+<td>string</td>
+<td><ddmmaaaa> <ddmmaaaa> Data da parcela (transação parcelada) ou Data de débito (transação pré-datada)</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroParcelas</td>
+<td>string</td>
+<td>Número de parcelas da transação</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoOperacao</td>
+<td>string</td>
+<td>Código com dois dígitos que representa a forma de parcelamento utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>PC</strong>] Parcelada (com juros)</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CCD</strong>] Cartão Crediário</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorParcela</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>VencimentoCartao</td>
+<td>string</td>
+<td>Formato MMAA</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="cdb-transacao-cartao-de-debito"><strong>CDB (Transação Cartão de Débito)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CartaoPrePago</td>
+<td>string</td>
+<td>Indicativo se é um cartão pré-pago: '<strong>S</strong>' (Sim), '<strong>N</strong>' (Não) ou ' ' (para redes que não informam o tipo do cartão)</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoSupervisor</td>
+<td>string</td>
+<td>Código do Supervisor autorizador da Transação Forçada</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>DataDebito</td>
+<td>string</td>
+<td><ddmmaaaa> <ddmmaaaa> Data da parcela (transação parcelada) ou Data de débito (transação pré-datada)</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroParcelas</td>
+<td>string</td>
+<td>Número de parcelas da transação</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoOperacao</td>
+<td>string</td>
+<td>Código com dois dígitos que representa a forma de parcelamento utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>PS</strong>] Parcelada (sem juros)</li><li>[<strong>PC</strong>] Parcelada (com juros)</li><li>[<strong>PD</strong>] Pré-datada</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CDB</strong>] Cartão de Débito</li></ul></td>
+</tr>
+<tr>
+<td>TipoTransacao</td>
+<td>string</td>
+<td><ul style="list-style-type:none;"><li>[<strong>0</strong>] Transação Normal</li><li>[<strong>1</strong>] Transação Forçada</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorParcela</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorSaque</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTaxaEmbarque</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTaxaServico</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>VencimentoCartao</td>
+<td>string</td>
+<td>Formato MMAA</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="ccv-transacao-cartao-voucher"><strong>CCV (Transação Cartão Voucher)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CCV</strong>] Cartão Voucher</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>VencimentoCartao</td>
+<td>string</td>
+<td>Formato MMAA</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="cnc-transacao-de-cancelamento"><strong>CNC (Transação De Cancelamento)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CNC</strong>] Cancelamento</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>VencimentoCartao</td>
+<td>string</td>
+<td>Formato MMAA</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="cpr-cartao-private-label"><strong>CPR (Cartão Private Label)</strong></h4>
+<h4 id="cpl-consulta-private-label"><strong>CPL (Consulta Private Label)</strong></h4>
+<h4 id="spl-simulacao-private-label"><strong>SPL (Simulação Private Label)</strong></h4>
+<h4 id="fpl-pagamento-de-fatura-private-label"><strong>FPL (Pagamento de Fatura Private Label)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoItem</td>
+<td>string</td>
+<td>Código do item</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroParcelas</td>
+<td>string</td>
+<td>Número de parcelas da transação</td>
+</tr>
+<tr>
+<td>PlanoPagamento</td>
+<td>string</td>
+<td>Plano informado pelo operador</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoOperacao</td>
+<td>string</td>
+<td>Código com dois dígitos que representa a forma de parcelamento utilizada na transação.<ul style="list-style-type:none;"><li>[<strong>AV</strong>] À Vista</li><li>[<strong>FL</strong>] Financiamento Lojista (sem juros)</li><li>[<strong>FA</strong>] Financiamento Administradora (com juros)</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CPR</strong>] Cartão Private Label</li><li>[<strong>CPL</strong>] Consulta Private Label</li><li>[<strong>SPL</strong>] Simulação Private Label</li><li>[<strong>FPL</strong>] Pagamento de fatura Private Label</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorEntrada</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto). 10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTaxaServico</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>VencimentoCartao</td>
+<td>string</td>
+<td>Formato MMAA</td>
+</tr>
+<tr>
+<td>VencimentosaPular</td>
+<td>string</td>
+<td>Número de vencimentos a pular</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="qrc-transacao-qr-code"><strong>QRC (Transação QR Code)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>QRC</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="paa-transacao-acrescimo-de-pre-autorizacao"><strong>PAA (Transação Acréscimo de Pré Autorização)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CPFouCNPJ</td>
+<td>string</td>
+<td>CPF ou CNPJ retornado na transação</td>
+</tr>
+<tr>
+<td>CartaoPrePago</td>
+<td>string</td>
+<td>Indicativo se é um cartão pré-pago: '<strong>S</strong>' (Sim), '<strong>N</strong>' (Não) ou ' ' (para redes que não informam o tipo do cartão)</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroParcelas</td>
+<td>string</td>
+<td>Número de parcelas da transação</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoOperacao</td>
+<td>string</td>
+<td>Código com dois dígitos que representa a forma de parcelamento utilizada na transação.<ul style="list-style-type:none;"><li>[<strong>AV</strong>] À Vista</li><li>[<strong>FL</strong>] Financiamento Lojista (sem juros)</li><li>[<strong>FA</strong>] Financiamento Administradora (com juros)</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>PAA</strong>] Acréscimo Pré Autorização</li></ul></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorParcela</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTaxaEmbarque</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTaxaServico</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>VencimentoCartao</td>
+<td>string</td>
+<td>Formato MMAA</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="cfp-transacao-confirmacao-de-pre-autorizacao"><strong>CFP (Transação Confirmação de Pré Autorização)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CPFouCNPJ</td>
+<td>string</td>
+<td>CPF ou CNPJ retornado na transação</td>
+</tr>
+<tr>
+<td>CartaoPrePago</td>
+<td>string</td>
+<td>Indicativo se é um cartão pré-pago: '<strong>S</strong>' (Sim), '<strong>N</strong>' (Não) ou ' ' (para redes que não informam o tipo do cartão)</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroParcelas</td>
+<td>string</td>
+<td>Número de parcelas da transação</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoOperacao</td>
+<td>string</td>
+<td>Código com dois dígitos que representa a forma de parcelamento utilizada na transação.<ul style="list-style-type:none;"><li>[<strong>AV</strong>] À Vista</li><li>[<strong>FL</strong>] Financiamento Lojista (sem juros)</li><li>[<strong>FA</strong>] Financiamento Administradora (com juros)</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CFP</strong>] Confirmação de pré-autorização</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorParcela</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTaxaEmbarque</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTaxaServico</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>VencimentoCartao</td>
+<td>string</td>
+<td>Formato MMAA</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="fro-transacao-frota"><strong>FRO (Transação Frota)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoCondutor</td>
+<td>string</td>
+<td>Código do condutor</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>CodigoVeiculo</td>
+<td>string</td>
+<td>Código do veículo</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Kilometragem</td>
+<td>string</td>
+<td>Odômetro do veículo</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoProduto</td>
+<td>string</td>
+<td>Código com um dígito que representa o tipo de produto da transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Pré-Pago (VCE)</li><li>[<strong>1</strong>] Pós-Pago (MaxiFrota)</li><li>[<strong>2</strong>] Outros</li></ul></td>
+</tr>
+<tr>
+<td>TipoOperacao</td>
+<td>string</td>
+<td>Código com dois dígitos que representa a forma de parcelamento utilizada na transação.<ul style="list-style-type:none;"><li>[<strong>AV</strong>] À Vista</li><li>[<strong>FL</strong>] Financiamento Lojista (sem juros)</li><li>[<strong>FA</strong>] Financiamento Administradora (com juros)</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>FRO</strong>]  Cartão Frota</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+<tr>
+<td>VencimentoCartao</td>
+<td>string</td>
+<td>Formato MMAA</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="cpp-cartao-pre-pago"><strong>CPP (Cartão Pré-Pago)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoOperadora</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Operadoras/">Código da operadora</a></td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroCartao</td>
+<td>string</td>
+<td>Conteúdo da trilha 2 sem bytes sentinelas</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>TipoColetaCartao</td>
+<td>string</td>
+<td>Código com um dígito que representa a forma de entrada utilizada na transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Tarja magnética</li><li>[<strong>1</strong>] Digitado</li><li>[<strong>2</strong>] Chip TIBC 1</li><li>[<strong>3</strong>] Chip TIBC 3</li><li>[<strong>4</strong>] Chip com contato EMV</li><li>[<strong>5</strong>] Sem contato tarja</li><li>[<strong>6</strong>] Sem contato EMV</li><li>[<strong>7</strong>] QR Code</li></ul></td>
+</tr>
+<tr>
+<td>TipoOperacao</td>
+<td>string</td>
+<td>Código com dois dígitos que representa o tipo de operação realizada. <ul style="list-style-type:none;"><li>[<strong>CA</strong>] Carga Cartão</li><li>[<strong>RE</strong>] Recarga do Cartão</li><li>[<strong>PG</strong>] Pagamento com Cartão Pré-pago (Vale-presente)</li><li>[<strong>CR</strong>] Código de Resgate de Cartão Pré-pago</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CPP</strong>] Cartão Pré-Pago</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="cbp-pagamento-corban"><strong>CBP (Pagamento Corban)</strong></h4>
+<h4 id="cbc-cancelamento-corban"><strong>CBC (Cancelamento Corban)</strong></h4>
+<h4 id="cbi-inicializacao-corban"><strong>CBI (Inicialização Corban)</strong></h4>
+<h4 id="cbf-finalizacao-corban"><strong>CBF (Finalização Corban)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMC7</td>
+<td>string</td>
+<td>Valor CMC7</td>
+</tr>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoBarras</td>
+<td>string</td>
+<td>Código de barras</td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>DataVencimento</td>
+<td>string</td>
+<td>Formato: <ddmmaaaa></td>
+</tr>
+<tr>
+<td>FormaPagamento</td>
+<td>string</td>
+<td>Código com um dígito que identifica a forma de pagamento. <ul style="list-style-type:none;"><li>[<strong>1</strong>] Dinheiro</li><li>[<strong>2</strong>] Cheque</li><li>[<strong>3</strong>] Débito</li><li>[<strong>4</strong>] Crédito</li></ul></td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>IndicativoCMC7</td>
+<td>string</td>
+<td>Código com um dígito que identifica a forma de entrada do CMC7<ul style="list-style-type:none;"><li>[<strong>1</strong>] Lido</li><li>[<strong>2</strong>] Digitado</li></ul></td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadora</td>
+<td>string</td>
+<td>Nome da operadora do cartão</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>TipoDocumento</td>
+<td>string</td>
+<td>Indicativo da leitura do codigo de barras<BR><ul style="list-style-type:none;"><li>[<strong>0</strong>] Lido oticamente</li><li>[<strong>1</strong>] Digitado</li></ul></td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CPP</strong>] Cartão Pré-Pago</li></ul></td>
+</tr>
+<tr>
+<td>TipoTransacao</td>
+<td>string</td>
+<td>Código com um dígito que identifica o tipo de transação. <ul style="list-style-type:none;"><li>[<strong>0</strong>] Pagamento</li><li>[<strong>1</strong>] Cancelamento</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorTransacao</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h4 id="cel-recarga-de-celular"><strong>CEL (Recarga de Celular)</strong></h4>
+<details class="info">
+<summary>Clique para mostrar o Objeto</summary>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNPJRedeAdquirente</td>
+<td>string</td>
+<td>CNPJ da rede adquirente</td>
+</tr>
+<tr>
+<td>CodigoArea</td>
+<td>string</td>
+<td>Código da área do celular</td>
+</tr>
+<tr>
+<td>CodigoBandeira</td>
+<td>string</td>
+<td><a href="/pages/Apendice/Bandeiras/#codigo-das-bandeiras-do-tef-linx">Código da bandeira do cartão</a></td>
+</tr>
+<tr>
+<td>CodigoBandeiraRede</td>
+<td>string</td>
+<td>Código da bandeira na rede</td>
+</tr>
+<tr>
+<td>CodigoBandeiraSefaz</td>
+<td>string</td>
+<td>Código da Bandeira na Sefaz</td>
+</tr>
+<tr>
+<td>CodigoBandeiraTerceiro</td>
+<td>string</td>
+<td>Código da Bandeira do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoOperadoraCelular</td>
+<td>string</td>
+<td>Código da Operadora do Celular</td>
+</tr>
+<tr>
+<td>CodigoProdutoRede</td>
+<td>string</td>
+<td>Código do produto da rede utilizado na transação. Será retornado somente para as redes que o utilizarem.</td>
+</tr>
+<tr>
+<td>CodigoPSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Código do PSP</a></td>
+</tr>
+<tr>
+<td>CodigoRedeTerceiro</td>
+<td>string</td>
+<td>Código da Rede do TEF de terceiro</td>
+</tr>
+<tr>
+<td>CodigoResposta</td>
+<td>string</td>
+<td>Código de resposta da transação.</td>
+</tr>
+<tr>
+<td>CodigoTEFTerceiro</td>
+<td>string</td>
+<td>Código do TEF a que se referem os campos de bandeira e rede de terceiro (1=SiTef)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string</td>
+<td>Data que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>Hora</td>
+<td>string</td>
+<td>Hora que a transação foi efetuada</td>
+</tr>
+<tr>
+<td>NomeBandeira</td>
+<td>string</td>
+<td>Nome da bandeira do cartão</td>
+</tr>
+<tr>
+<td>NomeOperadoraCelular</td>
+<td>string</td>
+<td>Nome da operadora de recarga de celular</td>
+</tr>
+<tr>
+<td>NomePortador</td>
+<td>string</td>
+<td>Nome do portador do cartão</td>
+</tr>
+<tr>
+<td>NomePSP</td>
+<td>string</td>
+<td><a href="/pages/Apendice/PSPs/">Nome do PSP</a></td>
+</tr>
+<tr>
+<td>NumeroAutorizacaoRede</td>
+<td>string</td>
+<td>Número da autorização na rede adquirente</td>
+</tr>
+<tr>
+<td>NumeroAutorizador8</td>
+<td>string</td>
+<td><a href="/pages/Apendice/RedesAutorizadasDTEF8/#codigo-das-redes-do-tef-linx">Rede Autorizadora do Linx TEF</a></td>
+</tr>
+<tr>
+<td>NumeroControle</td>
+<td>string</td>
+<td>NSU (número seqüencial único)</td>
+</tr>
+<tr>
+<td>NumeroControleRede</td>
+<td>string</td>
+<td>Número do Controle da Rede</td>
+</tr>
+<tr>
+<td>NumeroControleRedeAdicional</td>
+<td>string</td>
+<td>NSU Rede para rede Stone</td>
+</tr>
+<tr>
+<td>NumeroCupom</td>
+<td>string</td>
+<td>Número do cupom (fiscal ou não fiscal)</td>
+</tr>
+<tr>
+<td>NumeroEmpresa</td>
+<td>string</td>
+<td>Número da empresa configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroEquipamento</td>
+<td>string</td>
+<td>Número do PDV configurado no Paykit</td>
+</tr>
+<tr>
+<td>NumeroLoja</td>
+<td>string</td>
+<td>Número da loja configurada no Paykit</td>
+</tr>
+<tr>
+<td>NumeroTelefone</td>
+<td>string</td>
+<td>Número do telefone</td>
+</tr>
+<tr>
+<td>TipoRegistro</td>
+<td>string</td>
+<td>Código com três dígitos que representa a o tipo da transação efetuada. <ul style="list-style-type:none;"><li>[<strong>CEL</strong>] Recarga de Celular</li></ul></td>
+</tr>
+<tr>
+<td>ValorDesconto</td>
+<td>string</td>
+<td>Valor do desconto</td>
+</tr>
+<tr>
+<td>ValorFinal</td>
+<td>string</td>
+<td>Valor final da transação (Original – Desconto)</td>
+</tr>
+<tr>
+<td>ValorOriginal</td>
+<td>string</td>
+<td>Valor original da transação</td>
+</tr>
+<tr>
+<td>ValorRecarga</td>
+<td>string</td>
+<td>10 inteiros, 2 decimais</td>
+</tr>
+</tbody>
+</table>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Log das Transações">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Log das Transações
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../LogUltimaTransacaoDepreciado/" class="md-footer__link md-footer__link--next" aria-label="Next: Log Ultima Transação (Depreciado)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Log Ultima Transação (Depreciado)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Linx Sistemas e Consultoria Ltda
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/linxretail" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/linxretail/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/PayHubLinx" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "search.suggest", "search.tabs.link", "search.highlight", "header.autohide", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
