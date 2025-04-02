@@ -2388,8 +2388,6 @@
       
         
       
-        
-      
     
     
     
@@ -2568,27 +2566,6 @@
   
   <span class="md-ellipsis">
     PSPs
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Apendice/ManualIntegracaoPDF/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Manual Integração PDF
   </span>
   
 
@@ -2983,7 +2960,7 @@ encerrar a operação deve ser chamada a função FinalizaTransacao.</p>
 <tbody>
 <tr>
 <td>is_pix_upfront</td>
-<td>Campo para criação de PIX parcelado junto a Paga leve.</td>
+<td>Campo para criação de PIX parcelado junto a Paga leve. Caso enviado para operações que não sejam da Paga Leve, o QRCode não será enviado ao PDV.</td>
 <td>bool (true/false)</td>
 <td>Não</td>
 </tr>
