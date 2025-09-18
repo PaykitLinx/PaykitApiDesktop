@@ -487,6 +487,8 @@
       
         
       
+        
+      
     
     
     
@@ -629,11 +631,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/TeleMarketing/" class="md-nav__link">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/TransacoesPBM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Tele-Marketing
+    Transações PBM
   </span>
   
 
@@ -718,6 +720,27 @@
   
   <span class="md-ellipsis">
     LOG da Última Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MetodosAPIDesktop/TransacoesPrincipais/TeleMarketing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tele-Marketing
   </span>
   
 
@@ -3026,7 +3049,7 @@
 
 <h2 id="obter-log-transacao"><strong>Obter Log Transação</strong></h2>
 <div class="admonition warning">
-<p class="admonition-title">Os métodos descritos nessa página estão em piloto controlado, não utilize sem a expressa recomendação. Por gentileza utilizar o <a href="../LogUltimaTransacaoDepreciado/">LogUltimaTransacaoDepreciado</a> até liberação total em produção.</p>
+<p class="admonition-title">Os itens descritos abaixo desse alerta são customizações liberadas a partir da release de Paykit 8.22.23.0012 (inclusive)</p>
 </div>
 <p>O Paykit poderá fornecer os logs da transação de duas maneiras, sendo elas:</p>
 <ol>
@@ -3070,7 +3093,7 @@ que atualmente é adicionado apenas para a rede Adyen. Os dados referentes ao lo
 </details>
 <p>Após a automação retornar o controle para o Paykit (executar um return no método chamado) <strong>este buffer será destruído da memória</strong>, portanto a automação deve copiar o buffer enviado para alguma estrutura interna de controle da automação, <strong>não devendo fazer qualquer alteração no buffer enviado pelo Paykit</strong>.</p>
 <h2 id="obtemlogtransacaojson"><strong>ObtemLogTransacaoJson</strong></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ObtemLogTransacaoJson</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ObtemLogTransacaoJson</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Esse método pode ser utilizado para retornar os dados da transação após sua aprovação. Os dados retornados serão os mesmos disponíveis através da callback <a href="./#logtransacaoatual">LogTransacaoAtual</a>. <strong>Os dados da transação ficarão disponíveis no PDV por 1 dia após a sua aprovação.</strong>
 O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou vazio serão retornados os dados da última transação efetuada.</p>
@@ -5785,7 +5808,7 @@ O parâmetro pNumeroControle é opcional e caso seja passado um ponteiro nulo ou
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "search.suggest", "search.tabs.link", "search.highlight", "header.autohide", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.path", "content.tabs.link", "search.suggest", "search.tabs.link", "search.highlight", "header.autohide", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
