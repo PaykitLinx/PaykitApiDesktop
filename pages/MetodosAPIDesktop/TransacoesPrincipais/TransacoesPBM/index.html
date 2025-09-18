@@ -1,0 +1,4227 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../CartaoFrota/">
+      
+      
+        <link rel="next" href="../FinalizacaoVendaouRecebimento/">
+      
+      
+      <link rel="icon" href="../../../icone/logo.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Transações PBM - Paykit API Desktop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2 1 21Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transacoes-pbm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Paykit API Desktop" class="md-header__button md-logo" aria-label="Paykit API Desktop" data-md-component="logo">
+      
+  <img src="../../../images/logolinx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paykit API Desktop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transações PBM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Paykit API Desktop" class="md-nav__button md-logo" aria-label="Paykit API Desktop" data-md-component="logo">
+      
+  <img src="../../../images/logolinx.png" alt="logo">
+
+    </a>
+    Paykit API Desktop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introdução
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../InformacoesGerais/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Informações Gerais
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Informações Gerais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../InformacoesGerais/UtilizacaoPaykit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Utilização Paykit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../InformacoesGerais/ConfiguracaoPaykit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuração Paykit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../InformacoesGerais/InformacoesComuns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Informações Comuns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Métodos API Desktop
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Métodos API Desktop
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transações Principais
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Transações Principais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Debito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Débito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Credito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crédito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Voucher/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Voucher
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QRCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QR Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CartaoFrota/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cartão Frota
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Transações PBM
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Transações PBM
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#transacoes-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transações PBM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodo-de-integracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Método de integração
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lista-de-pbms-suportadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lista de PBM's suportadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-redes-pbm-ativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Redes PBM Ativas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consulta Redes PBM Ativas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-pre-autorizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Pré Autorização
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consulta Pré Autorização">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-produtos-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Produtos PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consulta Produtos PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#venda-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Venda PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Venda PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confirmacao-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Confirmação PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desfazimento-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desfazimento PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desfazimento PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cancelamento-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cancelamento PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cancelamento PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FinalizacaoVendaouRecebimento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finalização de Venda ou Recebimento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CancelamentoTransacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cancelamento Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Administrativas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Administrativas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogUltimaTransacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LOG da Última Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TeleMarketing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tele-Marketing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Demais Transações
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Demais Transações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/RecargaDeCelular/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recarga de Celular
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/CartaoPrePagoEValePresente/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cartão Pré-Pago e Vale Presente
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/Crediario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crediário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/CorrespondenteBancario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Correspondente Bancário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/PagamentoDeContasCielo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pagamento de Contas (CIELO)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/DefineParametroTransacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Define Parâmetro de Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/FuncoesAdministrativas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções Administrativas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/TransacoesEspecificas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transações Específicas (Redecard/Cielo/Banrisul/GetNet)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/ObtemDadosCartao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obtem Dados Cartao
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DemaisTransacoes/OutrasTransacoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outras Transações
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TransacoesEspeciais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transações Especiais
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ConfirmacaoEDesfazimentoDeTransacoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Confirmação e Desfazimento de Transações
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Melhoria de Performance
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Melhoria de Performance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MelhoriaPerformance/ConfiguraFuncionalidades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configurar Funcionalidades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CallbackTransacional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Callback Transacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ExemploIntegracaoFuncoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exemplo para Integração por Funções
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ComunicacaoClientTEFComAC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicação Client TEF com AC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FluxoConfirmacaoDesfazimento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fluxo de confirmação e desfazimento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IntegracaoTerminalService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integração Terminal Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../IntegracaoSemTelas/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Integração sem Telas
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Integração sem Telas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IntegracaoSemTelas/FuncoesExportadasParaRegistrarCallback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Funções exportadas para registrar as funções de Callback
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IntegracaoSemTelas/Callbacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Callbacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../IntegracaoSemTelas/PerguntasIdentificadasFrotaCompleta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perguntas Identificadas Transação Frota Completa JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../LogTransacoes/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Log das Transações
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Log das Transações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/ObterLogTransacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obter Log Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Log Ultima Transação (Depreciado)
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Log Ultima Transação (Depreciado)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/InicializacaoFinalizacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicialização/Finalização
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/Reinicio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reinício
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoCredito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão de Crédito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoDebito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão de Débito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoCrediario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão Crediário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoPrivateLabel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão Private Label
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoVoucher/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão Voucher
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoFidelidade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cartão Fidelidade
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/QRCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação QR Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/Cancelamento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Cancelamento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/Frota/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Frota
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/LogEstendido/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LOG Estendido
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/LogAdicional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LOG Adicional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/PagamentoDeContasCielo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Pagamento de Contas (Cielo)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/PagamentoDeContasCorban/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Pagamento de Contas (CORBAN)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/CargaERecargaDeCartao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Carga e Recarga de Cartão (Pré-Pago)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/PBM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transações PBM (Pharmacy Benefit Management)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/RecargaDeCelular/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Recarga de Celular
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/ConfirmacaoPreAutorizacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Confirmação de Pré-Autorização
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/ErroTransacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Erro da Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/Saque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Saque
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/AcrescimoPreAutorizacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Acréscimo de Pré-Autorização
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/AcumuloDePontosResgateDePontos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Acúmulo de Pontos/Resgate de Pontos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/Deposito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Depósito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/SaqueDomestico/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Saque Doméstico
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/ValeGas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação de Vale Gás
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/Cheque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Cheque
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LogTransacoes/LogUltimaTransacaoDepreciado/QuitacaoCartaFrete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transação Quitação de Carta Frete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Download/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Download
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Apendice/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Apendice
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Apendice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Apendice/MapaDeTerminais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mapa de terminais homologados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Apendice/Contatos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contatos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Apendice/ExemplosDeCodigo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exemplos de código
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Apendice/RedesAutorizadasDTEF8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redes Autorizadoras D-TEF 8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Apendice/Operadoras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operadoras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Apendice/Bandeiras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bandeiras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Apendice/PSPs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PSPs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Apendice/HistoricoDeRevisao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Historico de revisão
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FAQ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#transacoes-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transações PBM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodo-de-integracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Método de integração
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lista-de-pbms-suportadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lista de PBM's suportadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-redes-pbm-ativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Redes PBM Ativas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consulta Redes PBM Ativas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-pre-autorizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Pré Autorização
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consulta Pré Autorização">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-produtos-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consulta Produtos PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consulta Produtos PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#venda-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Venda PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Venda PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confirmacao-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Confirmação PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desfazimento-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desfazimento PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desfazimento PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cancelamento-pbm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cancelamento PBM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cancelamento PBM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requisição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resposta_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resposta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Transações PBM</h1>
+
+<h2 id="transacoes-pbm"><strong>Transações PBM</strong></h2>
+<div class="admonition warning">
+<p class="admonition-title">Os itens descritos abaixo desse alerta são customizações não liberadas 100% em produção, use somente se orientado expressamente.</p>
+</div>
+<p>Esse trecho da documentação irá esclarecer o formato de integração com o Paykit para as transações PBM de: (1) Consulta Redes PBM Ativas, (2) Consulta Pré Autorização, (3) Consulta Produtos PBM, (4) Venda PBM, (5) Confirmação PBM, (6) Desfazimento PBM e (7) Cancelamento PBM.</p>
+<h2 id="metodo-de-integracao"><strong>Método de integração</strong></h2>
+<p>Para efetuar as transações PBM's, é necessario a integração apenas com o método abaixo, sendo que por ele será possivel interagir com todas as transações disponiveis no fluxo de PBM.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoPBM</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pJsonSolicitacao</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">status</span><span class="p">)</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Tamanho</th>
+<th>Obrigatorio</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pJsonSolicitacao</td>
+<td>Variavel</td>
+<td>sim</td>
+<td>ponteiro para char, que contém o json com o input da automação para a operação de PBM. É necessario que no final da "string" exista  o caracter de final de linha '\0'</td>
+</tr>
+<tr>
+<td>status</td>
+<td>--</td>
+<td>sim</td>
+<td>ponteiro para uma variavel que guarda o tipo inteiro.</td>
+</tr>
+</tbody>
+</table>
+<p>O parametro de retorno <code>const char*</code> do método em questão conterá o json de reposta do TEF, todavia caso a automação deseje capturar em um segundo momento os dados de retorno da transação Consulta Pré-Autorização, Venda, Consulta Produtos e Cancelamento, conseguirá através do método <a href="../../../LogTransacoes/ObterLogTransacao/">Obter Log Transação</a>.</p>
+<p>O <strong>const char</strong>* de retorno do método não deve ser manipulado pela automação, a automação deve copiar o retorno para dentro de um objeto interno da mesma antes de tomar qualquer ação. Caso a automação tente realizar um free ou deixe com que o garbage colector da linguagem utilizada realize um free do retorno, poderá ocorrer um crash em um momento inesperado do fluxo.</p>
+<h2 id="lista-de-pbms-suportadas"><strong>Lista de PBM's suportadas</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Codigo</th>
+<th>Nome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>76</td>
+<td>Funcional</td>
+</tr>
+<tr>
+<td>5</td>
+<td>VidaLink</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Orizon</td>
+</tr>
+<tr>
+<td>230</td>
+<td>Interplayers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="consulta-redes-pbm-ativas"><strong>Consulta Redes PBM Ativas</strong></h2>
+<p>Transação para consultar as redes PBM's cadastradas no TEF e ativas para o estabelecimento em questão</p>
+<h3 id="requisicao"><strong>Requisição</strong></h3>
+<details class="info">
+<summary>Envio - Clique para mostrar o Objeto</summary>
+<p><strong>Json de Exemplo</strong></p>
+<p><div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="nt">&quot;codigoTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8029</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+<strong>Descritivo</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Tipo</th>
+<th>Obrigatorio</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>codigoTransacao</td>
+<td>int</td>
+<td>sim</td>
+<td>Código da transação a ser executada no TEF, para esta operação utilizar 8029</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="resposta"><strong>Resposta</strong></h3>
+<details class="success">
+<summary>Resposta TEF - Clique para mostrar o objeto</summary>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">        </span><span class="nt">&quot;parametrosRetorno&quot;</span><span class="p">:{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">            </span><span class="nt">&quot;redes&quot;</span><span class="p">:[</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="s2">&quot;76&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">                    </span><span class="nt">&quot;nome&quot;</span><span class="p">:</span><span class="s2">&quot;PBMFuncional&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">                    </span><span class="nt">&quot;nome&quot;</span><span class="p">:</span><span class="s2">&quot;VidaLink&quot;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="s2">&quot;8&quot;</span><span class="p">,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">                    </span><span class="nt">&quot;nome&quot;</span><span class="p">:</span><span class="s2">&quot;Orizon&quot;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">                </span><span class="p">},</span><span class="w"> </span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="s2">&quot;230&quot;</span><span class="p">,</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">                    </span><span class="nt">&quot;nome&quot;</span><span class="p">:</span><span class="s2">&quot;Interplayers&quot;</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<h2 id="consulta-pre-autorizacao"><strong>Consulta Pré Autorização</strong></h2>
+<p>Transação para obter dados de uma pré-autorização gerada no portal da PBM.</p>
+<h3 id="requisicao_1"><strong>Requisição</strong></h3>
+<details class="info">
+<summary>Envio - Clique para mostrar o Objeto</summary>
+<p><strong>Json de Exemplo</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">        </span><span class="nt">&quot;codigoTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8030</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="nt">&quot;parametrosEntrada&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">            </span><span class="nt">&quot;codigoRede&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;76&quot;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">            </span><span class="nt">&quot;dataCriacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-04T12:07:47Z&quot;</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">            </span><span class="nt">&quot;nsuPreAutorizacaoPBM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;147032&quot;</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">            </span><span class="nt">&quot;codigoCliente&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4444444444&quot;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+<strong>Descritivo</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Sub-item</th>
+<th>Tipo</th>
+<th>Obrigatorio</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>codigoTransacao</td>
+<td></td>
+<td>int</td>
+<td>Sim</td>
+<td>Código da transação a ser executada no TEF, para esta operação utilizar: 8030</td>
+</tr>
+<tr>
+<td>parametrosEntrada</td>
+<td></td>
+<td>Objeto</td>
+<td>Sim</td>
+<td>Dados a serem processados pelo TEF e quem tem como requisito as redes PBM</td>
+</tr>
+<tr>
+<td></td>
+<td>codigoRede</td>
+<td>string</td>
+<td>Sim</td>
+<td>Codigo da rede no TEF a qual a PBM deverá ser processada</td>
+</tr>
+<tr>
+<td></td>
+<td>dataCriacao</td>
+<td>string</td>
+<td>Sim</td>
+<td>"2025-07-17T16:28:51Z" -&gt; data no formato YYYY-MM-DD (ano-mês-dia)              <br>T: separador entre a data e a hora.                                             <br>16:28:51: hora no formato de 24 horas (HH:MM:SS).                               <br>Z: indica que o horário está em UTC (Tempo Universal)</td>
+</tr>
+<tr>
+<td></td>
+<td>nsuPreAutorizacaoPBM</td>
+<td>string</td>
+<td>Sim</td>
+<td>NSU Gerado pela rede PBM no momento da pré-autorização</td>
+</tr>
+<tr>
+<td></td>
+<td>codigoCliente</td>
+<td>string</td>
+<td>Sim</td>
+<td>CPF ou Cartão Convenio do cliente. Caso o dado informado seja um CPF valido, o campo será tratado como CPF, se não como cartão convenio</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="resposta_1"><strong>Resposta</strong></h3>
+<details class="success">
+<summary>Resposta TEF</summary>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="nt">&quot;parametrosRetorno&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">            </span><span class="nt">&quot;codigoStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">            </span><span class="nt">&quot;mensagemStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;&quot;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="nt">&quot;valorAVista&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span><span class="nt">&quot;customerCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="nt">&quot;nsuPreAutorizacaoPBM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="nt">&quot;dataCriacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="nt">&quot;valorTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">            </span><span class="nt">&quot;valorCartao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">            </span><span class="nt">&quot;codigoCliente&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">            </span><span class="nt">&quot;comprovante&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="nt">&quot;saldoCartao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">            </span><span class="nt">&quot;origem&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">            </span><span class="nt">&quot;medicamento&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">                    </span><span class="nt">&quot;descricao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">                    </span><span class="nt">&quot;precoMaxConsumidor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">                    </span><span class="nt">&quot;precoRepasseVarejo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">                    </span><span class="nt">&quot;precoAquisicaoUnitario&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">                    </span><span class="nt">&quot;quantidadeAutorizada&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">                    </span><span class="nt">&quot;dataReceita&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">                    </span><span class="nt">&quot;crm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">                    </span><span class="nt">&quot;crm_cro&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">                    </span><span class="nt">&quot;uf_crm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">        </span><span class="p">}</span><span class="w">   </span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<h2 id="consulta-produtos-pbm"><strong>Consulta Produtos PBM</strong></h2>
+<p>Transação disponivel apenas para a PBM <strong>Interplayers</strong> e tem o objetivo de retornar dados dos produtos vinculado a um ean</p>
+<h3 id="requisicao_2"><strong>Requisição</strong></h3>
+<details class="info">
+<summary>Envio - Clique para mostrar o Objeto</summary>
+<p><strong>Json de Exemplo</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">        </span><span class="nt">&quot;codigoTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8200</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="nt">&quot;parametrosEntrada&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">            </span><span class="nt">&quot;codigoRede&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;230&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">            </span><span class="nt">&quot;medicamento&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7897337706742&quot;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+<strong>Descritivo</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Sub-item</th>
+<th>Sub-item²</th>
+<th>Tipo</th>
+<th>Obrigatorio</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>codigoTransacao</td>
+<td></td>
+<td></td>
+<td>int</td>
+<td>Sim</td>
+<td>Código da transação a ser executada no TEF, para esta operação utilizar: 8200</td>
+</tr>
+<tr>
+<td>parametrosEntrada</td>
+<td></td>
+<td></td>
+<td>Objeto</td>
+<td>Sim</td>
+<td>Dados a serem processados pelo TEF e quem tem como requisito as redes PBM</td>
+</tr>
+<tr>
+<td></td>
+<td>codigoRede</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Codigo da rede no TEF a qual a PBM deverá ser processada</td>
+</tr>
+<tr>
+<td></td>
+<td>medicamento</td>
+<td></td>
+<td>Array de obj</td>
+<td>Sim</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>codigo</td>
+<td>string</td>
+<td>Sim</td>
+<td>Código ean do produto</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="resposta_2"><strong>Resposta</strong></h3>
+<details class="success">
+<summary>Resposta TEF</summary>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">        </span><span class="nt">&quot;parametrosRetorno&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">            </span><span class="nt">&quot;medicamento&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">                    </span><span class="nt">&quot;precoMaxConsumidor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">                    </span><span class="nt">&quot;precoAquisicaoUnitario&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">                    </span><span class="nt">&quot;quantidadeAutorizada&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">                    </span><span class="nt">&quot;mensagemInformativa&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">                    </span><span class="nt">&quot;nomeDaIndustria&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">                    </span><span class="nt">&quot;linkDaImagem&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">                    </span><span class="nt">&quot;quantidadeMaximaDeDesconto&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">                    </span><span class="nt">&quot;descontoMinimoNovoPaciente&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">                    </span><span class="nt">&quot;descontoMaximoNovoPaciente&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<h2 id="venda-pbm"><strong>Venda PBM</strong></h2>
+<p>Essa transação tem por objetivo efetivar uma pré-autorização realizada anteriormente no portal da PBM. A <strong>exceção</strong> a essa regra é a PBM Interplayers, que caso não seja enviado o número da pré-autorização, uma venda será gerada.</p>
+<h3 id="requisicao_3"><strong>Requisição</strong></h3>
+<details class="info">
+<summary>Envio - Clique para mostrar o Objeto</summary>
+<p><strong>Json de Exemplo</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">            </span><span class="nt">&quot;codigoTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8031</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">            </span><span class="nt">&quot;parametrosEntrada&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">                </span><span class="nt">&quot;codigoRede&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8&quot;</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">                </span><span class="nt">&quot;nsuPreAutorizacaoPBM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;58677317&quot;</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">                </span><span class="nt">&quot;codigoCliente&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60100022100000116&quot;</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">                </span><span class="nt">&quot;dataCriacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-17T16:28:51Z&quot;</span><span class="p">,</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">                </span><span class="nt">&quot;cupons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">                    </span><span class="p">{</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">                        </span><span class="nt">&quot;cupom&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">                            </span><span class="p">{</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">                                </span><span class="nt">&quot;tipo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;esat&quot;</span><span class="p">,</span><span class="w">                        </span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">                                </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3234592&quot;</span><span class="p">,</span><span class="w">                                                 </span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">                                </span><span class="nt">&quot;chave&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;key&quot;</span><span class="w">                          </span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">                            </span><span class="p">}</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">                        </span><span class="p">],</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">                    </span><span class="p">}</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">                </span><span class="p">]</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">                </span><span class="nt">&quot;medicamento&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">                    </span><span class="p">{</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">                        </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7896004700410&quot;</span><span class="p">,</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">                        </span><span class="nt">&quot;quantidadeAutorizada&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">                        </span><span class="nt">&quot;crm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;987654321&quot;</span><span class="p">,</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">                        </span><span class="nt">&quot;crm_cro&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">                        </span><span class="nt">&quot;uf_crm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SP&quot;</span><span class="p">,</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">                        </span><span class="nt">&quot;dataReceita&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;02012025&quot;</span><span class="p">,</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">                        </span><span class="nt">&quot;descricao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RECEITA 01&quot;</span><span class="p">,</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">                        </span><span class="nt">&quot;precoAquisicaoUnitario&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5000&quot;</span><span class="p">,</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">                        </span><span class="nt">&quot;tipo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">                        </span><span class="nt">&quot;usoContinuo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;S&quot;</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">                    </span><span class="p">}</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">                </span><span class="p">]</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">        </span><span class="p">}</span>
+</span></code></pre></div>
+<strong>Descritivo</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Sub-item</th>
+<th>Sub-item²</th>
+<th>Sub-item³</th>
+<th>Tipo</th>
+<th>Obrigatorio</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>codigoTransacao</td>
+<td></td>
+<td></td>
+<td></td>
+<td>int</td>
+<td>int</td>
+<td>Código da transação a ser executada no TEF, para esta operação utilizar: 8031</td>
+</tr>
+<tr>
+<td>parametrosEntrada</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Objeto</td>
+<td>Sim</td>
+<td>Dados a serem processados pelo TEF e quem tem como requisito as redes PBM</td>
+</tr>
+<tr>
+<td></td>
+<td>codigoRede</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Codigo da rede no TEF a qual a PBM deverá ser processada. Não obrigatorio para a PBM Interplayers</td>
+</tr>
+<tr>
+<td></td>
+<td>nsuPreAutorizacaoPBM</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>NSU Gerado pela rede PBM no momento da pré-autorização</td>
+</tr>
+<tr>
+<td></td>
+<td>codigoCliente</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>CPF ou Cartão Convenio do cliente. Caso o dado informado seja um CPF valido, o campo será tratado como CPF, se não como cartão convenio</td>
+</tr>
+<tr>
+<td></td>
+<td>dataCriacao</td>
+<td></td>
+<td></td>
+<td>string date</td>
+<td>Sim</td>
+<td>Data criação pré-autorização<br>Formato "2025-07-17T16:28:51Z" <br>Sendo data no formato YYYY-MM-DD (ano-mês-dia). <br> T: separador entre a data e a hora.<br>16:28:51: hora no formato de 24 horas (HH:MM:SS).<br>Z: indica que o horário está em UTC (Tempo Universal)</td>
+</tr>
+<tr>
+<td></td>
+<td>cupons</td>
+<td></td>
+<td></td>
+<td>Array de obj</td>
+<td>Sim</td>
+<td>Objeto que contém os dados da nota fiscal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>cupom</td>
+<td></td>
+<td>Array de obj</td>
+<td>Sim</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>tipo</td>
+<td>string</td>
+<td>Sim</td>
+<td>tipo de cupom informado, possibilidades: "esat" ou "ecf"</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>codigo</td>
+<td>string</td>
+<td>Sim</td>
+<td>Número da nota fiscal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>chave</td>
+<td>string</td>
+<td>Não</td>
+<td>Se informado informado esat é obrigatorio o numero da chave</td>
+</tr>
+<tr>
+<td></td>
+<td>medicamento</td>
+<td></td>
+<td></td>
+<td>Array de obj</td>
+<td>Sim</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>codigo</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Código ean do produto</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>quantidadeAutorizada</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Quantidade do médicamento autorizada para a venda</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>crm</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Crm do médico ou CRO do Dentista que solicitou o medicamento</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>crm_cro</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Indica se é um CRM ou CRO o campo "crm", possibilidades: 0 para CRM, 1 para CRO</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>uf_crm</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Estado</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>dataReceita</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Data que a receita foi emitida pelo médico formato MMddyyyy</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>descricao</td>
+<td></td>
+<td>string</td>
+<td>Não</td>
+<td>Campo opcional para descrever o medicamento</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>precoAquisicaoUnitario</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Preço do produto no estabelecimento</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>tipo</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>VER DEFINIÇÃO DA REDE</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>usoContinuo</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>"S" para indicar que SIM e "N" para indicar que não</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="resposta_3"><strong>Resposta</strong></h3>
+<details class="success">
+<summary>Resposta TEF</summary>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">        </span><span class="nt">&quot;parametrosRetorno&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">            </span><span class="nt">&quot;codigoStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">            </span><span class="nt">&quot;mensagemStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;&quot;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">            </span><span class="nt">&quot;valorAVista&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">            </span><span class="nt">&quot;customerCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">            </span><span class="nt">&quot;nsuPreAutorizacaoPBM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">            </span><span class="nt">&quot;nsuTEF&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">            </span><span class="nt">&quot;dataCriacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">            </span><span class="nt">&quot;valorTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">            </span><span class="nt">&quot;valorCartao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">            </span><span class="nt">&quot;codigoCliente&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">            </span><span class="nt">&quot;comprovante&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">            </span><span class="nt">&quot;saldoCartao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">            </span><span class="nt">&quot;origem&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">            </span><span class="nt">&quot;medicamento&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">                    </span><span class="nt">&quot;descricao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">                    </span><span class="nt">&quot;precoMaxConsumidor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">                    </span><span class="nt">&quot;precoRepasseVarejo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">                    </span><span class="nt">&quot;precoAquisicaoUnitario&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">                    </span><span class="nt">&quot;quantidadeAutorizada&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">                    </span><span class="nt">&quot;dataReceita&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">                    </span><span class="nt">&quot;crm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">                    </span><span class="nt">&quot;crm_cro&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">                    </span><span class="nt">&quot;uf_crm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">        </span><span class="p">}</span><span class="w">   </span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<h2 id="confirmacao-pbm"><strong>Confirmação PBM</strong></h2>
+<p>Transação utilizada para realizar a confirmação de uma transação PBM. Após a execução de todas as confirmações e desfazimentos dos pagamentos realizados em uma unica venda, é necessario acionar o método comum <a href="../../ConfirmacaoEDesfazimentoDeTransacoes/#confirmacao-e-desfazimento-de-transacoes">FinalizaTransacao</a></p>
+<h3 id="requisicao_4"><strong>Requisição</strong></h3>
+<details class="info">
+<summary>Envio - Clique para mostrar o Objeto</summary>
+<p><strong>Json de Exemplo</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">        </span><span class="nt">&quot;codigoTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8014</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="nt">&quot;parametrosEntrada&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">            </span><span class="nt">&quot;dataVenda&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-17T12:34:46Z&quot;</span><span class="p">,</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">            </span><span class="nt">&quot;nsuVendaTEFPBM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;148303&quot;</span><span class="p">,</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">            </span><span class="s2">&quot;nsuPreAutorizacaoPBM&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;111111&quot;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">            </span><span class="nt">&quot;cupons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">                    </span><span class="nt">&quot;cupom&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">                        </span><span class="p">{</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">                            </span><span class="nt">&quot;tipo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;esat&quot;</span><span class="p">,</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">                            </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;3234592&quot;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">                            </span><span class="nt">&quot;chave&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;key&quot;</span><span class="p">,</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">                            </span><span class="nt">&quot;protocoloAutorizacaoDanfe&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;autorization&quot;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">                        </span><span class="p">}</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">                    </span><span class="p">],</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">            </span><span class="nt">&quot;medicamento&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7896004700410&quot;</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+<strong>Descritivo</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Sub-item</th>
+<th>Sub-item²</th>
+<th>Sub-item³</th>
+<th>Tipo</th>
+<th>Obrigatorio</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>codigoTransacao</td>
+<td></td>
+<td></td>
+<td></td>
+<td>int</td>
+<td>int</td>
+<td>Código da transação a ser executada no TEF, para esta operação utilizar: 8014</td>
+</tr>
+<tr>
+<td>parametrosEntrada</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Objeto</td>
+<td>Sim</td>
+<td>Dados a serem processados pelo TEF e quem tem como requisito as redes PBM</td>
+</tr>
+<tr>
+<td></td>
+<td>nsuVendaTEFPBM</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>NSU do TEF que foi gerado durante a transação de VENDA</td>
+</tr>
+<tr>
+<td></td>
+<td>nsuPreAutorizacaoPBM</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>NSU Gerado pela rede PBM no momento da pré-autorização</td>
+</tr>
+<tr>
+<td></td>
+<td>dataVenda</td>
+<td></td>
+<td></td>
+<td>string date</td>
+<td>Sim</td>
+<td>Data e hora da efetivação da venda, esse dado é retornado na venda.           <br> "2025-07-17T16:28:51Z" -&gt; data no formato YYYY-MM-DD (ano-mês-dia).           <br> T: separador entre a data e a hora.                                           <br> 16:28:51: hora no formato de 24 horas (HH:MM:SS).                             <br> Z: indica que o horário está em UTC (Tempo Universal)</td>
+</tr>
+<tr>
+<td></td>
+<td>cupons</td>
+<td></td>
+<td></td>
+<td>Array de obj</td>
+<td>Sim</td>
+<td>Objeto que contém os dados da nota fiscal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>cupom</td>
+<td></td>
+<td>Array de obj</td>
+<td>Sim</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>tipo</td>
+<td>string</td>
+<td>Sim</td>
+<td>tipo de cupom informado, possibilidades: "esat" ou "ecf"</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>codigo</td>
+<td>string</td>
+<td>Sim</td>
+<td>Número da nota fiscal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>chave</td>
+<td>string</td>
+<td>Não</td>
+<td>Se informado informado esat é obrigatorio o numero da chave</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>protocoloAutorizacaoDanfe</td>
+<td>string</td>
+<td>Sim</td>
+<td>Número de autorização da nota</td>
+</tr>
+<tr>
+<td></td>
+<td>medicamento</td>
+<td></td>
+<td></td>
+<td>Array de obj</td>
+<td>Não</td>
+<td>Somente para a PBM Interplayers</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>codigo</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Código ean do produto</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="resposta_4"><strong>Resposta</strong></h3>
+<p>Não há respostas customizadas para a automação nessa operação, apenas será retornado se sucesso ou não através do atributo status.</p>
+<h2 id="desfazimento-pbm"><strong>Desfazimento PBM</strong></h2>
+<p>Transação utilizada para realizar o desfazimento de uma transação PBM. Após a execução de todas as confirmações e desfazimentos dos pagamentos realizados em uma unica venda, é necessario acionar o método comum <a href="../../ConfirmacaoEDesfazimentoDeTransacoes/#confirmacao-e-desfazimento-de-transacoes">FinalizaTransacao</a></p>
+<h3 id="requisicao_5"><strong>Requisição</strong></h3>
+<details class="info">
+<summary>Envio - Clique para mostrar o Objeto</summary>
+<p><strong>Json de Exemplo</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">    </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">        </span><span class="nt">&quot;codigoTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8013</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="nt">&quot;parametrosEntrada&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">            </span><span class="nt">&quot;nsuVendaTEFPBM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">            </span><span class="nt">&quot;nsuPreAutorizacaoPBM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1111111&quot;</span><span class="p">,</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">            </span><span class="nt">&quot;dataVenda&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-17T12:34:46Z&quot;</span><span class="p">,</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">            </span><span class="nt">&quot;codigoCliente&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60100022100000116&quot;</span><span class="p">,</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="nt">&quot;dataCriacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-04T12:07:47Z&quot;</span><span class="p">,</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">            </span><span class="nt">&quot;medicamento&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7896004700410&quot;</span><span class="p">,</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">                    </span><span class="nt">&quot;quantidadeCancelada&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+<strong>Descritivo</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Sub-item</th>
+<th>Sub-item²</th>
+<th>Sub-item³</th>
+<th>Tipo</th>
+<th>Obrigatorio</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>codigoTransacao</td>
+<td></td>
+<td></td>
+<td></td>
+<td>int</td>
+<td>int</td>
+<td>Código da transação a ser executada no TEF, para esta operação utilizar: 8013 -&gt; Desfazimento</td>
+</tr>
+<tr>
+<td>parametrosEntrada</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Objeto</td>
+<td>Sim</td>
+<td>Dados a serem processados pelo TEF e quem tem como requisito as redes PBM</td>
+</tr>
+<tr>
+<td></td>
+<td>nsuVendaTEFPBM</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>NSU do TEF que foi gerado durante a transação de VENDA</td>
+</tr>
+<tr>
+<td></td>
+<td>nsuPreAutorizacaoPBM</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>NSU Gerado pela rede PBM no momento da pré-autorização</td>
+</tr>
+<tr>
+<td></td>
+<td>codigoCliente</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>CPF ou Cartão Convenio do cliente. Caso o dado informado seja um CPF valido, o campo será tratado como CPF, se não como cartão convenio</td>
+</tr>
+<tr>
+<td></td>
+<td>dataCriacao</td>
+<td></td>
+<td></td>
+<td>string date</td>
+<td>Sim</td>
+<td>Data da criação da pré-autorização na PBM, esse dado é retornado na consulta  <br>"2025-07-17T16:28:51Z" -&gt; data no formato YYYY-MM-DD (ano-mês-dia).           <br>T: separador entre a data e a hora.                                           <br>16:28:51: hora no formato de 24 horas (HH:MM:SS).                             <br>Z: indica que o horário está em UTC (Tempo Universal)</td>
+</tr>
+<tr>
+<td></td>
+<td>medicamento</td>
+<td></td>
+<td></td>
+<td>Array de obj</td>
+<td>Não</td>
+<td>Obrigatorio somente para a PBM Orizon e Interplayers</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>codigo</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Código ean do produto</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>quantidadeCancelada</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Quantidade do produto que será cancelada</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="resposta_5"><strong>Resposta</strong></h3>
+<p>Não há respostas customizadas para a automação nessa operação, apenas será retornado se sucesso ou não através do atributo status.</p>
+<h2 id="cancelamento-pbm"><strong>Cancelamento PBM</strong></h2>
+<p>Transação utilizada para realizar o cancelamento de uma Venda PBM, está transação também precisa ser confirmada, caso contrário ficará pendente no servidor TEF.</p>
+<h3 id="requisicao_6"><strong>Requisição</strong></h3>
+<details class="info">
+<summary>Envio - Clique para mostrar o Objeto</summary>
+<p><strong>Json de Exemplo</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">    </span><span class="p">{</span><span class="w">  </span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">        </span><span class="nt">&quot;codigoTransacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8063</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">        </span><span class="nt">&quot;parametrosEntrada&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">            </span><span class="nt">&quot;nsuVendaTEFPBM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">            </span><span class="nt">&quot;nsuPreAutorizacaoPBM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">            </span><span class="nt">&quot;dataVenda&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-17T12:34:46Z&quot;</span><span class="p">,</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">            </span><span class="nt">&quot;codigoCliente&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60100022100000116&quot;</span><span class="p">,</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">            </span><span class="nt">&quot;dataCriacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-07-04T12:07:47Z&quot;</span><span class="p">,</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">            </span><span class="nt">&quot;medicamento&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">                    </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7896004700410&quot;</span><span class="p">,</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">                    </span><span class="nt">&quot;quantidadeCancelada&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">                </span><span class="p">},</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+<strong>Descritivo</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Sub-item</th>
+<th>Sub-item²</th>
+<th>Sub-item³</th>
+<th>Tipo</th>
+<th>Obrigatorio</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>codigoTransacao</td>
+<td></td>
+<td></td>
+<td></td>
+<td>int</td>
+<td>int</td>
+<td>Código da transação a ser executada no TEF, para esta operação utilizar: 8063</td>
+</tr>
+<tr>
+<td>parametrosEntrada</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Objeto</td>
+<td>Sim</td>
+<td>Dados a serem processados pelo TEF e quem tem como requisito as redes PBM</td>
+</tr>
+<tr>
+<td></td>
+<td>nsuVendaTEFPBM</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>NSU do TEF que foi gerado durante a transação de VENDA</td>
+</tr>
+<tr>
+<td></td>
+<td>nsuPreAutorizacaoPBM</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Não</td>
+<td>NSU Gerado pela rede PBM no momento da pré-autorização</td>
+</tr>
+<tr>
+<td></td>
+<td>codigoCliente</td>
+<td></td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>CPF ou Cartão Convenio do cliente. Caso o dado informado seja um CPF valido, o campo será tratado como CPF, se não como cartão convenio</td>
+</tr>
+<tr>
+<td></td>
+<td>dataCriacao</td>
+<td></td>
+<td></td>
+<td>string date</td>
+<td>Sim</td>
+<td>Data da criação da pré-autorização na PBM, esse dado é retornado na consulta  <br>"2025-07-17T16:28:51Z" -&gt; data no formato YYYY-MM-DD (ano-mês-dia).<br>T: separador entre a data e a hora.<br>16:28:51: hora no formato de 24 horas (HH:MM:SS).<br>Z: indica que o horário está em UTC (Tempo Universal)</td>
+</tr>
+<tr>
+<td></td>
+<td>medicamento</td>
+<td></td>
+<td></td>
+<td>Array de obj</td>
+<td>Não</td>
+<td>Somente para a PBM Orizon</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>codigo</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Código ean do produto</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>quantidadeCancelada</td>
+<td></td>
+<td>string</td>
+<td>Sim</td>
+<td>Quantidade do produto que será cancelada</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="resposta_6"><strong>Resposta</strong></h3>
+<details class="success">
+<summary>Resposta TEF</summary>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">        </span><span class="nt">&quot;parametrosRetorno&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">            </span><span class="nt">&quot;codigoRetorno&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">            </span><span class="nt">&quot;mensagemStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">            </span><span class="nt">&quot;dataCriacao&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">            </span><span class="nt">&quot;codigoStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">            </span><span class="nt">&quot;comprovante&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="p">}</span>
+</span></code></pre></div>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../CartaoFrota/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Cartão Frota">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Cartão Frota
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../FinalizacaoVendaouRecebimento/" class="md-footer__link md-footer__link--next" aria-label="Next: Finalização de Venda ou Recebimento">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Finalização de Venda ou Recebimento
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Linx Sistemas e Consultoria Ltda
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/linxretail" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/linxretail/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/PayHubLinx" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.path", "content.tabs.link", "search.suggest", "search.tabs.link", "search.highlight", "header.autohide", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

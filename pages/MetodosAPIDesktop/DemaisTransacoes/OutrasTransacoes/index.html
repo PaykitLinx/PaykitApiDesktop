@@ -489,6 +489,8 @@
       
         
       
+        
+      
     
     
     
@@ -631,11 +633,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../TransacoesPrincipais/TeleMarketing/" class="md-nav__link">
+      <a href="../../TransacoesPrincipais/TransacoesPBM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Tele-Marketing
+    Transações PBM
   </span>
   
 
@@ -720,6 +722,27 @@
   
   <span class="md-ellipsis">
     LOG da Última Transação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TransacoesPrincipais/TeleMarketing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tele-Marketing
   </span>
   
 
@@ -1261,15 +1284,6 @@
   <a href="#plataforma-promocional-cielo" class="md-nav__link">
     <span class="md-ellipsis">
       Plataforma Promocional CIELO
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transacoes-pbm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transações PBM
     </span>
   </a>
   
@@ -3085,15 +3099,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transacoes-pbm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transações PBM
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#transacao-cheque" class="md-nav__link">
     <span class="md-ellipsis">
       Transação Cheque
@@ -3928,412 +3933,10 @@ Para obter essa informação, verificar a documentação sobre a função <em>Ob
 , especificamente sobre o Log Estendido. Esta verificação deve ser feita somente se a rede
 autorizadora da transação é uma rede do Linx TEF, pois para as transações feitas com redes no Linx TEF 5 o log estendido não é gerado.</p>
 <p>Implementar a chamada à função <em>TransacaoResgatePremio</em> , para fazer o resgate dos prêmios.</p>
-<h2 id="transacoes-pbm"><strong>Transações PBM</strong></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ConsultaParametrosPBM</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeRedes</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">                                            </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosRedes</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ConsultaProdutosPBM</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha1</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">                                          </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha2</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDigitado</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pAutorizacao</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">                                          </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosCRM</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTipoVenda</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTotalMedicamentos</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">                                          </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorVista</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorCartao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCodigoCredenciado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">                                          </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeMedicamentos</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMedicamentos</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">                                          </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoVendaPBM</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTotalMedicamentos</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha1</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha2</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDigitado</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pAutorizacao</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNSUConsulta</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosCRM</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTipoVenda</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorVista</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorCartao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCodigoCredenciado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRegraNegocio</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeMedicamentos</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMedicamentos</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControleRede</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ConfirmaVendaPBM</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoReimpressaoVendaPBM</span><span class="p">()</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoCancelamentoVendaPBM</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoElegibilidadePBM</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMatricula</span><span class="p">,</span>
-</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosElegibilidade</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControleRede</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNomeCliente</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNomeMedico</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pInformaDependente</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pListaDependentes</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoPreAutorizacaoPBM</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">                                                 </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pAutorizacaoElegibilidade</span><span class="p">,</span>
-</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">                                                 </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosFarmaceutico</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeMedicamentos</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">                                                 </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMedicamentos</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">                                                 </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControleRede</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">                                                 </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoCancelamentoPreAutorizacaoPBM</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ConsultaParametrosPBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">                                                          </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">                                                          </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeRedes</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">                                                          </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosRedes</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ConsultaProdutosPBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">                                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">                                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">                                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha1</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha2</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDigitado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">                                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pAutorizacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosCRM</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="w">                                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTipoVenda</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTotalMedicamentos</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">                                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorVista</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorCartao</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="w">                                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCodigoCredenciado</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeMedicamentos</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="w">                                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMedicamentos</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-40-10"><a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="w">                                                        </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoVendaPBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">                                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">                                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTotalMedicamentos</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">                                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha1</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha2</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="w">                                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDigitado</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pAutorizacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNSUConsulta</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="w">                                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosCRM</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTipoVenda</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorVista</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">                                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorCartao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCodigoCredenciado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="w">                                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRegraNegocio</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeMedicamentos</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="w">                                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMedicamentos</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="w">                                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControleRede</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoCancelamentoVendaPBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span>
-</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">                                                                  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">                                                                  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha1</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha2</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">                                                                  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDigitado</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">                                                                  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="w">                                                                  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoAberturaVendaPBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha1</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha2</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDigitado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pPedirDadosComplementares</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-43-6"><a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosComplementares</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-43-7"><a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pInfoDadosComplementares</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-43-8"><a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoVendaProdutoPBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span>
-</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">                                                             </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">                                                             </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha1</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">                                                             </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha2</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDigitado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="w">                                                             </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMedicamento</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="w">                                                             </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pPedirDadosComplementares</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-44-7"><a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="w">                                                             </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosComplementares</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-44-8"><a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="w">                                                             </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pInfoDadosComplementares</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-44-9"><a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="w">                                                             </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoFechamentoVendaPBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">                                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">                                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha1</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">                                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTrilha2</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDigitado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">                                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pConfirmacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="w">                                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pAutorizacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="w">                                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoElegibilidadePBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMatricula</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosElegibilidade</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControleRede</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNomeCliente</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNomeMedico</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pInformaDependente</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pListaDependentes</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-46-8"><a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a><span class="w">                                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoPreAutorizacaoPBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">                                                               </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">                                                               </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pRedePBM</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">                                                               </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pAutorizacaoElegibilidade</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">                                                               </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDadosFarmaceutico</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="w">                                                               </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeMedicamentos</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="w">                                                               </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMedicamentos</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="w">                                                               </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControleRede</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">                                                               </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoCancelamentoPreAutorizacaoPBM_TeleMarketing</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroEmpresa</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">                                                                           </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMultiLoja</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">                                                                           </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroLoja</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w">                                                                           </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroPDV</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="w">                                                                           </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMatricula</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="w">                                                                           </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="w">                                                                           </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="w">                                                                           </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
-</span></code></pre></div>
-<p>As transações com a rede "PBM Funcional", onde retorna os parâmetros da rede
-"DadosRedes=[49000PBM Funcional <strong>SS</strong> ]", significa que a mesma necessita do "Código de
-Autorização”" e "Número do Cartão", conforme estrutura retornado neste parâmetro.</p>
-<p>Ainda sobre a rede “PBM Funcional”, referente ao "Número do Cartão", o mesmo deve ser solicitado
-ao operador "campo com 17 dígitos", e enviado no parâmetro " <strong>pTrilha2</strong> " contendo somente os 17
-dígitos coletados pelo operador.</p>
-<p>As solicitações de transação de Consulta das Redes Parametrizadas, de Consulta de
-Produtos, Transação de Venda PBM, Confirmação de Venda PBM, Reimpressão de Venda
-PBM e Cancelamento de Venda PBM são realizadas através das chamadas às funções <em>ConsultaParametrosPBM ,
-ConsultaProdutosPBM , TransacaoVendaPBM , ConfirmaVendaPBM , TransacaoReimpressaoVendaPBM e
-TransacaoCancelamentoVendaPBM</em>.</p>
-<p>O <em>NumeroControle</em> , incluído na resposta da função de consulta de produtos, deverá ser armazenado
-pelo sistema de automação, pois na função de venda este número deverá obrigatoriamente, ser utilizado,
-para informar o número da consulta em que os produtos foram obtidos. No caso do <em>NumeroControle</em> obtido
-no retorno da função de venda, deverá ser armazenado pelo sistema de automação para efetivar a confirmação da venda.</p>
-<p>Após a impressão do comprovante pela automação comercial, sendo esta com sucesso, deve-se
-realizar a confirmação da transação através da função <em>ConfirmaVendaPBM</em> informando o número do
-NSU da transação que deseja confirmar. Em seguida, para encerrar a operação deve ser chamada a
-função <em>FinalizaTransacao</em>, documentada <a href="../../ConfirmacaoEDesfazimentoDeTransacoes/">nesta página</a>..</p>
-<p>Através da função <em>TransacaoReimpressaoVendaPBM</em> poderá ser reimpresso o comprovante da
-última venda PBM emitida com sucesso. Caso a função seja executada com sucesso, o arquivo
-ULTIMOPBM.PRN será disponibilizado no diretório parametrizado para os cupons.</p>
-<p>As funções de Consulta de Parâmetros e Consulta de Produtos devem ser acionadas antes de
-iniciar-se uma venda, pois ao efetuar a venda o operador deverá optar por utilizar um produto da
-rede selecionada ou por um produto da própria loja. Esta “seleção” é importante para determinar
-se o sistema de automação comercial deverá chamar a função de venda PBM ou não. No caso de
-efetuar uma venda PBM, todos os parâmetros obtidos através da função de consulta PBM deverão
-ser passados na função de venda, de acordo com a quantidade vendida. Estes dados deverão estar
-coerentes com os dados da consulta, caso contrário, a venda corre o risco de não ser aprovada pela
-rede PBM selecionada.</p>
-<p>Através da função <em>TransacaoCancelamentoVendaPBM</em> pode-se efetuar o cancelamento de uma
-venda PBM. O NumeroControle da venda a ser cancelada deve ser informado. Além disso, se a rede
-PBM exigir, poderá ser necessário a leitura do cartão do beneficiário para efetuar o cancelamento.</p>
-<p>Os campos estão abaixo caracterizados.</p>
-<table>
-<thead>
-<tr>
-<th>Campo</th>
-<th>Tamanho</th>
-<th>Descrição</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MultiLoja</td>
-<td>01 P</td>
-<td>01 Caracter [‘S’,’N’]</td>
-</tr>
-<tr>
-<td>NumeroEmpresa</td>
-<td>04 P</td>
-<td>04 inteiros</td>
-</tr>
-<tr>
-<td>NumeroLoja</td>
-<td>04 P</td>
-<td>04 inteiros</td>
-</tr>
-<tr>
-<td>NumeroPDV</td>
-<td>03 P</td>
-<td>03 inteiros [001…356]</td>
-</tr>
-<tr>
-<td>InfoDadosComplementares</td>
-<td>64 A</td>
-<td>Informação de coleta de campos opcionais da tela de abertura de venda PBM. Os parâmetros dos 2 campos têm o seguinte formato:<br><br>• TAAMMXX...XXTAAMMXX...XX<br><br>• <strong>T</strong> : tipo do campo - N (numérico), A (alfanumérico) ou F (opção sim ou não - Y/N)<br><br>• <strong>AA</strong> : tamanho mínimo do campo (1 até 50)<br><br>• <strong>MM</strong> : tamanho máximo do campo (1 até 50)<br><br>• <strong>X</strong> : nome do campo para apresentação na tela (até 20 bytes)<br><br>Os dois campos são opcionais. Se nenhum campo estiver preenchido, não haverá a coleta. Exemplo:<br>• N0808CEP N1111CPF DO PORTADOR<br><br>• Neste exemplo, haverá a captura de 2 campos, sendo que o primeiro é o CEP com 8 dígitos (N=numérico) e o segundo o CPF com 11 dígitos.</td>
-</tr>
-<tr>
-<td>DadosComplementares</td>
-<td>128A</td>
-<td>Dados complementares coletados conforme os campos da estrutura InfoDadosComplementares . No exemplo acima, os dados poderiam ficar:<br>• 08999999991199999999999, isto é, CEP 99999999 com 8 dígitos e CPF 99999999999 com 11 dígitos.</td>
-</tr>
-<tr>
-<td>PedirDadosComplementares</td>
-<td>01 A</td>
-<td>Se a função retornar erro, analisar este campo para verificar se é necessário coletar os dados complementares e chamar novamente a função.<br>• [ <strong>S</strong> ] Coletar dados complementares<br><br>• [ <strong>N</strong> ] Não coletar dados complementares</td>
-</tr>
-<tr>
-<td>ValorTotalMedicamentos</td>
-<td>12N</td>
-<td>Valor total dos medicamentos do cupom na venda ou valor total dos medicamentos retornados na consulta</td>
-</tr>
-<tr>
-<td>NumeroCupom</td>
-<td>06N</td>
-<td>Número do cupom (fiscal ou não fiscal)</td>
-</tr>
-<tr>
-<td>QuantidadeRedes</td>
-<td>02N</td>
-<td>Quantidade de redes cadastradas</td>
-</tr>
-<tr>
-<td>DadosRedes<br><br><strong>Formato:</strong><br><br>Numero[05]<br><br>Nome[20]<br><br>ColetaCartao[01]<br><br>ColetaAutorizacao[01]<br><br>Filler[13]</td>
-<td>560P</td>
-<td>Parâmetro que retorna os dados das redes cadastradas. Os campos <em>ColetaCartao</em> e <em>ColetaAutorizacao</em> indicam qual informação deve ser coletada pelo sistema de automação comercial. Podem ser retornados até 14 redes no formato especificado <em>Especificação de alguns campos</em> :<br><br>Campo <em>ColetaCartao</em> = <br><br>• [ <strong>S</strong> ] Coletar cartão<br><br>• [ <strong>N</strong> ] Não coletar cartão<br><br>Campo <em>ColetaAutorizacao</em> =<br><br>• [ <strong>S</strong> ] Coletar número de autorização<br><br>• [ <strong>N</strong> ] Não coletar número de autorização</td>
-</tr>
-<tr>
-<td>RedePBM</td>
-<td>05N</td>
-<td>Código da rede PBM selecionada</td>
-</tr>
-<tr>
-<td>Trilha1</td>
-<td>76A</td>
-<td>Trilha1 do cartão</td>
-</tr>
-<tr>
-<td>Trilha2</td>
-<td>37A</td>
-<td>Trilha2 do cartão</td>
-</tr>
-<tr>
-<td>Digitado</td>
-<td>01N</td>
-<td>• [ <strong>0</strong> ] Indica que a trilha2 do cartão foi obtido através de leitura em pinpad criptografado<br><br>• [ <strong>1</strong> ] Indica que a trilha2 do cartão foi digitado</td>
-</tr>
-<tr>
-<td>Autorização</td>
-<td>12N</td>
-<td>Número da autorização coletado pelo sistema de automação</td>
-</tr>
-<tr>
-<td>NSUConsulta</td>
-<td>06N</td>
-<td>Número de controle obtido na consulta de produtos</td>
-</tr>
-<tr>
-<td>DadosCRM<br><br><strong>Formato:</strong><br><br>CRM[12]<br><br>UF_CRM[02]</td>
-<td>14P</td>
-<td>Dados de identificação do CRM consultado</td>
-</tr>
-<tr>
-<td>DadosElegibilidade<br><br><strong>Formato:</strong><br><br>CodigoOperadorVita[09]<br><br>PlanoSaude[06]<br><br>NumeroDependente[02]<br><br>TipoProfissional[01]<br><br>UF_CRM_CRO[02]<br><br>NumeroCRM_CRO[09]<br><br>DataReceita[06]<br><br>DescontoEmFolha[01]</td>
-<td>30P</td>
-<td>Deve ser coletado pelo sistema de automação os dados da estrutura.Especificação de alguns campos :<br>• Campo <em>CodigoOperadorVita</em> =<br><br>• Campo <em>PlanoSaude</em> = Código do plano de saúde<br><br>• Campo <em>TipoProfissional</em> = [ <strong>0</strong> ] CRM [ <strong>1</strong> ] CRO<br><br>• Campo DescontoEmFolha = [ <strong>S</strong> ] Sim [ <strong>N</strong> ] Não</td>
-</tr>
-<tr>
-<td>NomeCliente</td>
-<td>40P</td>
-<td>Retornado pela função <em>TransacaoElegibilidadePBM</em></td>
-</tr>
-<tr>
-<td>NomeMedico</td>
-<td>40P</td>
-<td>Retornado pela função <em>TransacaoElegibilidadePBM</em></td>
-</tr>
-<tr>
-<td>InformaDependente</td>
-<td>01P</td>
-<td>• [ <strong>S</strong> ]Sim [ <strong>N</strong> ]Não<br><br><b><em>Importante</em></b> : se a função retornar <em>status</em> 11, verificar se foi retornado “S” neste parâmetro. Neste caso, chamar a função novamente informando o número do dependente na estrutura do parâmetro <em>DadosElegibilidade</em></td>
-</tr>
-<tr>
-<td>ListaDependentes<br><br><strong>Formato:</strong><br><br>Número do dependente[02]<br><br>Nome do dependente[40]</td>
-<td>504P</td>
-<td>Lista de até 12 registros</td>
-</tr>
-<tr>
-<td>AutorizacaoElegibilidade</td>
-<td>12P</td>
-<td>Deve ser informado a Autorização retornada na transação de elegibilidade</td>
-</tr>
-<tr>
-<td>DadosFarmaceutico<br><br><strong>Formato:</strong><br><br>UF_CRF[02]<br><br>NumeroCRF[12]</td>
-<td>14P</td>
-<td></td>
-</tr>
-<tr>
-<td>TipoVenda</td>
-<td>01N</td>
-<td>• [ <strong>0</strong> ]Vista [ <strong>1</strong> ] Cartão</td>
-</tr>
-<tr>
-<td>ValorVista</td>
-<td>12N</td>
-<td>Valor a pagar à vista para consulta e valor pago à vista para a função de venda</td>
-</tr>
-<tr>
-<td>ValorCartão</td>
-<td>12N</td>
-<td>Valor a pagar com cartão para consulta e valor pago com cartão para a função de venda</td>
-</tr>
-<tr>
-<td>CodigoCredenciado</td>
-<td>15N</td>
-<td>Código do credenciado</td>
-</tr>
-<tr>
-<td>RegraNegocio</td>
-<td>08N</td>
-<td>Código da regra de negócio (ePharma)</td>
-</tr>
-<tr>
-<td>QuantidadeMedicamentos</td>
-<td>02N</td>
-<td>Quantidade de medicamentos retornados no campo<em>Medicamentos</em> para a função de consulta e quantidade de medicamentos vendidos para a função de venda</td>
-</tr>
-<tr>
-<td>Medicamentos<br><br><strong>Formato:</strong><br><br>DataReceita[08]<br><br>IDCRM_CRO[01]<br><br>CRM[12]<br><br>UF_CRM[02]<br><br>TipoMedicamento[02]<br><br>Código[13]<br><br>Descrição[15]<br><br>CondicaoVenda[01]<br><br>PrecoMaxConsumidor[08]<br><br>PrecoFabricaUnitario[08]<br><br>PrecoUnitarioVendaCons[08]<br><br>PrecoAquisicaoUnitario[08]<br><br>PrecoRepasseVarejo[08]<br><br>MotivoRejeicao[02]<br><br>QtdReceitada[04]<br><br>QtdAutorizadaSolicitada[04]<br><br>Referencia[02]<br><br>IndicadorVenda[01]<br><br>TipoEmbalagem[01]<br><br>Desconto[05]<br><br>Controle[10]<br><br>Reembolso[08]<br><br>Comissão[05]<br><br>UsoContinuo[01]<br><br>Filler[05]</td>
-<td>*P</td>
-<td>Dados dos medicamentos fornecidos para o sistema de automação na função de consulta e dados dos medicamentos vendidos da rede selecionada para a função de venda. Podem ser retornados (pela função de consulta) ou informados (para a função de venda) até o número de medicamentos informado no campo <em>QuantidadeMedicamentos</em>.<br>• * o tamanho deste buffer deve ser calculado da seguinte forma: <em>QuantidadeMedicamentos</em> * 142<br><br>• 142 = tamanho da estrutura de dados para um medicamento<br><br><em>Especificação de alguns campos :</em><br><br>• Campo <em>IDCRM_CRO</em> = [ <strong>0</strong> ] CRM [ <strong>1</strong> ] CRO<br><br>• Campo <em>TipoMedicamento</em> =<br><br>• [ <strong>01</strong> ] Medicamento<br><br>• [ <strong>02</strong> ] Manipulação<br><br>• [ <strong>03</strong> ] Manip. Especial<br><br>• [ <strong>04</strong> ] Perfumaria<br><br>• Campo <em>CondicaoVenda</em> =<br><br>• [ <strong>0</strong> ] obrigatório utilizar preço fábrica<br><br>• [ <strong>1</strong> ] permite vender com preço inferior<br><br>• Campo <em>IndicadorVenda</em> =<br><br>• [ <strong>0</strong> ] produto venda cartão<br><br>• [ <strong>1</strong> ] produto venda vista<br><br>• Campo <em>TipoEmbalagem</em> = unitário ou parcial<br><br>• Campo <em>Controle</em> = campo para uso restrito<br><br>• Campo <em>UsoContinuo</em> = [ <strong>S</strong> , <strong>N</strong> ]<br><br><em>Observações</em> :<br><br>• [ <strong>1</strong> ] os campos <em>Reembolso</em> e <em>Comissão</em> foram incluídos pois<br><br>são retornados pela VidaLink<br><br>• [ <strong>2</strong> ] o campo <em>UsoContinuo</em> é utilizado pela PreSaude<br><br>• [ <strong>3</strong> ] no campo <em>QtdAutorizadaSolicitada</em> deve ser informado a quantidade solicitada para a PrevSaude ou quantidadeautorizada para as demais PBMs.</td>
-</tr>
-<tr>
-<td>Reservado</td>
-<td>128P</td>
-<td>Campo reservado<br><em>TransacaoAberturaVendaPBM_TeleMarketing</em> : esta função retornará neste parâmetro o número da autorização para esta transação. Tamanho de 12 bytes.</td>
-</tr>
-<tr>
-<td>Confirmacao</td>
-<td>01A</td>
-<td>Indica se a transação de venda de produtos PBM deve ser confirmada ou não.<br>• [ <strong>S</strong> ] Confirmar a operação<br><br>• [ <strong>N</strong> ] Não confirmar a operação</td>
-</tr>
-<tr>
-<td>NumeroControle</td>
-<td>06 N</td>
-<td>NSU (número seqüencial único)</td>
-</tr>
-<tr>
-<td>NumeroControleRede</td>
-<td>12 N</td>
-<td>NSU da Rede Autorizadora (número seqüencial único retornado pela rede que aprovou a venda)</td>
-</tr>
-<tr>
-<td>MensagemOperador</td>
-<td>64 P</td>
-<td>Mensagem retornada pelo Linx TEF indicando o motivo da recusa da transação. Deve ser apresentada ao operador quando a transação for rejeitada</td>
-</tr>
-<tr>
-<td></td>
-<td>02 I</td>
-<td>• [ <strong>00</strong> ] Transação autorizada<br><br>• [ <strong>11</strong> ] Transação não efetuada</td>
-</tr>
-</tbody>
-</table>
-<p><em>Obs.: todos campos que contém diversos parâmetros devem ser passados conforme seus
-respectivos tamanhos. Os campos numéricos devem vir com zeros à esquerda (sem ponto ou
-vírgula), enquanto que os alfanuméricos devem vir com espaços à direita.</em></p>
-<p>[ <strong>00</strong> ] indica que não existiram restrições para a efetivação da transação.</p>
-<p>[ <strong>11</strong> ] indica que existiram restrições para a efetivação da transação. Apresentar ao usuário o
-conteúdo do campo <em>MotivoRejeicao</em> (retornado pela operadora). No campo <em>MensagemOperador</em>
-contém a mensagem retornada pelo Linx TEF.</p>
-<p><em>Observação</em> : Para cada conjunto de chamadas as funções de TeleMarketing (
-<em>ConsultaParametrosPBM_TeleMarketing , ConsultaProdutosPBM_TeleMarketing,
-TransacaoVendaPBM_TeleMarketing, TransacaoAberturaVendaPBM_Telemarketing,
-TransacaoVendaProdutoPBM_TeleMarketing, TransacaoFechamentoVendaPBM_TeleMarketing</em>
-) deve ser informado um número de PDV diferente (obedecendo a faixa de PDVs definida na
-especificação dos parâmetros). Isto é necessário para que o Linx TEF possa diferenciar as transações
-que estão ocorrendo simultaneamente. Um exemplo de ocorrência desta situação é na utilização
-desta função através de um servidor Web, que pode ter vários usuários realizando acesso
-simultâneo.</p>
-<p><em>Observação para transações de pré-venda SevenPDV</em> : a autorização das redes tratadas pela
-PBM SevenPDV deve seguir o seguinte fluxo de chamadas de funções:</p>
-<p><em>TransacaoAberturaVendaPBM_TeleMarketing</em> : função para abrir a venda. Se no retorno a função
-indicar que devem ser pedidos dados complementares, deverá ser analisado o campo de retorno
-<em>pInfoDadosComplementares</em> para buscar a definição dos campos a serem coletados. A seguir,
-a função <em>TransacaoAberturaVendaPBM_TeleMarketing</em> deverá ser chamada novamente com a
-informação dos dados complementares. Caso a tela de coleta dos dados complementares do
-portador for exibida mas o operador não entrou com os dados, a palavra <strong>VAZIO</strong> deverá ser informada
-no campo <em>pDadosComplementares</em> .</p>
-<p><em>TransacaoVendaProdutoPBM_TeleMarketing</em> : transação para incluir o produto na autorização que
-está sendo feita simultaneamente à venda. Na estrutura do medicamento, deverão ser informados
-os campos <em>Codigo , PrecoMaxConsumidor , PrecoUnitarioVendaCons , QuantidadeAutorizada e TipoEmbalagem.
-Os campos retornados na estrutura de medicamento são retornados os campos
-QuantidadeAutorizada , PrecoMaxConsumidor , PrecoUnitarioVendaCons , PrecoRepasseVarejo ,
-Desconto e MotivoRejeicao</em>.</p>
-<p><em>TransacaoFechamentoVendaPBM_TeleMarketing</em> : função para finalizar a venda PBM. Se a venda
-foi finalizada com sucesso, deverá passar o parâmetro pConfirmaçao com o valor "S". Neste caso, ao
-final da execução da função será disponibilizado o comprovante da operação para ser impresso. Se a
-venda não deve ser finalizada, passar no parâmetro o valor "N".</p>
-<p><strong>Observação</strong> : para transações de telemarketing em ambientes com múltiplas threads simultâneas,
-deverá ser utilizada a DLL DPOSDRVTM.DLL.</p>
 <h2 id="transacao-cheque"><strong>Transação Cheque</strong></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoCheque</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTransacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span>
-</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeCheques</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pPeriodicidadeCheques</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataPrimeiroCheque</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCarenciaPrimeiroCheque</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoCheque</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTransacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeCheques</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pPeriodicidadeCheques</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">                                      </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataPrimeiroCheque</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCarenciaPrimeiroCheque</span><span class="p">)</span>
 </span></code></pre></div>
 <p>A solicitação de transação com cheque é realizada através da chamada à função <em>TransacaoCheque</em> ,
 com a passagem dos seguintes parâmetros opcionais:</p>
@@ -4404,17 +4007,17 @@ envolvidos foram impressos com sucesso.</p>
 retornar à rotina de recebimento de valores, pois a transação solicitada não foi autorizada, não sendo
 válida como forma de pagamento.</p>
 <h2 id="cheque-completa"><strong>Cheque Completa</strong></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoChequeCompleta</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTransacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupomVenda</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeCheques</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pPeriodicidadeCheques</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataPrimeiroCheque</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCarenciaPrimeiroCheque</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTipoDocumento</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroDocumento</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeCheques</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pSequenciaCheque</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCamaraCompensacao</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroBanco</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroAgencia</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-8"><a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroContaCorrente</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCheque</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-9"><a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataDeposito</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorCheque</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-10"><a id="__codelineno-50-10" name="__codelineno-50-10" href="#__codelineno-50-10"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataNascimentoCliente</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTelefoneCliente</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-50-11"><a id="__codelineno-50-11" name="__codelineno-50-11" href="#__codelineno-50-11"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCMC7</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pPermiteAlteracao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoChequeCompleta</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTransacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupomVenda</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeCheques</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pPeriodicidadeCheques</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataPrimeiroCheque</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCarenciaPrimeiroCheque</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTipoDocumento</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroDocumento</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pQuantidadeCheques</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pSequenciaCheque</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCamaraCompensacao</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroBanco</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroAgencia</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroContaCorrente</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCheque</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataDeposito</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorCheque</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataNascimentoCliente</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTelefoneCliente</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="w">                                              </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pCMC7</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pPermiteAlteracao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pReservado</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Quando a automação comercial necessitar de detalhes mais precisos da transação, de cheque,
 pode ser usada a solicitação de transação com cheque completa, através da chamada à função
@@ -4600,9 +4203,9 @@ consulta com a rede.</p>
 <p><em>Importante</em> : esta funcionalidade depende da instituição verificadora cadastrada. Nem todas possuem
 este recurso. Portanto, deve-se consultar a rede se há disponibilidade deste serviço.</p>
 <h2 id="consultando-cheques-garantidos"><strong>Consultando Cheques Garantidos</strong></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ConsultaChequesGarantidos</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTipoDocumento</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroDocumento</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataInicialConsulta</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataFinalConsulta</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ConsultaChequesGarantidos</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pTipoDocumento</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroDocumento</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataInicialConsulta</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDataFinalConsulta</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">                                                </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Para realizar a consulta dos cheques que foram garantidos pela rede autorizadora, deve-se realizar
 chamada à função <em>ConsultaChequesGarantidos</em> . Esta função só está disponível caso a garantia de
@@ -4783,21 +4386,21 @@ detalhados os parâmetros utilizados na chamada da função.</p>
 </tbody>
 </table>
 <h4 id="transacao-vale-gas"><strong>Transação Vale Gás</strong></h4>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoeValeGas</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTransacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span>
-</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroValeGas</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">TransacaoeValeGas</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pValorTransacao</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroCupom</span><span class="p">,</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroValeGas</span><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="consulta-tabelas-vale-gas"><strong>Consulta Tabelas Vale Gás</strong></h4>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ConsultaTabelasValeGas</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ConsultaTabelasValeGas</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pMensagemOperador</span><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="cancelamento-padrao"><strong>Cancelamento Padrão</strong></h4>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">CancelamentoPadrao</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">CancelamentoPadrao</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pNumeroControle</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="forcar-atualizacao-de-tabelas"><strong>Forçar Atualização de Tabelas</strong></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ForcaAtualizacaoTabelasPinpad</span><span class="p">()</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ForcaAtualizacaoTabelasPinpad</span><span class="p">()</span>
 </span></code></pre></div>
 <p><b><em>Observação: Essa função é encontrada no PayKit a partir da versão 8.22.21.0400</em></b></p>
 <h2 id="exibir-imagem-no-pinpad"><strong>Exibir Imagem no Pinpad</strong></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ExibeImagemPinPadPayKit</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pcNomeArquivo</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ExibeImagemPinPadPayKit</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pcNomeArquivo</span><span class="p">)</span>
 </span></code></pre></div>
 <table>
 <thead>
@@ -4817,13 +4420,13 @@ detalhados os parâmetros utilizados na chamada da função.</p>
 </table>
 <p><b><em>Observação: Essa função é encontrada no PayKit a partir da versão 8.22.21.0005</em></b></p>
 <h2 id="apagar-imagem-do-pinpad"><strong>Apagar Imagem do Pinpad</strong></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ApagaImagemPinPadPayKit</span><span class="p">()</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">ApagaImagemPinPadPayKit</span><span class="p">()</span>
 </span></code></pre></div>
 <p><b><em>Observações:</em><br>
 1. <em>Essa função é encontrada no PayKit a partir da versão 8.22.21.0005</em><br>
 2. <em>É de suma importância que este método seja chamado ao final da utilização da exibição da imagem no QR.</em></b></p>
 <h2 id="obter-identificacao-do-pinpad"><strong>Obter Identificação do PinPad</strong></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">LeIdentificacaoPinPad</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDados</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">DIRETIVA_CALLBACK</span><span class="w"> </span><span class="n">LeIdentificacaoPinPad</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pDados</span><span class="p">)</span>
 </span></code></pre></div>
 <p>A função <em>LeIdentificacaoPinpad</em> deve ser chamada quando o automação comercial deseja obter as
 informações do pinpad, tais como: fabricante, modelo, versão, etc. Estes dados serão retornados no
@@ -4998,7 +4601,7 @@ parâmetro <em>pDados</em> com o layout especificado abaixo:</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.tabs.link", "search.suggest", "search.tabs.link", "search.highlight", "header.autohide", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.path", "content.tabs.link", "search.suggest", "search.tabs.link", "search.highlight", "header.autohide", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
