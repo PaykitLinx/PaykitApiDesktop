@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="pt-br" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-MetodosAPIDesktop/DemaisTransacoes/OutrasTransacoes" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Outras Transações | Paykit API Desktop</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-docusaurus-site.example.com/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://your-docusaurus-site.example.com/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://your-docusaurus-site.example.com/MetodosAPIDesktop/DemaisTransacoes/OutrasTransacoes"><meta data-rh="true" property="og:locale" content="pt_br"><meta data-rh="true" name="docusaurus_locale" content="pt-br"><meta data-rh="true" name="docsearch:language" content="pt-br"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Outras Transações | Paykit API Desktop"><meta data-rh="true" name="description" content="Função para obtenção de informações da transação corrente"><meta data-rh="true" property="og:description" content="Função para obtenção de informações da transação corrente"><link data-rh="true" rel="icon" href="/img/logolinx.png"><link data-rh="true" rel="canonical" href="https://your-docusaurus-site.example.com/MetodosAPIDesktop/DemaisTransacoes/OutrasTransacoes"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/MetodosAPIDesktop/DemaisTransacoes/OutrasTransacoes" hreflang="pt-br"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/MetodosAPIDesktop/DemaisTransacoes/OutrasTransacoes" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.55213abf.css">
+<script src="/assets/js/runtime~main.013519ea.js" defer="defer"></script>
+<script src="/assets/js/main.fc5b0bf9.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logolinx.png"><div role="region" aria-label="Pular para o conteúdo principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Pular para o conteúdo principal</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logolinx.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logolinx.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Paykit API Desktop</b></a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Alterar entre os modos claro e escuro (modo modo claro ativado)" aria-label="Alterar entre os modos claro e escuro (modo modo claro ativado)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volte para o topo" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/">Introdução</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/InformacoesGerais/">Informações Gerais</a><button aria-label="Expandir a categoria lateral &#x27;Informações Gerais&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/MetodosAPIDesktop/">Métodos API Desktop</a><button aria-label="Fechar a categoria lateral &#x27;Métodos API Desktop&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/MetodosAPIDesktop/TransacoesPrincipais/Administrativas">Transações Principais</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/CartaoPrePagoEValePresente">Demais Transações</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/CartaoPrePagoEValePresente">Cartão Pré-Pago e Vale-Presente</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/CorrespondenteBancario">Correspondente Bancário</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/Crediario">Crediário</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/DefineParametroTransacao">Definir Parâmetro da transação</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/FuncoesAdministrativas">Funções Administrativas</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/ObtemDadosCartao">ObtemDadosCartao</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/OutrasTransacoes">Outras Transações</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/PagamentoDeContasCielo">Pagamento de Contas Cielo</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/RecargaDeCelular">Recarga de Celular</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/DemaisTransacoes/TransacoesEspecificas">Transações Específicas</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/MetodosAPIDesktop/MelhoriaPerformance/ConfiguraFuncionalidades">Melhoria de Performance</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/TransacoesEspeciais">Transações Especiais</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/CallbackTransacional">Callback Transacional</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/MetodosAPIDesktop/ConfirmacaoEDesfazimentoDeTransacoes">Confirmação e Desfazimento de Transações</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ExemploIntegracaoFuncoes">Exemplo de Integração por Funções</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ComunicacaoClientTEFComAC">Comunicação Client TEF com AC</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/FluxoConfirmacaoDesfazimento">Fluxo de confirmação e desfazimento</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/IntegracaoTerminalService">Integração Terminal Service (Somente Windows)</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/IntegracaoSemTelas/">Integração sem Telas</a><button aria-label="Expandir a categoria lateral &#x27;Integração sem Telas&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/LogTransacoes/">LOG das Transações</a><button aria-label="Expandir a categoria lateral &#x27;LOG das Transações&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/Apendice/">Apêndice</a><button aria-label="Expandir a categoria lateral &#x27;Apêndice&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/FAQ">FAQ</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página Inicial" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/MetodosAPIDesktop/"><span itemprop="name">Métodos API Desktop</span></a><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Demais Transações</span><meta itemprop="position" content="2"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Outras Transações</span><meta itemprop="position" content="3"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">Nessa página</button></div><div class="theme-doc-markdown markdown"><header><h1>Outras Transações</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="função-para-obtenção-de-informações-da-transação-corrente"><strong>Função para obtenção de informações da transação corrente</strong><a href="#função-para-obtenção-de-informações-da-transação-corrente" class="hash-link" aria-label="Link direto para função-para-obtenção-de-informações-da-transação-corrente" title="Link direto para função-para-obtenção-de-informações-da-transação-corrente">​</a></h2>
+<p>A função atualmente disponibilizada é:</p>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ObtemInformacaoTransacaoCorrente</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> iCodigoInformacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorInformacao</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A função <em>ObtemInformacaoTransacaoCorrente</em> deve ser utilizada para a obtenção de informações da
+transação corrente.</p>
+<p>Os campos das funções estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>CodigoInformacao</td><td>3N</td><td>• <strong>[ 2 ]</strong> BIN do cartão (6 primeiros dígitos).<br><br>• <strong>[ 3 ]</strong> Valor da transação em centavos.<br><br>• <strong>[ 12 ]</strong> Código da transação.<br><br>• <strong>[ 25 ]</strong> Código da rede.<br><br>• <strong>[ 334 ]</strong> Código da bandeira.<br><br>• <strong>[ 899 ]</strong> Nome da bandeira.<br><br>• <strong>[ 950 ]</strong> Nome da rede.</td></tr><tr><td>pValorInformacao</td><td>1024A</td><td>Valor da informação solicitada pelo codigo da informação fornecido.</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="função--para-obter-o-caminho-do-diretório-de-cupons-tef"><strong>Função  para obter o caminho do diretório de Cupons TEF</strong><a href="#função--para-obter-o-caminho-do-diretório-de-cupons-tef" class="hash-link" aria-label="Link direto para função--para-obter-o-caminho-do-diretório-de-cupons-tef" title="Link direto para função--para-obter-o-caminho-do-diretório-de-cupons-tef">​</a></h2>
+<p>A função atualmente disponibilizada é:</p>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ObtemPathCupons</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPathCupons</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> iPathLength</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A função <em>ObtemPathCupons</em> deve ser utilizada para obter o path onde o Paykit salvará os cupons ao final de cada transação.
+Método disponível a partir da versão: <code>8.22.21.00</code> do paykit.</p>
+<p>Os campos estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>pPathCupons</td><td>A</td><td>Ponteiro que recebe o retorno do path completo do diretório de cupons em caso de sucesso. <strong>Exemplo:</strong> <code>C:\Paykit\Cupons</code></td></tr><tr><td>iPathLength</td><td>03N</td><td>Tamanho do buffer pPathCupons em bytes</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="função-para-obter-a-empresa-loja-pdv-ip-e-porta-do-servidor-tef-configurados-no-client"><strong>Função para obter a Empresa, Loja, PDV, IP e Porta do servidor TEF configurados no client.</strong><a href="#função-para-obter-a-empresa-loja-pdv-ip-e-porta-do-servidor-tef-configurados-no-client" class="hash-link" aria-label="Link direto para função-para-obter-a-empresa-loja-pdv-ip-e-porta-do-servidor-tef-configurados-no-client" title="Link direto para função-para-obter-a-empresa-loja-pdv-ip-e-porta-do-servidor-tef-configurados-no-client">​</a></h2>
+<p>A função atualmente disponibilizada é:</p>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ObtemDadosConfigurados</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pEmpresa</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pLoja</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPDV</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCNPJ</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pIPServidor</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                             </span><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> iIpLength</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPorta</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A função <strong>ObtemDadosConfigurados</strong> deve ser chamada sempre que a automação comercial necessitar recuperar os dados configurados no client.
+O método retornará os dados de Empresa, Loja, CNPJ, IP e Porta do servidor TEF. Método disponível a partir da versão: <code>8.22.21.00</code> do paykit.</p>
+<p>Os campos estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>pEmpresa</td><td>04N</td><td>Ponteiro que recebe o retorno do numero da empresa em caso de sucesso.</td></tr><tr><td>pLoja</td><td>04N</td><td>Ponteiro que recebe o retorno do numero da loja em caso de sucesso.</td></tr><tr><td>pPDV</td><td>04N</td><td>Ponteiro que recebe o retorno do numero do PDV em caso de sucesso.</td></tr><tr><td>pCNPJ</td><td>14N</td><td>Ponteiro que recebe o retorno do numero do CNPJ em caso de sucesso.</td></tr><tr><td>pIPServidor</td><td>A</td><td>Ponteiro que recebe o retorno do IP do servidor em caso de sucesso.</td></tr><tr><td>iIpLength</td><td>03N</td><td>Tamanho do buffer pIPServidor em bytes</td></tr><tr><td>pPorta</td><td>05N</td><td>Ponteiro que recebe o retorno da porta do servidor em caso de sucesso.</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="função-para-obter-a-empresa-e-loja-retornados-do-tef"><strong>Função para obter a Empresa e Loja retornados do TEF.</strong><a href="#função-para-obter-a-empresa-e-loja-retornados-do-tef" class="hash-link" aria-label="Link direto para função-para-obter-a-empresa-e-loja-retornados-do-tef" title="Link direto para função-para-obter-a-empresa-e-loja-retornados-do-tef">​</a></h2>
+<p>A função atualmente disponibilizada é:</p>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ObtemDadosEmpresaLojaTEF</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCNPJ</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCodigoEmpresa</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCodigoLoja</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A função <strong>ObtemDadosEmpresaLojaTEF</strong> deve ser chamada sempre que a automação comercial necessitar coletar os dados de Empresa e Loja do TEF. O método retornará os dados de Empresa e Loja a partir do CNPJ informado.
+Método disponível a partir da versão: <code>8.22.21.00</code> do paykit.</p>
+<p>Os campos estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>pCNPJ</td><td>14N</td><td>Ponteiro que contém o número do CNPJ para realizar a coleta do código de Empresa e Loja.</td></tr><tr><td>pCodigoEmpresa</td><td>04N</td><td>Ponteiro que recebe o retorno do numero da empresa em caso de sucesso.</td></tr><tr><td>pCodigoLoja</td><td>04N</td><td>Ponteiro que recebe o retorno do numero da loja em caso de sucesso.</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="transação-pagamento-private-label-completa"><strong>Transação Pagamento Private Label Completa</strong><a href="#transação-pagamento-private-label-completa" class="hash-link" aria-label="Link direto para transação-pagamento-private-label-completa" title="Link direto para transação-pagamento-private-label-completa">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoPagamentoPrivateLabelCompleta</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pIndicadorDigitacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCodigoBarras</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCartao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCodigoRede</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservado</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Quando a automação comercial necessitar fazer um pagamento de título deve ser usada a
+solicitação de transação de pagamento private label completa, através da chamada à função
+<em>TransacaoPagamentoPrivateLabelCompleta</em>.</p>
+<p>Os campos estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>ValorTransacao</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>NumeroCupom</td><td>06N</td><td>Número do cupom (fiscal ou não fiscal)</td></tr><tr><td>NumeroControle</td><td>06N</td><td>NSU (número seqüencial único)</td></tr><tr><td>IndicadorDigitacao</td><td>01N</td><td>• <strong>[ 0 ]</strong> Código de Barras Lido<br><br>• <strong>[ 1 ]</strong> Código de Barras digitado</td></tr><tr><td>CodigoBarras</td><td>47A</td><td>Código de Barras</td></tr><tr><td>NumeroCartao</td><td>19A</td><td>Número do cartão</td></tr><tr><td>CodigoRede</td><td>04N</td><td>Código da Rede que será enviada a transação. Ex: 0007 para Redecard.</td></tr><tr><td>PermiteAlteracao</td><td>01A</td><td>• <strong>[ S ]</strong> Permite alterar valores informados (exceto ValorTransacao)<br><br>• <strong>[ N ]</strong> Não permite alterar valores informados</td></tr><tr><td>Reservado</td><td>255A</td><td>Campo Reservado<br><br> • <strong>[Posição] Campo</strong><br><br> • <strong>[01..01]</strong> Valor 1 se operação de pagamento com cartão de crédito ou 2 com cartão de débito.</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consulta-private-label"><strong>Consulta Private Label</strong><a href="#consulta-private-label" class="hash-link" aria-label="Link direto para consulta-private-label" title="Link direto para consulta-private-label">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConsultaPrivateLabel</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Para a transação acima, pode-se utilizar a função <em>ConfirmaCartaoCredito</em> . Após a execução desta,
+deve-se chamar a função <em>FinalizaTransacao</em> , assim como é feito nas transações de cartões de débito,
+crédito e voucher.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consulta-parcelas"><strong>Consulta parcelas</strong><a href="#consulta-parcelas" class="hash-link" aria-label="Link direto para consulta-parcelas" title="Link direto para consulta-parcelas">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConsultaParcelas</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Para a transação acima, pode-se utilizar a função <em>ConfirmaCartaoCredito</em> . Após a execução desta,
+deve-se chamar a função <em>FinalizaTransacao</em> , assim como é feito nas transações de cartões de débito,
+crédito e voucher.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consulta-saldo"><strong>Consulta Saldo</strong><a href="#consulta-saldo" class="hash-link" aria-label="Link direto para consulta-saldo" title="Link direto para consulta-saldo">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConsultaSaldo</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupomVenda</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consulta-saldo-completa"><strong>Consulta Saldo Completa</strong><a href="#consulta-saldo-completa" class="hash-link" aria-label="Link direto para consulta-saldo-completa" title="Link direto para consulta-saldo-completa">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConsultaSaldoCompleta</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupomVenda</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                     </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoCartao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                     </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservado</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consulta-planos"><strong>Consulta Planos</strong><a href="#consulta-planos" class="hash-link" aria-label="Link direto para consulta-planos" title="Link direto para consulta-planos">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConsultaPlanos</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservado</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPlanos</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="função-para-consultar-status-das-transações-pela-automação"><strong>Função para consultar status das transações pela automação</strong><a href="#função-para-consultar-status-das-transações-pela-automação" class="hash-link" aria-label="Link direto para função-para-consultar-status-das-transações-pela-automação" title="Link direto para função-para-consultar-status-das-transações-pela-automação">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ConsultaTransacao</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroEmpresa</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroLoja</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroPDV</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pSolicitacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pResposta</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pMensagemErro</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A função <em>ConsultaTransacao</em> deve ser utilizada pela automação para consultar o status das
+transações.</p>
+<p>Os parâmetros da função estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>NumeroEmpresa</td><td>4N</td><td>Número da empresa</td></tr><tr><td>NumeroLoja</td><td>4N</td><td>Número da loja</td></tr><tr><td>NumeroPDV</td><td>4N</td><td>Número do PDV</td></tr><tr><td>Solicitacao</td><td>102A</td><td>Deve ser informada a data e o NSU da transação. A estrutura da solicitação é:<br><br> • <strong>[ Data ]</strong> 8 N - Formato YYYYMMDD <br><br> • <strong>[ NSU ]</strong> 6 N<br><br>• <strong>[ Reservado ]</strong> 88 A</td></tr><tr><td>Resposta</td><td>102A</td><td>Estrutura preenchida com os valores gravados na base de dados. A estrutura da resposta será:<br><br>• <strong>[ Data ]</strong> 8 N - Formato YYYYMMDD <br><br>• <strong>[ NSU ]</strong> 6 N<br><br>• <strong>[ Cupom ]</strong> 6 N<br><br>• <strong>[ Status ]</strong> 2 N - Indica se a transação está pendente. Uma transação pendente estará com o valor &quot;77&quot;.<br><br>• <strong>[ CodigoResposta ]</strong> 4 N<br><br>• <strong>[ Valor ]</strong> 12 N - 10 Decimais e 2 Inteiros<br><br>• <strong>[ CodigoRede ]</strong> 4 N<br><br>• <strong>[ CodigoBandeira ]</strong> 4 N<br><br>• <strong>[ CodigoTransacao ]</strong> 4 N<br><br>• <strong>[ NumeroCartao ]</strong> 20 N<br><br>• <strong>[ Resolução Pendencia ]</strong> 3 N<br>      • 000 - PDV<br>      • 001 - Web<br>      • 002 - Resolução de pendencias PDV<br>      • 003 - WebService<br>• <strong>[ Reservado ]</strong> 29 A</td></tr><tr><td>MensagemRetorno</td><td>64A</td><td>Mensagem de retorno do TEF, os dois primeiros bytes contém o codigo da resposta</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="saque"><strong>Saque</strong><a href="#saque" class="hash-link" aria-label="Link direto para saque" title="Link direto para saque">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoSaque</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                     </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Para a transação acima, pode-se utilizar a função <em>ConfirmaCartaoCredito</em> . Após a execução desta,
+deve-se chamar a função <em>FinalizaTransacao</em> , assim como é feito nas transações de cartões de débito,
+crédito e voucher.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="saque-completa"><strong>Saque Completa</strong><a href="#saque-completa" class="hash-link" aria-label="Link direto para saque-completa" title="Link direto para saque-completa">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoSaqueCompleta</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                             </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                             </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPlanoPagamento</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroParcelas</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                             </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservado</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="transação-de-primeira-compra"><strong>Transação de Primeira Compra</strong><a href="#transação-de-primeira-compra" class="hash-link" aria-label="Link direto para transação-de-primeira-compra" title="Link direto para transação-de-primeira-compra">​</a></h2>
+<p>Os campos das funções estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>ValorTransacao</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>NumeroCupom</td><td>06N</td><td>Número do cupom (fiscal ou não fiscal)</td></tr><tr><td>NumeroControle</td><td>06N</td><td>NSU (número seqüencial único)</td></tr><tr><td>TipoOperacao</td><td>02A</td><td>• <strong>[ AV ]</strong> À vista<br><br>• <strong>[ FL ]</strong> Financiamento Lojista <br><br>• <strong>[ FA ]</strong> Financiamento Administradora</td></tr><tr><td>NumeroParcelas</td><td>02N</td><td>Número de parcelas (00 – 99)</td></tr><tr><td>ValorParcela</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>ValorEntrada</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>ValorTaxaServico</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>PermiteAlteracao</td><td>01A</td><td>• <strong>[ S ]</strong> Permite alterar valores informados (exceto ValorTransacao) <br><br>• [ N ] Não permite alterar valores informados</td></tr><tr><td>Reservado</td><td>158A</td><td><strong>[ Especificação ]</strong><br>• <strong>[ 1..1 ]</strong> Uso restrito. Fixo “0”<br><br>• <strong>[ 2..4 ]</strong> Uso restrito. Fixo “000”<br><br>• <strong>[ 5..7 ]</strong> Plano de pagamento utilizado no PDV<br><br>• <strong>[ 8..8 ]</strong> Valor [ <strong>0</strong> ] indica pagamento com Cartão de Crédito;[ <strong>1</strong> ] indica pagamento com Crachá. [ <strong>3</strong> ] indica pagamento com cartão Qualidade [ <strong>4</strong> ] indica pagamento com cartão MettaCard<br><br>• <strong>[ 9..9 ]</strong> Flag indicando se há dados de cartão (Crachá) [ <strong>0</strong>]Não [ <strong>1</strong> ]Sim<br><br><strong>[10]</strong> Opção para Pagamento de fatura<br><br>• 0-&gt;Indica que não é pagamento de fatura<br><br>• 1-&gt;Código de Barras digitado<br><br>• 2-&gt;Código de Barras lido óticamente<br><br>• 3-&gt;CPF (11 caracteres)<br><br>• 4-&gt;Cartão (não deve passar o número do cartão, colocar tamanho dos dados zerado)<br><br>• 5-&gt;Outros(até 40 caracteres)<br><br>• <strong>[11..12]</strong> Tamanho dos dados da opção de pagamento de fatura<br><br>• <strong>[13..59]</strong> Dados do pagamento de fatura<br><br>• <strong>[60..126]</strong> Uso restrito.<br><br>• <strong>[127..138]</strong> Valor da taxa de embarque<br><br>• <strong>[139..139]</strong> Tipo de Venda (0-Normal; 1-Promocional)<br><br>• <strong>[ Especificação do Retorno ]</strong><br>Código possíveis :<br><br>• <strong>[ 01 ]</strong> Dados Correspondente Bancário<br><br>• <strong>[ 02 ]</strong> Dados Correspondente Bancário<br><br>• <strong>[ 03 ]</strong> Dados Correspondente Bancário<br><br>• <strong>[ 04 ]</strong> Dados Correspondente Bancário<br><br>• <strong>[ 05 ]</strong> Dados Venda Crachá<br><br>• <strong>[ 06 ]</strong> Dados Correspondente Bancário<br><br>• <strong>[ 07 ]</strong> Dados Correspondente Bancário<br><br>• <strong>[ Especificação dos Dados Venda Crachá ]</strong><br><br>• <strong>[ 01..09 ]</strong> CodigoAutorizacao<br><br>• <strong>[ 10..59 ]</strong> NomeFuncionario<br><br>• <strong>[ 60..71 ]</strong> ValorDesconto<br><br>• <strong>[ 72..76 ]</strong> PercentualDesconto</td></tr></tbody></table>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="primeira-compra"><strong>Primeira Compra</strong><a href="#primeira-compra" class="hash-link" aria-label="Link direto para primeira-compra" title="Link direto para primeira-compra">​</a></h4>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoPrimeiraCompra</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="primeira-compra-completa"><strong>Primeira Compra Completa</strong><a href="#primeira-compra-completa" class="hash-link" aria-label="Link direto para primeira-compra-completa" title="Link direto para primeira-compra-completa">​</a></h4>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoPrimeiraCompraCompleta</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoOperacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroParcelas</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorParcela</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTaxaServico</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservado</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pré-autorização-crédito"><strong>Pré Autorização Crédito</strong><a href="#pré-autorização-crédito" class="hash-link" aria-label="Link direto para pré-autorização-crédito" title="Link direto para pré-autorização-crédito">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoPreAutorizacaoCartaoCredito</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConfirmacaoPreAutorizacao</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Para a transação acima, pode-se utilizar a função <em>ConfirmaCartaoCredito</em> . Após a execução desta,
+deve-se chamar a função <em>FinalizaTransacao</em> , assim como é feito nas transações de cartões de débito,
+crédito e voucher.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="informações-débito-parcelado"><strong>Informações Débito Parcelado</strong><a href="#informações-débito-parcelado" class="hash-link" aria-label="Link direto para informações-débito-parcelado" title="Link direto para informações-débito-parcelado">​</a></h2>
+<p><i><strong>procedure</strong> ObtemInfTransacaoDebitoParcelado(pDados: Pchar);</i></p>
+<p>A função <em>ObtemInfTransacaoDebitoParcelado</em> retorna informações sobre as parcelas da última
+transação de débito parcelado realizada. Essa informação está disponível apenas para as transações
+cujas parcelas sejam disponibilizadas pela rede autorizadora.</p>
+<p>Os dados da transação são retornados na área que deve ser previamente alocada e passada como
+parâmetro. A estrutura retornada está caracterizada abaixo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>Número de parcelas</td><td>04B</td><td>Número de parcelas. O tipo do dado retornado é inteiro, em formato binário, representação little endian. Por exemplo, o valor de 5 parcelas será retornado como 0x05 0x00 0x00 0x00</td></tr><tr><td>Data Parcela 1</td><td>08N</td><td>Data da parcela, no formato DDMMAAAA</td></tr><tr><td>Valor Parcela 1</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>Data Parcela n</td><td>08N</td><td>Data da parcela, no formato DDMMAAAA</td></tr><tr><td>Valor Parcela n</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="estatística"><strong>Estatística</strong><a href="#estatística" class="hash-link" aria-label="Link direto para estatística" title="Link direto para estatística">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoEstatistica</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consulta-cadastro-cpf"><strong>Consulta Cadastro CPF</strong><a href="#consulta-cadastro-cpf" class="hash-link" aria-label="Link direto para consulta-cadastro-cpf" title="Link direto para consulta-cadastro-cpf">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConsultaCadastroCPF</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                   </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoOperacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                   </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocEmissor</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                   </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservado</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="transação-consulta-cadastro-cpf-completa"><strong>Transação Consulta Cadastro CPF Completa</strong><a href="#transação-consulta-cadastro-cpf-completa" class="hash-link" aria-label="Link direto para transação-consulta-cadastro-cpf-completa" title="Link direto para transação-consulta-cadastro-cpf-completa">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConsultaCadastroCPFCompleta</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                           </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoOperacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                           </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocEmissor</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                           </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservado</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Quando a automação comercial necessitar de verificação dos destinatários de um emissor deve
+ser usada a solicitação de transação de consulta de cadastro CPF completa, através da chamada à
+função <em>TransacaoConsultaCadastroCPFCompleta</em>. Os parâmetros destas funções são os seguintes:</p>
+<ul>
+<li>ValorTransacao</li>
+<li>NumeroCupom</li>
+<li>NumeroControle</li>
+<li>TipoOperacao</li>
+<li>DocEmissor</li>
+<li>PermiteAlteracao</li>
+<li>Reservado (*)</li>
+</ul>
+<p>O preenchimento dos parâmetros indicados com (*) é opcional. Caso o sistema de automação não
+possua estas informações, devem ser preenchidos com zeros ou espaços, conforme o tipo do campo.</p>
+<p>Na resposta da chamada à função será preenchido o campo <em>NumeroControle</em>, o <em>DocEmissor</em>
+e será devolvido o status, indicando o resultado da transação.</p>
+<p>[ <strong>00</strong> ] indica que não existiram restrições para a efetivação da transação.</p>
+<p>[ <strong>11</strong> ] indica que existiram restrições para a efetivação da transação. O sistema de automação deve
+retornar à rotina de recebimento de valores, pois a transação solicitada não foi autorizada, não sendo
+válida como forma de pagamento.</p>
+<p>O <em>NumeroControle</em>, incluído na resposta, deverá ser armazenado pelo sistema de automação, pois
+na função de confirmação este número será, obrigatoriamente, utilizado.</p>
+<p>Caso a transação seja autorizada, será disponibilizado no diretório parametrizado para os cupons um
+arquivo contendo o comprovante da operação a ser impresso pela automação. O nome desse arquivo
+tem o formato NNNNNN.PPP, onde NNNNNN é o <em>NumeroControle</em> e PPP é o número do terminal
+configurado.</p>
+<p>Ao final da venda para encerrar a operação deve ser chamada a função <em>FinalizaTransacao</em>, documentada
+<a href="/MetodosAPIDesktop/ConfirmacaoEDesfazimentoDeTransacoes">nesta página</a>.</p>
+<p>Os campos estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Descrição</th><th>Tamanho</th><th>Observação</th></tr></thead><tbody><tr><td>ValorTransacao</td><td>12 N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>NumeroCupom</td><td>06 N</td><td>Número do cupom (fiscal ou não fiscal)</td></tr><tr><td>NumeroControle</td><td>06 N</td><td>NSU (número seqüencial único)</td></tr><tr><td>TipoOperacao</td><td>01 N</td><td>[<strong>1</strong>] Nacional; <br>[<strong>2</strong>] Internacional</td></tr><tr><td>DocEmissor</td><td>11 A</td><td>Número do Documento do Emissor (CPF ou passaporte)</td></tr><tr><td>PermiteAlteracao</td><td>01 A</td><td>[<strong>S</strong>] Permite alterar valores informados (exceto <em>ValorTransacao</em>) <br>[<strong>N</strong>] Não permite alterar valores informados</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="transação-atualização-de-parâmetros-do-cartão"><strong>Transação Atualização de Parâmetros do Cartão</strong><a href="#transação-atualização-de-parâmetros-do-cartão" class="hash-link" aria-label="Link direto para transação-atualização-de-parâmetros-do-cartão" title="Link direto para transação-atualização-de-parâmetros-do-cartão">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoAtualizacaoParametrosCartao</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A solicitação da transação de atualização de parâmetros do cartão é realizada através da chamada
+à função <em>TransacaoAtualizacaoParametrosCartao</em> e serve para que a Rede Adquirente envie
+informações para serem atualizadas no cartão. Para esta função deve-se enviar o seguinte
+parâmetro:</p>
+<p><em>NumeroControle</em></p>
+<p>Na resposta da chamada à função será preenchido o campo <em>NumeroControle</em> e será devolvido o ,
+indicando o resultado da transação.</p>
+<p>O <em>NumeroControle</em> , incluído na resposta, deverá ser armazenado pelo sistema de automação, pois
+na função de confirmação este número será, obrigatoriamente, utilizado.</p>
+<p>Esta transação não é financeira, ou seja, não deve gerar cupom fiscal.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="resgate-de-prêmio"><strong>Resgate de Prêmio</strong><a href="#resgate-de-prêmio" class="hash-link" aria-label="Link direto para resgate-de-prêmio" title="Link direto para resgate-de-prêmio">​</a></h2>
+<p>A função atualmente disponibilizada é:</p>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoResgatePremio</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A função <em>TransacaoResgatePremio</em> permite que seja feito o resgate de prêmios da plataforma
+promocional da Cielo. É uma função a ser utilizada na modalidade de recebimento e não como forma
+de pagamento. Não existem parâmetros específicos para a função e todo o controle de prêmios a
+serem exibidos é feito pelo TEF.</p>
+<p>Essa transação não gera comprovante e portanto ele não precisa ser impresso.</p>
+<p>Os campos das funções estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>NumeroCupom</td><td>06N</td><td>Número do cupom (fiscal ou não fiscal)</td></tr><tr><td>NumeroControle</td><td>06N</td><td>NSU (número seqüencial único)</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="transações-de-pontos"><strong>Transações de Pontos</strong><a href="#transações-de-pontos" class="hash-link" aria-label="Link direto para transações-de-pontos" title="Link direto para transações-de-pontos">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoAcumuloPontos</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservadoAcumulo</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pSaldoPontos</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoResgatePontos</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pProdutos</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservadoResgate</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pSaldoPontos</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConsultaPontos</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pProdutos</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservadoConsulta</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pSaldoPontos</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoExtratoPontos</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pProdutos</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservadoExtrato</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoRelatorioPontos</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pParametrosRelatorio</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservadoRelatorio</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain">  </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoConsultaProdutosResgate</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pProdutos</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservadoConsultaProdutosResgate</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoResgateProdutos</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pProdutos</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservadoResgate</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pSaldoPontos</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoEstornoAcumuloPontos</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDocumentoAtendente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDataEstorno</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNSUEstorno</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservadoEstorno</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A solicitação de transações de pontos são feitas com as funções <em>TransacaoAcumuloPontos</em>,
+<em>TransacaoResgatePontos</em>, <em>TransacaoConsultaPontos</em> e <em>TransacaoRelatorioPontos</em>.</p>
+<p>Os campos estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>ValorTransacao</td><td>12N</td><td>10 inteiros, 2 decimais Transação de resgate de pontos - Dependendo da Forma<br> de resgate utilizada, indicada no campo ReservadoResgate, o campo <br>Valortransacao será tratado de diferentes formas:<br><br>• Se FormaResgate <strong>[V]</strong> o campo indica o valor a ser resgatado em <br>R$ com 2 casas decimais;<br><br>• Se FormaResgate <strong>[P]</strong> o campo indica quantidade de pontos com 12 inteiros<br> e 0 decimais;<br><br>• Se FormaResgate <strong>[C]</strong> o campo indicará o valor total da compra e será utilizado<br> como limite máximo de valor para resgate dos Cupons/Vales/Vouchers.</td></tr><tr><td>NumeroCupom</td><td>06N</td><td>Número do cupom (fiscal ou não fiscal)</td></tr><tr><td>TipoDocumentoCliente</td><td>01A</td><td>Tipo do documento do cliente<br><br>• <strong>[F]</strong> CPF<br><br>• <strong>[J]</strong> CNPJ<br><br>• <strong>[C]</strong> Cartão<br><br> • <strong>[I]</strong> Código interno</td></tr><tr><td>DocumentoCliente</td><td>37N</td><td>Documento do cliente, conforme tipo informado acima</td></tr><tr><td>TipoDocumentoAtendente01</td><td>01A</td><td>Tipo do documento do atendente<br><br>• <strong>[F]</strong> CPF<br><br> • <strong>[J]</strong> CNPJ<br><br> • <strong>[C]</strong> Cartão<br><br> • <strong>[I]</strong> Código interno</td></tr><tr><td>DocumentoAtendente</td><td>37N</td><td>Documento do atendente, conforme tipo informado acima</td></tr><tr><td>PermiteAlteracao</td><td>01A</td><td>Permite alteração pelo usuário dos parâmetros informados. Caso o parâmetro<br> seja “Não”, o Paykit irá assumir os valores passados nos parâmetros sem<br> solicitar a alteração.<br><br> • <strong>[S]</strong> Sim<br><br> • <strong>[N]</strong> Não</td></tr><tr><td>ReservadoAcumulo</td><td>255P</td><td>Parâmetros adicionais<br><br>• QuantidadePromocoes |CodigoPromocao1;QuantidadeItensPromocao|...|<br>CodigoPromocaoN;QuantidadeItensPromocaoN <br><br><strong>Exemplos:</strong><br><br>• 2|3;4|1;3</td></tr><tr><td>NumeroControle</td><td>06N</td><td>NSU (número seqüencial único)</td></tr><tr><td>Produtos</td><td>N A</td><td>Lista de produtos, no formato:<br><br>• QuantidadeProdutos| CodigoProduto1;QuantidadeItensProduto1 |...| CodigoProdutoN ;QuantidadeItensProdutoN <br><br><strong>Exemplos:</strong><br><br> • 2|1;1|2;3<br><br> • 3|2;1|5;1|5;2</td></tr><tr><td>ReservadoResgate</td><td>255P</td><td>Parâmetros adicionais FormaResgate<br><br>• <strong>[V]</strong> Resgate por valor<br><br>• <strong>[P]</strong> Resgate por quantidade de pontos <br><br>• <strong>[C]</strong> Resgate por vales <br><br><strong>Exemplos</strong> <br><br>• <strong>V</strong><br><br> • <strong>P</strong></td></tr><tr><td>ReservadoConsulta</td><td>255P</td><td>Parâmetros adicionais TipoConsulta TipoConsulta<br><br>• <strong>[S]</strong> Saldo<br><br> • <strong>[E]</strong> Extrato<br><br> <strong>Exemplos</strong>:<br><br> • <strong>S</strong><br><br> • <strong>E</strong></td></tr><tr><td>ParametrosRelatorio</td><td>255P</td><td>Parâmetros no formato:• TipoRelatorio |PeriodoRelatorio<br><br>• Tipo do Relatório<br><br>• <strong>[G]</strong> Geral<br><br>• <strong>[P]</strong> Período<br><br>PeriodoRelatorio<br><br>• AAAAMMDD ; AAAAMMDD – Período Inicial;Período Final<br><br><strong>Exemplos</strong>:<br><br>• <strong>P|20150310;20150311</strong><br><br>• <strong>G|;</strong><br><br><strong>Obs.:</strong> no relatório geral, o período é desconsiderado</td></tr><tr><td>ReservadoRelatorio</td><td>255P</td><td>Reservado para uso futuro</td></tr><tr><td>DataEstorno</td><td>08N</td><td><ddmmaaaa> Data da transação de acúmulo original</ddmmaaaa></td></tr><tr><td>NSU Estorno</td><td>06N</td><td>NSU do estorno</td></tr><tr><td>Reservado Estorno</td><td>255P</td><td>Reservado para uso futuro</td></tr><tr><td>SaldoPontos</td><td>12N</td><td>Saldo de pontos</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="plataforma-promocional-cielo"><strong>Plataforma Promocional CIELO</strong><a href="#plataforma-promocional-cielo" class="hash-link" aria-label="Link direto para plataforma-promocional-cielo" title="Link direto para plataforma-promocional-cielo">​</a></h2>
+<p>Para tratar essa funcionalidade é necessário que a automação comercial realize implementações
+específicas, chamando algumas funções que numa situação normal de pagamento não são
+utilizadas. Os passos para realizar este tratamento são os seguintes:</p>
+<p>Chamar a função <em>IdentificacaoAutomacaoComercial</em> para informar ao TEF que a automação está
+preparada para tratar as situações especiais que poderão ocorrer quando a rede autorizadora um
+desconto na transação.</p>
+<p>Na resposta da chamada da transação financeira ( <em>TransacaoCartaoCredito</em> , por exemplo), verificar
+as informações do log estendido para identificar se a rede autorizadora respondeu a transação com
+um desconto. Se houve desconto, deverá ser tratada a parte fiscal (gerar o desconto no cupom).
+Para obter essa informação, verificar a documentação sobre a função <em>ObtemLogUltimaTransacao</em>
+, especificamente sobre o Log Estendido. Esta verificação deve ser feita somente se a rede
+autorizadora da transação é uma rede do TEF, pois para as transações feitas com redes no TEF 5 o log estendido não é gerado.</p>
+<p>Implementar a chamada à função <em>TransacaoResgatePremio</em> , para fazer o resgate dos prêmios.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="transação-cheque"><strong>Transação Cheque</strong><a href="#transação-cheque" class="hash-link" aria-label="Link direto para transação-cheque" title="Link direto para transação-cheque">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoCheque</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                      </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pQuantidadeCheques</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPeriodicidadeCheques</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                      </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDataPrimeiroCheque</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCarenciaPrimeiroCheque</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A solicitação de transação com cheque é realizada através da chamada à função <em>TransacaoCheque</em> ,
+com a passagem dos seguintes parâmetros opcionais:</p>
+<p><em>QuantidadeCheques</em></p>
+<p><em>PeriodicidadeCheques</em></p>
+<p><em>DataPrimeiroCheque</em></p>
+<p><em>CarenciaPrimeiroCheque</em></p>
+<p>Se for retornado um comprovante a ser impresso, a confirmação e a finalização da transação serão
+necessárias. Para saber se um comprovante foi retornado, após a execução com sucesso da função
+deverá ser pesquisado no diretório de liberação de cupons o arquivo correspondente ao número de
+controle retornado na função.</p>
+<p>Na resposta da chamada à função será devolvido o , indicando o resultado da transação.</p>
+<p>Os campos estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>ValorTransacao</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>NumeroCupom</td><td>06N</td><td>Número do cupom (fiscal ou não fiscal)</td></tr><tr><td>NumeroControle</td><td>06N</td><td>NSU (número seqüencial único)</td></tr><tr><td>QuantidadeCheques</td><td>02N</td><td>Quantidade de cheques da transação</td></tr><tr><td>PeriodicidadeCheques</td><td>03N</td><td>Periodicidade, em dias, entre os cheques. [ <strong>000</strong> ] indica periodicidade variável (livre) a ser coletada.</td></tr><tr><td>DataPrimeiroCheque</td><td>08N</td><td>Data do depósito do primeiro cheque, no formato &lt;ddmmaaaa&gt;</td></tr><tr><td>CarenciaPrimeiroCheque</td><td>03N</td><td>Carência, em dias, para o depósito do primeiro cheque</td></tr><tr><td></td><td>02I</td><td>[ <strong>00</strong> ] Transação autorizada [ <strong>11</strong> ] Transação não autorizada</td></tr></tbody></table>
+<p>[ <strong>00</strong> ] indica que não existiram restrições para a efetivação da transação e que os cheques
+envolvidos foram impressos com sucesso.</p>
+<p>[ <strong>11</strong> ] indica que existiram restrições para a efetivação da transação. O sistema de automação deve
+retornar à rotina de recebimento de valores, pois a transação solicitada não foi autorizada, não sendo
+válida como forma de pagamento.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cheque-completa"><strong>Cheque Completa</strong><a href="#cheque-completa" class="hash-link" aria-label="Link direto para cheque-completa" title="Link direto para cheque-completa">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoChequeCompleta</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupomVenda</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pQuantidadeCheques</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPeriodicidadeCheques</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDataPrimeiroCheque</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCarenciaPrimeiroCheque</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumento</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroDocumento</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pQuantidadeCheques</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pSequenciaCheque</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCamaraCompensacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroBanco</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroAgencia</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroContaCorrente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCheque</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDataDeposito</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorCheque</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDataNascimentoCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTelefoneCliente</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pCMC7</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pPermiteAlteracao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pReservado</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Quando a automação comercial necessitar de detalhes mais precisos da transação, de cheque,
+pode ser usada a solicitação de transação com cheque completa, através da chamada à função
+TransacaoChequeCompleta. Os parâmetros opcionais dessa função são os seguintes:</p>
+<p><em>QuantidadeCheques</em></p>
+<p><em>PeriodicidadeCheques</em></p>
+<p><em>DataPrimeiroCheque</em></p>
+<p><em>CarenciaPrimeiroCheque</em></p>
+<p><em>TipoDocumento</em></p>
+<p><em>NumeroDocumento</em></p>
+<p><em>QuantidadeCheques</em></p>
+<p><em>SequenciaCheque</em></p>
+<p><em>CamaraCompensacao</em></p>
+<p><em>NumeroBanco</em></p>
+<p><em>NumeroAgencia</em></p>
+<p><em>NumeroContaCorrente</em></p>
+<p><em>NumeroCheque</em></p>
+<p><em>DataDeposito</em></p>
+<p><em>ValorCheque</em></p>
+<p><em>DataNascimentoCliente</em></p>
+<p><em>TelefoneCliente</em></p>
+<p><em>CMC7</em></p>
+<p><em>PermiteAlteracao</em></p>
+<p><em>Reservado</em></p>
+<p>Se for retornado um comprovante a ser impresso, a confirmação e a finalização da transação serão
+necessárias. Para saber se um comprovante foi retornado, após a execução com sucesso da função
+deverá ser pesquisado no diretório de liberação de cupons o arquivo correspondente ao número de
+controle retornado na função.</p>
+<p>Na resposta da chamada à função será devolvido o , indicando o resultado da transação.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>ValorTransacao</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>NumeroCupom</td><td>06N</td><td>Número do cupom (fiscal ou não fiscal)</td></tr><tr><td>NumeroControle</td><td>06N</td><td>NSU (número seqüencial único)</td></tr><tr><td>QuantidadeCheques</td><td>02N</td><td>Quantidade de cheques da transação</td></tr><tr><td>PeriodicidadeCheques</td><td>03N</td><td>Periodicidade, em dias, entre os cheques. O valor [ <strong>000</strong> ] indica periodicidade variável (livre) a ser coletada.</td></tr><tr><td>DataPrimeiroCheque</td><td>08N</td><td>Data do depósito do primeiro cheque, no formato &lt;ddmmaaaa&gt;</td></tr><tr><td>CarenciaPrimeiroCheque</td><td>03N</td><td>Carência, em dias, para o depósito do primeiro cheque</td></tr><tr><td>TipoDocumento</td><td>01N</td><td>• [ <strong>1</strong> ] CPF<br><br>• [ <strong>2</strong> ] CNPJ</td></tr><tr><td>NumeroDocumento</td><td>14N</td><td>CPF ou CNPJ</td></tr><tr><td>QuantidadeCheques</td><td>02N</td><td>Quantidade de cheques da transação ( <strong>obrigatório para consulta de múltiplos cheques</strong> )</td></tr><tr><td>SequenciaCheque</td><td>02N</td><td>Número de seqüência do cheque ( <strong>obrigatório para consulta de múltiplos cheques</strong> )</td></tr><tr><td>CamaraCompensacao</td><td>03N</td><td>Câmara de compensação</td></tr><tr><td>NumeroBanco</td><td>03N</td><td>Número do banco</td></tr><tr><td>NumeroAgencia</td><td>04N</td><td>Número da agencia</td></tr><tr><td>NumeroContaCorrente</td><td>10N</td><td>Número da conta-corrente</td></tr><tr><td>NumeroCheque</td><td>07N</td><td>Número do cheque com Dígito verificador</td></tr><tr><td>DataDeposito</td><td>08N</td><td>&lt;ddmmaaaa&gt;</td></tr><tr><td>ValorCheque</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>DataNascimentoCliente</td><td>08N</td><td>&lt;ddmmaaaa&gt;</td></tr><tr><td>TelefoneCliente</td><td>12A</td><td>Telefone somente com caracteres numéricos</td></tr><tr><td>CMC7</td><td>50A</td><td>Conteúdo da trilha CMC-7</td></tr><tr><td>PermiteAlteracao</td><td>01A</td><td>[ <strong>S</strong> ] Permite alterar valores informados (exceto ValorTransacao) [ <strong>N</strong> ] Não Permite alterar valores informados</td></tr><tr><td>Reservado</td><td>51A</td><td>[ <strong>Especificação</strong> ] [ <strong>01..01</strong> ] Reservado [ <strong>02..13</strong> ] Valor máximo permitido para a transação [ <strong>14..14</strong> ] [ <strong>S</strong> ] Consultar Cheque [ <strong>N</strong> ] Não consultar [ <strong>15..15</strong> ] Dígito C1 do cheque coletado [ <strong>16..16</strong> ] Dígito C2 do cheque coletado [ <strong>17..17</strong> ] Dígito C3 do cheque coletado [ <strong>18..23</strong> ] Cliente Desde, no formato<mmaaaa></mmaaaa></td></tr><tr><td></td><td>02I</td><td>• [ <strong>00</strong> ] Transação autorizada<br><br>• [ <strong>11</strong> ] Transação não autorizada</td></tr></tbody></table>
+<p>[ <strong>00</strong> ] indica que não existiram restrições para a efetivação da transação e que os cheques
+envolvidos foram impressos com sucesso.</p>
+<p>[ <strong>11</strong> ] indica que existiram restrições para a efetivação da transação. O sistema de automação deve
+retornar à rotina de recebimento de valores, pois a transação solicitada não foi autorizada, não sendo
+válida como forma de pagamento.</p>
+<p>Habilitando a Consulta de Múltiplos Cheques</p>
+<p>Para realizar a consulta de múltiplos cheques em uma mesma transação com a rede verificadora, é
+necessário que o Paykit esteja parametrizado para efetuar tal procedimento. Esta parametrização
+deve ser realizada no TEF e é armazenado no arquivo CHEQUE.TEF. Este arquivo deverá ser
+copiado para o diretório do Paykit. Além disso, só é permitido a consulta de múltiplos cheques
+para cheques da mesma conta. Se for realizado recebimentos de cheque de contas diferentes, será
+enviado para a rede uma transação de consulta para cada cheque, independente da parametrização
+definida.</p>
+<p>Este tipo de consulta é válido somente quando o automação comercial realiza a consulta através da
+chamada da função <em>TransacaoChequeCompleta</em> informando os campos referentes à seqüência e a
+quantidade de cheques. A consulta do(s) cheque(s) será enviada ao TEF após a coleta do último
+cheque (campo <em>pSequenciaCheque</em> igual ao campo <em>pQuantidadeCheques</em> ). Para isto, o automação
+comercial deverá realizar uma chamada da função TransacaoChequeCompleta para cada cheque
+a ser processado, acumulando o campo <em>pSequenciaCheque</em> até atingir a quantidade de cheques
+informado (campo <em>pQuantidadeCheques</em> ).</p>
+<p><em>Observação</em> : a consulta de múltiplos cheques está limitado em 24 cheques na mesma transação de
+consulta com a rede.</p>
+<p><em>Importante</em> : esta funcionalidade depende da instituição verificadora cadastrada. Nem todas possuem
+este recurso. Portanto, deve-se consultar a rede se há disponibilidade deste serviço.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consultando-cheques-garantidos"><strong>Consultando Cheques Garantidos</strong><a href="#consultando-cheques-garantidos" class="hash-link" aria-label="Link direto para consultando-cheques-garantidos" title="Link direto para consultando-cheques-garantidos">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ConsultaChequesGarantidos</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pTipoDocumento</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroDocumento</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDataInicialConsulta</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDataFinalConsulta</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                                </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>Para realizar a consulta dos cheques que foram garantidos pela rede autorizadora, deve-se realizar
+chamada à função <em>ConsultaChequesGarantidos</em> . Esta função só está disponível caso a garantia de
+cheques esteja habilitada. Esta parametrização deve ser realizada no TEF e é armazenado no
+arquivo CHEQUE.TEF. Este arquivo deverá ser copiado para o diretório do Paykit. A seguir, estão
+detalhados os parâmetros utilizados na chamada da função.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>TipoDocumento</td><td>01N</td><td>• [ <strong>1</strong> ] CPF<br><br>• [ <strong>2</strong> ] CNPJ</td></tr><tr><td>NumeroDocumento</td><td>14N</td><td>CPF ou CNPJ</td></tr><tr><td>NumeroControle</td><td>06N</td><td>NSU (número seqüencial único)</td></tr><tr><td>DataInicialConsulta</td><td>08N</td><td>DDMMAAAA</td></tr><tr><td>DataFinalConsulta</td><td>08N</td><td>DDMMAAAA</td></tr><tr><td></td><td>02I</td><td>• [ <strong>00</strong> ] Transação autorizada<br><br>• [ <strong>11</strong> ] Transação não autorizada</td></tr></tbody></table>
+<p>[ <strong>00</strong> ] indica que não existiram restrições para a efetivação da transação.</p>
+<p>[ <strong>11</strong> ] indica que existiram restrições para a efetivação da transação.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="especificação-solicita-funções"><strong>Especificação Solicita Funções</strong><a href="#especificação-solicita-funções" class="hash-link" aria-label="Link direto para especificação-solicita-funções" title="Link direto para especificação-solicita-funções">​</a></h2>
+<p>Os campos estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>ValorTransacao</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>NumeroCupom</td><td>06N</td><td>Número do cupom (fiscal ou não fiscal)</td></tr><tr><td>NumeroControle</td><td>06N</td><td>NSU (número seqüencial único)</td></tr><tr><td>TipoCartao</td><td>01N</td><td>Indica o tipo de cartão que deseja consultar o saldo [ <strong>1</strong> ] Crédito [ <strong>2</strong> ] Débito [ <strong>3</strong> ] Private [ <strong>4</strong> ] CPF (1) [ <strong>5</strong> ] CNPJ (<strong>¹</strong>)</td></tr><tr><td>TipoTransacao</td><td>01N</td><td>• [ <strong>0</strong> ] Consulta Saque [ <strong>1</strong> ] Saque</td></tr><tr><td>TipoOperacao</td><td>01N</td><td>• [ <strong>1</strong> ] Nacional [ <strong>2</strong> ] Internacional</td></tr><tr><td>DocEmissor</td><td>11A</td><td>Número do Documento do Destinatário (CPF ou passaporte)</td></tr><tr><td>DocDestinatario</td><td>11A</td><td>Número do Documento do Destinatário (CPF ou passaporte)</td></tr><tr><td>CodigoPIN</td><td>11A</td><td>Número do Documento recebido via SMS</td></tr><tr><td>PlanoPagamento</td><td>03N</td><td>Código do plano de pagamento</td></tr><tr><td>NumeroParcelas</td><td>02N</td><td>Número de parcelas</td></tr><tr><td>PermiteAlteracao</td><td>01A</td><td>[ <strong>S</strong> ] Permite alterar valores informados (exceto ValorTransacao) [ <strong>N</strong> ] Não permite alterar valores informados</td></tr><tr><td>Reservado</td><td>158A</td><td><strong>[ Especificação – TransacaoCancelamentoPagamento ]</strong><br>• [ <strong>1..1</strong> ] Valor<br><br>• - [ <strong>0</strong> ] indica cancelamento de pagamento feito com Cartão;<br><br>• - [ <strong>1</strong> ] indica cancelamento de pagamento feito com Crachá;<br><br>• - [ <strong>2</strong> ] indica cancelamento de pagamento débito Wappa;<br><br>• - [ <strong>3</strong> ] indica cancelamento de pagamento feito com cartão Qualidade<br><br>• - [ <strong>4</strong> ] indica cancelamento de pagamento feito com cartão MettaCard<br><br>• - [ <strong>5</strong> ] indica cancelamento de pagamento feito com cartão Ecopag<br><br>• - [ <strong>Q</strong> ] indica cancelamento de pagamento feito com QR Code<br><br>• [ <strong>2..9</strong> ] Data da transação a ser cancelada, no formato AAAAMMDD<br><br>• <strong>[ Especificação do Retorno ]</strong><br><br>• Código possíveis :<br><br>• [ <strong>01</strong> ] Dados Venda Crachá<br><br>• <strong>[ Especificação dos Dados Venda Crachá ]</strong><br><br>• [ <strong>01..09</strong> ] CodigoAutorizacao<br><br>• [ <strong>10..59</strong> ] NomeFuncionario<br><br>• [ <strong>60..71</strong> ] ValorDesconto<br><br>• [ <strong>72..76</strong> ] PercentualDesconto<br><br><strong>[Especificação dos Dados – Operação Saque]</strong><br><br>• [ <strong>01</strong> ] Número da Rede Autorizadora<br><br><strong>[ Especificação dos Dados – Operação Consulta Saldo ]</strong>[ <strong>01..01</strong> ]Indicador de consulta com crachá<br>• - [0] para consulta norma<br><br>• - [1] para consulta com crachá<br><br>• [ <strong>02..15</strong> ] CPF ou CNPJ do cliente (espaços a direita se CPF)</td></tr><tr><td></td><td>02I</td><td>• [ <strong>00</strong> ] Transação autorizada<br><br>• [ <strong>11</strong> ] Transação não efetuada</td></tr><tr><td>Planos</td><td>1..999A</td><td><strong>[ Especificação dos Dados – Consulta Planos ]</strong><br>• [ <strong>01..008</strong> ] Data Nascimento Portador do Cartão(DDMMAAAA)<br><br>• [ <strong>09..058</strong> ] NomePortador do Cartão<br><br>• [ <strong>59..059</strong> ] Fixo P-indicador de Consulta de Planos<br><br>• [ <strong>60..999</strong> ] Planos (para cada código de processamento o bloco abaixo se repetira)<br><br>• [ <strong>N06</strong> ] CodigoProcessamento<br><br>• [ <strong>N05</strong> ] DataPrimeiraParcela(AADDD ** )<br><br>• [ <strong>N01</strong> ] FlagJuros<br><br>• [ <strong>N01</strong> ] FlagPulaCiclo<br><br>Os campos descritos abaixo podem repetir para demonstrar a quantidade de parcelas do tipo de plano:<br>• [ <strong>N02</strong> ] NumeroDaParcela<br><br>• [ <strong>N08</strong> ] ValorPrimeiraParcela<br>• [ <strong>N08</strong> ] ValorDemaisParcelas<br>• [ <strong>N05</strong> ] TaxaJuros<br><br>• [ <strong>N05</strong> ] CETAnual<br>• [ <strong>N01</strong> ] “;”(FinalizadorDeCodigoProcessamento)</td></tr></tbody></table>
+<p>** quantidade de dias do ano informado até a data atual</p>
+<p>[ <strong>00</strong> ] indica que não existiram restrições para a efetivação da transação.</p>
+<p>[ <strong>11</strong> ] indica que existiram restrições para a efetivação da transação.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="funções-para-vale-gás"><strong>Funções para Vale Gás</strong><a href="#funções-para-vale-gás" class="hash-link" aria-label="Link direto para funções-para-vale-gás" title="Link direto para funções-para-vale-gás">​</a></h2>
+<p>As seguintes funções foram desenvolvidas para realizar o processamento do Vale Gás.</p>
+<p>Os campos das funções estão abaixo caracterizados.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>ValorTransacao</td><td>12N</td><td>10 inteiros, 2 decimais</td></tr><tr><td>NumeroCupom</td><td>06N</td><td>Número do cupom (fiscal ou não fiscal)</td></tr><tr><td>NumeroControle</td><td>06N</td><td>NSU (número seqüencial único)</td></tr><tr><td>NumeroValeGas</td><td>15N</td><td>15 inteiros</td></tr><tr><td>MensagemOperador</td><td>64P</td><td>Mensagem de retorno do TEF</td></tr></tbody></table>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="transação-vale-gás"><strong>Transação Vale Gás</strong><a href="#transação-vale-gás" class="hash-link" aria-label="Link direto para transação-vale-gás" title="Link direto para transação-vale-gás">​</a></h4>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">TransacaoeValeGas</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pValorTransacao</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroCupom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroValeGas</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="consulta-tabelas-vale-gás"><strong>Consulta Tabelas Vale Gás</strong><a href="#consulta-tabelas-vale-gás" class="hash-link" aria-label="Link direto para consulta-tabelas-vale-gás" title="Link direto para consulta-tabelas-vale-gás">​</a></h4>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ConsultaTabelasValeGas</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pMensagemOperador</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="cancelamento-padrão"><strong>Cancelamento Padrão</strong><a href="#cancelamento-padrão" class="hash-link" aria-label="Link direto para cancelamento-padrão" title="Link direto para cancelamento-padrão">​</a></h4>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">CancelamentoPadrao</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pNumeroControle</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="forçar-atualização-de-tabelas"><strong>Forçar Atualização de Tabelas</strong><a href="#forçar-atualização-de-tabelas" class="hash-link" aria-label="Link direto para forçar-atualização-de-tabelas" title="Link direto para forçar-atualização-de-tabelas">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ForcaAtualizacaoTabelasPinpad</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><b><em>Observação: Essa função é encontrada no PayKit a partir da versão 8.22.21.0400</em></b></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="exibir-imagem-no-pinpad"><strong>Exibir Imagem no Pinpad</strong><a href="#exibir-imagem-no-pinpad" class="hash-link" aria-label="Link direto para exibir-imagem-no-pinpad" title="Link direto para exibir-imagem-no-pinpad">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ExibeImagemPinPadPayKit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pcNomeArquivo</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Campo</th><th>Tamanho</th><th>Descrição</th></tr></thead><tbody><tr><td>pcNomeArquivo</td><td>A</td><td>Caminho para o arquivo da imagem</td></tr></tbody></table>
+<p><b><em>Observação: Essa função é encontrada no PayKit a partir da versão 8.22.21.0005</em></b></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="apagar-imagem-do-pinpad"><strong>Apagar Imagem do Pinpad</strong><a href="#apagar-imagem-do-pinpad" class="hash-link" aria-label="Link direto para apagar-imagem-do-pinpad" title="Link direto para apagar-imagem-do-pinpad">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">ApagaImagemPinPadPayKit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><b><em>Observações:</em><br></b></p><b>
+</b><ol><b>
+<li><em>Essa função é encontrada no PayKit a partir da versão 8.22.21.0005</em><br></li>
+</b><li><b><em>É de suma importância que este método seja chamado ao final da utilização da exibição da imagem no QR.</em></b></li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="obter-identificação-do-pinpad"><strong>Obter Identificação do PinPad</strong><a href="#obter-identificação-do-pinpad" class="hash-link" aria-label="Link direto para obter-identificação-do-pinpad" title="Link direto para obter-identificação-do-pinpad">​</a></h2>
+<div class="language-cpp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cpp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> DIRETIVA_CALLBACK </span><span class="token function" style="color:#d73a49">LeIdentificacaoPinPad</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">char</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">pDados</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copiar código para a área de transferência" title="Copiar" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>A função <em>LeIdentificacaoPinpad</em> deve ser chamada quando o automação comercial deseja obter as
+informações do pinpad, tais como: fabricante, modelo, versão, etc. Estes dados serão retornados no
+parâmetro <em>pDados</em> com o layout especificado abaixo:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Posição</th><th>Descrição</th><th>Formato</th><th>Observações</th></tr></thead><tbody><tr><td>001-020</td><td>Nome do Fabricante</td><td>A20</td><td></td></tr><tr><td>021-039</td><td>Modelo/versão do hardware</td><td>A19</td><td>Formato “xxx...xxx;mmm”, onde “xxxx” é o nome do equipamento e “mmm” a capacidade de memória (“512KB”, “1MB”, “2MB”, ...)</td></tr><tr><td>040</td><td>Se o pinpad suporta cartão com chip sem contato</td><td>A1</td><td>Este campo deve conter a letra “C”, caso contrário um espaço em branco</td></tr><tr><td>041-060</td><td>Versão do software básico/firmware</td><td>A20</td><td>Formato livre</td></tr><tr><td>061-064</td><td>Versão da especificação</td><td>A4</td><td>Formato “V.VV” (neste caso, fixo “1.08”)</td></tr><tr><td>065-080</td><td>Versão da aplicação básica</td><td>A16</td><td>Formato “VVV.VV AAMMDD” (com 3 espaços à direita)</td></tr><tr><td>081-100</td><td>Número de série do pinpad</td><td>A20</td><td>Com espaços à direita</td></tr></tbody></table></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Páginas de documentação"><a class="pagination-nav__link pagination-nav__link--prev" href="/MetodosAPIDesktop/DemaisTransacoes/ObtemDadosCartao"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">ObtemDadosCartao</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/MetodosAPIDesktop/DemaisTransacoes/PagamentoDeContasCielo"><div class="pagination-nav__sublabel">Próxima</div><div class="pagination-nav__label">Pagamento de Contas Cielo</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#função-para-obtenção-de-informações-da-transação-corrente" class="table-of-contents__link toc-highlight"><strong>Função para obtenção de informações da transação corrente</strong></a></li><li><a href="#função--para-obter-o-caminho-do-diretório-de-cupons-tef" class="table-of-contents__link toc-highlight"><strong>Função  para obter o caminho do diretório de Cupons TEF</strong></a></li><li><a href="#função-para-obter-a-empresa-loja-pdv-ip-e-porta-do-servidor-tef-configurados-no-client" class="table-of-contents__link toc-highlight"><strong>Função para obter a Empresa, Loja, PDV, IP e Porta do servidor TEF configurados no client.</strong></a></li><li><a href="#função-para-obter-a-empresa-e-loja-retornados-do-tef" class="table-of-contents__link toc-highlight"><strong>Função para obter a Empresa e Loja retornados do TEF.</strong></a></li><li><a href="#transação-pagamento-private-label-completa" class="table-of-contents__link toc-highlight"><strong>Transação Pagamento Private Label Completa</strong></a></li><li><a href="#consulta-private-label" class="table-of-contents__link toc-highlight"><strong>Consulta Private Label</strong></a></li><li><a href="#consulta-parcelas" class="table-of-contents__link toc-highlight"><strong>Consulta parcelas</strong></a></li><li><a href="#consulta-saldo" class="table-of-contents__link toc-highlight"><strong>Consulta Saldo</strong></a></li><li><a href="#consulta-saldo-completa" class="table-of-contents__link toc-highlight"><strong>Consulta Saldo Completa</strong></a></li><li><a href="#consulta-planos" class="table-of-contents__link toc-highlight"><strong>Consulta Planos</strong></a></li><li><a href="#função-para-consultar-status-das-transações-pela-automação" class="table-of-contents__link toc-highlight"><strong>Função para consultar status das transações pela automação</strong></a></li><li><a href="#saque" class="table-of-contents__link toc-highlight"><strong>Saque</strong></a></li><li><a href="#saque-completa" class="table-of-contents__link toc-highlight"><strong>Saque Completa</strong></a></li><li><a href="#transação-de-primeira-compra" class="table-of-contents__link toc-highlight"><strong>Transação de Primeira Compra</strong></a></li><li><a href="#pré-autorização-crédito" class="table-of-contents__link toc-highlight"><strong>Pré Autorização Crédito</strong></a></li><li><a href="#informações-débito-parcelado" class="table-of-contents__link toc-highlight"><strong>Informações Débito Parcelado</strong></a></li><li><a href="#estatística" class="table-of-contents__link toc-highlight"><strong>Estatística</strong></a></li><li><a href="#consulta-cadastro-cpf" class="table-of-contents__link toc-highlight"><strong>Consulta Cadastro CPF</strong></a></li><li><a href="#transação-consulta-cadastro-cpf-completa" class="table-of-contents__link toc-highlight"><strong>Transação Consulta Cadastro CPF Completa</strong></a></li><li><a href="#transação-atualização-de-parâmetros-do-cartão" class="table-of-contents__link toc-highlight"><strong>Transação Atualização de Parâmetros do Cartão</strong></a></li><li><a href="#resgate-de-prêmio" class="table-of-contents__link toc-highlight"><strong>Resgate de Prêmio</strong></a></li><li><a href="#transações-de-pontos" class="table-of-contents__link toc-highlight"><strong>Transações de Pontos</strong></a></li><li><a href="#plataforma-promocional-cielo" class="table-of-contents__link toc-highlight"><strong>Plataforma Promocional CIELO</strong></a></li><li><a href="#transação-cheque" class="table-of-contents__link toc-highlight"><strong>Transação Cheque</strong></a></li><li><a href="#cheque-completa" class="table-of-contents__link toc-highlight"><strong>Cheque Completa</strong></a></li><li><a href="#consultando-cheques-garantidos" class="table-of-contents__link toc-highlight"><strong>Consultando Cheques Garantidos</strong></a></li><li><a href="#especificação-solicita-funções" class="table-of-contents__link toc-highlight"><strong>Especificação Solicita Funções</strong></a></li><li><a href="#funções-para-vale-gás" class="table-of-contents__link toc-highlight"><strong>Funções para Vale Gás</strong></a></li><li><a href="#forçar-atualização-de-tabelas" class="table-of-contents__link toc-highlight"><strong>Forçar Atualização de Tabelas</strong></a></li><li><a href="#exibir-imagem-no-pinpad" class="table-of-contents__link toc-highlight"><strong>Exibir Imagem no Pinpad</strong></a></li><li><a href="#apagar-imagem-do-pinpad" class="table-of-contents__link toc-highlight"><strong>Apagar Imagem do Pinpad</strong></a></li><li><a href="#obter-identificação-do-pinpad" class="table-of-contents__link toc-highlight"><strong>Obter Identificação do PinPad</strong></a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">DevCenter</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Paykit TEF.</div></div></div></footer></div>
+</body>
+</html>
