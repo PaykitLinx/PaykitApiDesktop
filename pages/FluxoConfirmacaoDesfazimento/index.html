@@ -9,23 +9,25 @@
       
       
       
+        <link rel="prev" href="../ComunicacaoClientTEFComAC/">
       
-        <link rel="next" href="pages/InformacoesGerais/">
+      
+        <link rel="next" href="../IntegracaoTerminalService/">
       
       
-      <link rel="icon" href="pages/icone/logo.ico">
+      <link rel="icon" href="../icone/logo.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
     
       
-        <title>Paykit API Desktop</title>
+        <title>Fluxo de confirmação e desfazimento - Paykit API Desktop</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
   
@@ -55,16 +57,16 @@
       
     
     
-      <link rel="stylesheet" href="css/custom.css">
+      <link rel="stylesheet" href="../../css/custom.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -75,7 +77,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -97,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introducao" class="md-skip">
+        <a href="#fluxo-de-confirmacao-e-desfazimento" class="md-skip">
           Skip to content
         </a>
       
@@ -113,9 +115,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Paykit API Desktop" class="md-header__button md-logo" aria-label="Paykit API Desktop" data-md-component="logo">
+    <a href="../.." title="Paykit API Desktop" class="md-header__button md-logo" aria-label="Paykit API Desktop" data-md-component="logo">
       
-  <img src="pages/images/logolinx.png" alt="logo">
+  <img src="../images/logolinx.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -132,7 +134,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introdução
+              Fluxo de confirmação e desfazimento
             
           </span>
         </div>
@@ -232,9 +234,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Paykit API Desktop" class="md-nav__button md-logo" aria-label="Paykit API Desktop" data-md-component="logo">
+    <a href="../.." title="Paykit API Desktop" class="md-nav__button md-logo" aria-label="Paykit API Desktop" data-md-component="logo">
       
-  <img src="pages/images/logolinx.png" alt="logo">
+  <img src="../images/logolinx.png" alt="logo">
 
     </a>
     Paykit API Desktop
@@ -246,28 +248,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Introdução
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -276,108 +260,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introducao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introdução
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#windows-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      Windows &amp; Linux
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#embarcado-windows-e-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      Embarcado (Windows e Linux)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Embarcado (Windows e Linux)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#processo-de-instalacao-paykit-embarcado" class="md-nav__link">
-    <span class="md-ellipsis">
-      Processo de Instalação Paykit Embarcado
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Processo de Instalação Paykit Embarcado">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#paykit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paykit
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#interface-grafica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interface Gráfica
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coleta-de-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Coleta de logs
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#convencoes-utilizadas-neste-manual" class="md-nav__link">
-    <span class="md-ellipsis">
-      Convenções utilizadas neste Manual
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -415,7 +297,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="pages/InformacoesGerais/" class="md-nav__link ">
+            <a href="../InformacoesGerais/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -448,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/InformacoesGerais/UtilizacaoPaykit/" class="md-nav__link">
+      <a href="../InformacoesGerais/UtilizacaoPaykit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -469,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/InformacoesGerais/ConfiguracaoPaykit/" class="md-nav__link">
+      <a href="../InformacoesGerais/ConfiguracaoPaykit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -490,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/InformacoesGerais/InformacoesComuns/" class="md-nav__link">
+      <a href="../InformacoesGerais/InformacoesComuns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -550,7 +432,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="pages/MetodosAPIDesktop/" class="md-nav__link ">
+            <a href="../MetodosAPIDesktop/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -644,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/Debito/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/Debito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -665,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/Credito/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/Credito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -686,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/Voucher/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/Voucher/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -707,7 +589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/QRCode/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/QRCode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -728,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/CartaoFrota/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/CartaoFrota/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -749,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/TransacoesPBM/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/TransacoesPBM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -770,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/FinalizacaoVendaouRecebimento/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/FinalizacaoVendaouRecebimento/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -791,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/CancelamentoTransacao/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/CancelamentoTransacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -812,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/Administrativas/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/Administrativas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -833,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/LogUltimaTransacao/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/LogUltimaTransacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -854,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesPrincipais/TeleMarketing/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesPrincipais/TeleMarketing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -942,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/RecargaDeCelular/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/RecargaDeCelular/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -963,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/CartaoPrePagoEValePresente/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/CartaoPrePagoEValePresente/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -984,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/Crediario/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/Crediario/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1005,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/CorrespondenteBancario/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/CorrespondenteBancario/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1026,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/PagamentoDeContasCielo/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/PagamentoDeContasCielo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1047,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/DefineParametroTransacao/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/DefineParametroTransacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1068,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/FuncoesAdministrativas/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/FuncoesAdministrativas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1089,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/TransacoesEspecificas/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/TransacoesEspecificas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1110,7 +992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/ObtemDadosCartao/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/ObtemDadosCartao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1131,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/DemaisTransacoes/OutrasTransacoes/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/DemaisTransacoes/OutrasTransacoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1160,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/TransacoesEspeciais/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/TransacoesEspeciais/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1181,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/ConfirmacaoEDesfazimentoDeTransacoes/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/ConfirmacaoEDesfazimentoDeTransacoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1243,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/MelhoriaPerformance/ConfiguraFuncionalidades/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/MelhoriaPerformance/ConfiguraFuncionalidades/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1272,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/MetodosAPIDesktop/CallbackTransacional/" class="md-nav__link">
+      <a href="../MetodosAPIDesktop/CallbackTransacional/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1300,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/ExemploIntegracaoFuncoes/" class="md-nav__link">
+      <a href="../ExemploIntegracaoFuncoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1320,7 +1202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/ComunicacaoClientTEFComAC/" class="md-nav__link">
+      <a href="../ComunicacaoClientTEFComAC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1337,10 +1219,28 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="pages/FluxoConfirmacaoDesfazimento/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Fluxo de confirmação e desfazimento
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1349,6 +1249,33 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-de-confirmacao-e-desfazimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxo de confirmação e desfazimento
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1360,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/IntegracaoTerminalService/" class="md-nav__link">
+      <a href="../IntegracaoTerminalService/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1406,7 +1333,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="pages/IntegracaoSemTelas/" class="md-nav__link ">
+            <a href="../IntegracaoSemTelas/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1439,7 +1366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/IntegracaoSemTelas/FuncoesExportadasParaRegistrarCallback/" class="md-nav__link">
+      <a href="../IntegracaoSemTelas/FuncoesExportadasParaRegistrarCallback/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1460,7 +1387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/IntegracaoSemTelas/Callbacks/" class="md-nav__link">
+      <a href="../IntegracaoSemTelas/Callbacks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1481,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/IntegracaoSemTelas/PerguntasIdentificadasFrotaCompleta/" class="md-nav__link">
+      <a href="../IntegracaoSemTelas/PerguntasIdentificadasFrotaCompleta/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1533,7 +1460,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="pages/LogTransacoes/" class="md-nav__link ">
+            <a href="../LogTransacoes/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1566,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/ObterLogTransacao/" class="md-nav__link">
+      <a href="../LogTransacoes/ObterLogTransacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1663,7 +1590,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/" class="md-nav__link ">
+            <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1696,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/InicializacaoFinalizacao/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/InicializacaoFinalizacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1717,7 +1644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/Reinicio/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/Reinicio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1738,7 +1665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/CartaoCredito/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoCredito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1759,7 +1686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/CartaoDebito/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoDebito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1780,7 +1707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/CartaoCrediario/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoCrediario/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1801,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/CartaoPrivateLabel/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoPrivateLabel/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1822,7 +1749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/CartaoVoucher/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoVoucher/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1843,7 +1770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/CartaoFidelidade/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/CartaoFidelidade/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1864,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/QRCode/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/QRCode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1885,7 +1812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/Cancelamento/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/Cancelamento/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1906,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/Frota/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/Frota/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1927,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/LogEstendido/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/LogEstendido/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1948,7 +1875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/LogAdicional/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/LogAdicional/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1969,7 +1896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/PagamentoDeContasCielo/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/PagamentoDeContasCielo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1990,7 +1917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/PagamentoDeContasCorban/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/PagamentoDeContasCorban/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2011,7 +1938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/CargaERecargaDeCartao/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/CargaERecargaDeCartao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2032,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/PBM/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/PBM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2053,7 +1980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/RecargaDeCelular/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/RecargaDeCelular/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2074,7 +2001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/ConfirmacaoPreAutorizacao/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/ConfirmacaoPreAutorizacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2095,7 +2022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/ErroTransacao/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/ErroTransacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2116,7 +2043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/Saque/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/Saque/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2137,7 +2064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/AcrescimoPreAutorizacao/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/AcrescimoPreAutorizacao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2158,7 +2085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/AcumuloDePontosResgateDePontos/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/AcumuloDePontosResgateDePontos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2179,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/Deposito/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/Deposito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2200,7 +2127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/SaqueDomestico/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/SaqueDomestico/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2221,7 +2148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/ValeGas/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/ValeGas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2242,7 +2169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/Cheque/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/Cheque/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2263,7 +2190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/LogTransacoes/LogUltimaTransacaoDepreciado/QuitacaoCartaFrete/" class="md-nav__link">
+      <a href="../LogTransacoes/LogUltimaTransacaoDepreciado/QuitacaoCartaFrete/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2299,7 +2226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/Download/" class="md-nav__link">
+      <a href="../Download/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2355,7 +2282,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="pages/Apendice/" class="md-nav__link ">
+            <a href="../Apendice/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2388,7 +2315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/Apendice/MapaDeTerminais/" class="md-nav__link">
+      <a href="../Apendice/MapaDeTerminais/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2409,7 +2336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/Apendice/Contatos/" class="md-nav__link">
+      <a href="../Apendice/Contatos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2430,7 +2357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/Apendice/ExemplosDeCodigo/" class="md-nav__link">
+      <a href="../Apendice/ExemplosDeCodigo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2451,7 +2378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/Apendice/RedesAutorizadasDTEF8/" class="md-nav__link">
+      <a href="../Apendice/RedesAutorizadasDTEF8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2472,7 +2399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/Apendice/Operadoras/" class="md-nav__link">
+      <a href="../Apendice/Operadoras/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2493,7 +2420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/Apendice/Bandeiras/" class="md-nav__link">
+      <a href="../Apendice/Bandeiras/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2514,7 +2441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/Apendice/PSPs/" class="md-nav__link">
+      <a href="../Apendice/PSPs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2535,7 +2462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/Apendice/HistoricoDeRevisao/" class="md-nav__link">
+      <a href="../Apendice/HistoricoDeRevisao/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2563,7 +2490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pages/FAQ/" class="md-nav__link">
+      <a href="../FAQ/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2601,84 +2528,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introducao" class="md-nav__link">
+  <a href="#fluxo-de-confirmacao-e-desfazimento" class="md-nav__link">
     <span class="md-ellipsis">
-      Introdução
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#windows-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      Windows &amp; Linux
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#embarcado-windows-e-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      Embarcado (Windows e Linux)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Embarcado (Windows e Linux)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#processo-de-instalacao-paykit-embarcado" class="md-nav__link">
-    <span class="md-ellipsis">
-      Processo de Instalação Paykit Embarcado
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Processo de Instalação Paykit Embarcado">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#paykit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Paykit
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#interface-grafica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interface Gráfica
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coleta-de-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Coleta de logs
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#convencoes-utilizadas-neste-manual" class="md-nav__link">
-    <span class="md-ellipsis">
-      Convenções utilizadas neste Manual
+      Fluxo de confirmação e desfazimento
     </span>
   </a>
   
@@ -2699,93 +2551,114 @@
                   
 
 
-  <h1>Introdução</h1>
+  <h1>Fluxo de confirmação e desfazimento</h1>
 
-<h2 id="introducao"><strong>Introdução</strong></h2>
-<p>Essa é a documentação para ajudar você integrar a sua aplicação, Windows ou Linux com o Pay Kit da Linx.</p>
-<p>Para que isso seja possível, nós disponibilizamos um SDK (Software Development Kit), multiplataforma, que possibilita pagamentos convencionais de crédito, débito, voucher, frota, PBM'S através da sua aplicação, e ainda realizar pagamentos com PIX, QR e Split de Pagamentos.</p>
-<p>O desenvolvimento da solução constitui um conjunto de serviços e componentes para uma solução completa de pagamento.</p>
-<p>O Pay Kit é construído em C++ é nativo Windows, mas para atender parceiros que utilizam Linux, temos uma solução multiplataforma.</p>
-<p>Para entender a nossa documentação, aqui estão a definição dos parâmetros de funções e campos de registros</p>
-<h2 id="windows-linux"><strong>Windows &amp; Linux</strong></h2>
-<p>Uma das formas de integração da automação comercial com o <strong>TEF da Linx</strong> é por meio de biblioteca de
-funções (<strong>DPOSDRV.DLL</strong> para Windows ou <strong>libDPOSDRV.so</strong> para Linux). Esta biblioteca oferece funções
-que a automação utiliza, enviando parâmetros da automação e retornando os resultados na própria chamada
-dessas funções. As funções disponíveis na versão Linux são equivalentes às da versão Windows e a orientação é que em ambos os sistemas operacionais 
-a automação carregue nossa biblioteca utilizando o path do sistema operacional (exceto no modelo embarcado). 
-Na seção <a href="pages/Apendice/ExemplosDeCodigo/">“EXEMPLOS DE INTEGRAÇÃO”</a> são apresentadas formas de integração em diversas linguagens de programação.</p>
-<p>As funções da biblioteca são exportadas conforme <a href="pages/InformacoesGerais/InformacoesComuns/#diretiva_callback">diretiva de callback</a>, o que a torna possível
-de ser utilizada por sistemas desenvolvidos em qualquer linguagem ou ambiente de programação,
-como Delphi, Visual Basic e Visual C++, entre outros.</p>
-<p><strong>Recomendação</strong>: a DPOSDRV preferencialmente deve ser carregada no startup da AC e somente
-descarregada ao finalizar a Automação Comercial a fim de melhorar a performance do sistema.</p>
-<h2 id="embarcado-windows-e-linux"><strong>Embarcado (Windows e Linux)</strong></h2>
-<p>No modelo de utilização do Paykit embarcado, <strong>o processo de instalação bem como atualização de versão do Paykit é de responsabilidade da automação que está levando consigo o client, logo os métodos de <a href="pages/InformacoesGerais/ConfiguracaoPaykit/#configura-cnpj-do-estabelecimento">Configura CNPJ Estabelecimento</a>, <a href="pages/InformacoesGerais/ConfiguracaoPaykit/#configura-empresa-loja-e-pdv">Configura Empresa Loja e PDV</a>, <a href="pages/InformacoesGerais/ConfiguracaoPaykit/#configura-comunicacao-tef">Configura Comunicação TEF</a> e <a href="pages/InformacoesGerais/ConfiguracaoPaykit/#busca-certificado">Busca do Certificado</a> são de implementação obrigatória da automação</strong>, pois, é através desses métodos que a configuração da instalação do client será feita.</p>
-<p>Nesse tipo de instalação, a automação terá a disposição 2 pacotes compactados, sendo eles: (1) <code>ClientLinxTEF_&lt;VERSÃO&gt;_&lt;ARCH&gt;.zip</code> e (2) <code>Qt_Files_ClientLinxTEF_&lt;VERSÃO&gt;_&lt;ARCH&gt;.zip</code>, que são respectivamente o Paykit em si e a interface gráfica à qual fica critério da automação utilizar ou não nossas interfaces de comunicação com o usuário. Além do pacote, também será disponibilizado um arquivo de configuração (<code>dposlocal.ini</code>) com algumas informações que deverão ser alteradas conforme orientação abaixo.</p>
-<h3 id="processo-de-instalacao-paykit-embarcado"><strong>Processo de Instalação Paykit Embarcado</strong></h3>
-<h4 id="paykit"><strong>Paykit</strong></h4>
-<p>Para instalar o pacote <code>ClientLinxTEF_&lt;VERSÃO&gt;_&lt;ARCH&gt;.zip</code> o mesmo deve ser descompactado em qualquer pasta do sistema operacional do PDV e sua estrutura de pastas deve ser preservada. O arquivo <code>dposlocal.ini</code> caso disponibilizado de forma separada, deve ser inserido dentro da pasta <code>bin</code> do local descompactado.
-Alguns conteúdos das chaves do arquivo <code>ini</code> estarão com o conteúdo <code>{app}</code> e nesse caso essa informação deve ser substituída para o path à qual foi descompactado o arquivo <code>.zip</code>.</p>
-<p>Exemplo:</p>
-<ol>
-<li>
-<p>Uma vez descompactado o <code>ClientLinxTEF_&lt;VERSÃO&gt;_&lt;ARCH&gt;.zip</code> no path <code>C:\Users\Linx\Downloads\Paykit</code>.</p>
-</li>
-<li>
-<p>A chave <code>DIRETORIOBASE={app}\bin</code> será alterada.</p>
-</li>
-<li>
-<p>Novo valor: <code>DIRETORIOBASE=C:\Users\Linx\Downloads\Paykit\bin</code></p>
-</li>
-</ol>
-<p>A utilização do <code>dposlocal.ini</code> caracteriza uma instalação embarcada, logo não deve haver nenhum outro arquivo de configuração no PDV para não gerar conflitos.</p>
-<p><span class="attention">ATENÇÃO!!</span></p>
-<p>O arquivo <code>dposlocal.ini</code> se localiza na pasta <code>bin</code>, logo, numa eventual atualização das bibliotecas do Paykit, somente os arquivos disponibilizados (arquivo.dll, arquivo.so, etc) devem ser substituídos para que a configuração não se perca em um procedimento de atualização.</p>
-<h4 id="interface-grafica"><strong>Interface Gráfica</strong></h4>
-<p>O pacote de interface gráfica é opcional e somente necessita ser utilizado nos casos onde a automação opta por utilizar as próprias telas do Paykit para interfaceamento com o usuário.
-Para a utilização do pacote <code>Qt_Files_ClientLinxTEF_&lt;VERSÃO&gt;_&lt;ARCH&gt;.zip</code> basta descompacta-lo em qualquer lugar do PDV (preferencialmente na pasta <code>bin</code> cítada no tópico anterior), configurar a variável de PATH do sistema para a pasta <code>bin</code> do Paykit e alterar no <code>dposlocal.ini</code> a seção/chave <code>[CONFIG] QTDIRETORIOBASE=</code> para o respectivo diretório onde foi descompactado o pacote.</p>
-<p>Exemplo:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[CONFIG]
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>QTDIRETORIOBASE=C:\Users\Linx\Downloads\Paykit\bin\QTApplication
-</span></code></pre></div></p>
-<h4 id="coleta-de-logs"><strong>Coleta de logs</strong></h4>
-<p>A coleta de logs no caso do client embarcado tem que ser feito de forma manual e pode ser feito pela própria automação ou suporte Linx. Os arquivos de logs que são gerados pelo Paykit são salvos no path configurado na seção/chave <code>[CONFIG]INTERNO</code> configurada no <code>dposlocal.ini</code>. Caso os path não tenham sido customizados pela automação os arquivos por padrão serão encontrados em: <code>&lt;PATH_DESCOMPACTAÇÃO_PAYKIT&gt;/Interno</code>, e são caracterizados pelos artefatos com a extensão <code>.dbg</code>, <code>.LOG</code> e <code>.err</code>.</p>
-<h2 id="convencoes-utilizadas-neste-manual"><strong>Convenções utilizadas neste Manual</strong></h2>
-<p>A descrição dos parâmetros de funções e campos de registros apresentados neste manual segue a
-convenção da tabela a seguir.</p>
+<h2 id="fluxo-de-confirmacao-e-desfazimento"><strong>Fluxo de confirmação e desfazimento</strong></h2>
+<p>As funções utilizadas no tratamento de confirmações e desfazimentos estão documentadas na página <a href="../MetodosAPIDesktop/ConfirmacaoEDesfazimentoDeTransacoes/">Confirmação e Desfazimento de Transações</a>.</p>
+<p>Abaixo são apresentados os passos de uma venda considerando a utilização do modo explícito, utilizando a configuração documentada na página <a href="../InformacoesGerais/UtilizacaoPaykit/">Utilização Paykit</a>:</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Descrição</th>
-<th>Observação</th>
+<th></th>
+<th><strong>AUTOMAÇÃO COMERCIAL</strong></th>
+<th><strong>TEF CLIENT</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>A</code></td>
-<td>campo alfanumérico</td>
-<td>completado com espaços à direita e preenchidocom espaços, quando não informado</td>
+<td><strong>(1)</strong></td>
+<td>Automação é inicializado</td>
+<td></td>
 </tr>
 <tr>
-<td><code>H</code></td>
-<td>campo hexadecimal</td>
-<td>campo binário</td>
+<td><strong>(1.1)</strong></td>
+<td>Automação verifica a versão do client através da função VersaoDPOS para certificar-se de que o client instalado possui a função <strong>ConfiguraModoDesfazimento</strong></td>
+<td></td>
 </tr>
 <tr>
-<td><code>N</code></td>
-<td>campo numérico</td>
-<td>completado com zeros à esquerda e preenchidocom zeros, quando não informado</td>
+<td><strong>(1.2)</strong></td>
+<td>Se sim, automação configura o modo de desfazimento para o modo explícito através da função <strong>ConfiguraModoDesfazimento</strong></td>
+<td>Inicializa o modo de desfazimento para o modo solicitado pelo automação</td>
 </tr>
 <tr>
-<td><code>I</code></td>
-<td>valor inteiro</td>
-<td>retorno ou parâmetro de função de valor inteiro (integer )</td>
+<td><strong>(1.3)</strong></td>
+<td>Verifica se houve queda de energia e se tem transações TEF pendentes da última venda</td>
+<td></td>
 </tr>
 <tr>
-<td><code>P</code></td>
-<td>ponteiro para caracter</td>
-<td>ponteiro para um array de caracteres (PChar) como parâmetro de função</td>
+<td><strong>(1.4)</strong></td>
+<td>Se sim, informa ao client através da função <strong>DefineParametroTransacao</strong> (parâmetro 1021) a ocorrência de queda de energia e realiza chamada à função <strong>FinalizaTransacao</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(1.5)</strong></td>
+<td></td>
+<td>Se o AC indicar a ocorrência de queda de energia, faz o desfazimento das transações pendentes da última venda</td>
+</tr>
+<tr>
+<td><strong>(2)</strong></td>
+<td>Inicia a venda ao consumidor final</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(3)</strong></td>
+<td>Seleciona a forma de pagamento TEF</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(3.1)</strong></td>
+<td>Faz chamada a função do TEF de acordo com o tipo da transação selecionada(crédido, débito, voucher, frota, ...)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(3.2)</strong></td>
+<td></td>
+<td>Executa a transação de pagamento TEF</td>
+</tr>
+<tr>
+<td><strong>(3.3)</strong></td>
+<td></td>
+<td>Se aprovada, retorna sucesso e o comprovante para o AC, senão retorna erro</td>
+</tr>
+<tr>
+<td><strong>(4)</strong></td>
+<td>Faz as devidas validações e contabiliza o pagamento</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(4.1)</strong></td>
+<td>Se o pagamento for parcial, volta para o passo (3)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(4.2)</strong></td>
+<td>Se o TEF não foi autorizado ou se foi autorizado mas houver alguma inconsistência em relação a solicitação, não contabiliza e volta para o passo (3)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(5)</strong></td>
+<td>No final da venda, após realizar o pagamento do valor total, emite os comprovantes e solicita ao TEF a confirmação (função <strong>ConfirmaCartao</strong>) das transações contabilizadas e o desfazimento (função <strong>DesfazCartao</strong> ) das transações não contabilizadas (não confirmadas)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>(5.1)</strong></td>
+<td></td>
+<td>Realiza a confirmação das transações solicitadas pelo automação</td>
+</tr>
+<tr>
+<td><strong>(5.2)</strong></td>
+<td></td>
+<td>Realiza o desfazimento das transações solicitadas pelo automação</td>
+</tr>
+<tr>
+<td><strong>(6)</strong></td>
+<td>Após confirmar ou desfazer as transações, finaliza a venda junto ao TEF através da função <strong>FinalizaTransacao</strong></td>
+<td>Limpa a lista de transações realizadas na venda</td>
+</tr>
+<tr>
+<td><strong>(7)</strong></td>
+<td>Volta para o passo (2)</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -2811,15 +2684,31 @@ convenção da tabela a seguir.</p>
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="../ComunicacaoClientTEFComAC/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Comunicação Client TEF com AC">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Comunicação Client TEF com AC
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="pages/InformacoesGerais/" class="md-footer__link md-footer__link--next" aria-label="Next: Informações Gerais">
+          <a href="../IntegracaoTerminalService/" class="md-footer__link md-footer__link--next" aria-label="Next: Integração Terminal Service">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Informações Gerais
+                Integração Terminal Service
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2889,10 +2778,10 @@ convenção da tabela a seguir.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.path", "content.tabs.link", "search.suggest", "search.tabs.link", "search.highlight", "header.autohide", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer", "navigation.indexes"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.path", "content.tabs.link", "search.suggest", "search.tabs.link", "search.highlight", "header.autohide", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.footer", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
